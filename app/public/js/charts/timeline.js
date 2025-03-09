@@ -4,7 +4,7 @@ const dimensions = {
   marginBottom: 20,
 };
 
-export function createTimeline(data) {
+export function renderTimeline(data) {
   const svg = d3
     .select("[timeline]")
     .append("svg")
