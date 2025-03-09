@@ -39,6 +39,16 @@ export function createTimeline(data) {
     .attr("stroke-linejoin", "round")
     .attr("fill", "none");
 
+  const markerLine = svg
+    .append("line")
+    .attr("x1", 0)
+    .attr("x2", 0)
+    .attr("y1", 0)
+    .attr("y2", dimensions.height)
+    .attr("stroke-width", 1)
+    .attr("stroke", "darkcyan")
+    .attr("opacity", 0);
+
   const markerDot = svg
     .append("circle")
     .attr("cx", 0)
@@ -78,6 +88,7 @@ export function createTimeline(data) {
     const x = xScale(xAccessor(d));
     const y = yScale(yAccessor(d));
 
+    markerLine.attr("x1", x).attr("x2", x).attr("opacity", 1);
     markerDot.attr("cx", x).attr("cy", y).attr("opacity", 1);
   });
 
