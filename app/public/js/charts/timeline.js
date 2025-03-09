@@ -7,7 +7,6 @@ const dimensions = {
 export function createTimeline(data) {
   const svg = d3
     .select("[timeline]")
-    /* Append the SVG */
     .append("svg")
     .attr("viewBox", `0 0 ${dimensions.width} ${dimensions.height}`)
     .attr("overflow", "visible");
@@ -30,7 +29,7 @@ export function createTimeline(data) {
     .y((d) => yScale(yAccessor(d)))
     .curve(d3.curveBumpX);
 
-  const line = svg
+  svg
     .append("path")
     .datum(data)
     .attr("d", lineGenerator)
@@ -39,17 +38,8 @@ export function createTimeline(data) {
     .attr("stroke-linejoin", "round")
     .attr("fill", "none");
 
-  const markerLine = svg
-    .append("line")
-    .attr("x1", 0)
-    .attr("x2", 0)
-    .attr("y1", 0)
-    .attr("y2", dimensions.height)
-    .attr("stroke-width", 1)
-    .attr("stroke", "darkcyan")
-    .attr("opacity", 0);
-
-  const markerDot = svg
+  // small dot for hover effect
+  const hoverDot = svg
     .append("circle")
     .attr("cx", 0)
     .attr("cy", 0)
@@ -57,65 +47,72 @@ export function createTimeline(data) {
     .attr("fill", "darkcyan")
     .attr("opacity", 0);
 
+  // bigger dot for click interaction
+  const clickedDot = svg
+    .append("circle")
+    .attr("cx", -10) // Initially off-screen
+    .attr("cy", -10)
+    .attr("r", 6) // Larger radius
+    .attr("fill", "darkcyan")
+    .attr("opacity", 0);
+
+  // vertical line for click interaction
+  const clickedLine = svg
+    .append("line")
+    .attr("x1", -10)
+    .attr("x2", -10)
+    .attr("y1", 0)
+    .attr("y2", dimensions.height)
+    .attr("stroke-width", 1)
+    .attr("stroke", "darkcyan")
+    .attr("opacity", 0);
+
   svg
     .append("g")
-    .attr(
-      "transform",
-      `translate(0,${dimensions.height - dimensions.marginBottom})`
-    )
-    .attr("class", "uk-text-small")
-    .attr("class", "uk-text-light")
-    .call(
-      d3
-        .axisBottom(xScale)
-        .ticks(dimensions.width / 80)
-        .tickSizeOuter(0)
-    );
+    .attr("transform", `translate(0,${dimensions.height - dimensions.marginBottom})`)
+    .call(d3.axisBottom(xScale).ticks(dimensions.width / 80).tickSizeOuter(0));
 
   const bisect = d3.bisector(xAccessor);
 
+  // Hover functionality
   svg.on("mousemove", (e) => {
-    const pointerCoords = d3.pointer(e);
-    const [posX, posY] = pointerCoords;
-
-    /* Find date from position */
+    const [posX] = d3.pointer(e);
     const date = xScale.invert(posX);
-
-    /* Find the closest data point */
     const index = bisect.center(data, date);
     const d = data[index];
 
     const x = xScale(xAccessor(d));
     const y = yScale(yAccessor(d));
 
-    markerLine.attr("x1", x).attr("x2", x).attr("opacity", 1);
-    markerDot.attr("cx", x).attr("cy", y).attr("opacity", 1);
+    hoverDot.attr("cx", x).attr("cy", y).attr("opacity", 1);
   });
 
   svg.on("mouseleave", () => {
-    const lastDatum = data[data.length - 1];
-
-    markerDot.attr("opacity", 0);
-
-    // d3.select("[data-heading]").text("Weekly downloads");
-    // d3.select("[data-total]").text(yAccessor(lastDatum));
+    hoverDot.attr("opacity", 0);
   });
 
-  // Add click event listener for interactivity
   svg.on("click", (e) => {
-    const pointerCoords = d3.pointer(e);
-    const [posX] = pointerCoords;
-
-    /* Find date from position */
+    const [posX] = d3.pointer(e);
     const date = xScale.invert(posX);
-
-    /* Find the closest data point */
     const index = bisect.center(data, date);
     const selectedData = data[index];
 
-    console.log(`Selected Year: ${selectedData.date.getFullYear()}`);
+    const x = xScale(xAccessor(selectedData));
+    const y = yScale(yAccessor(selectedData));
 
-    // Trigger callback to update other charts
-    // updateChartsCallback(selectedData);
+    clickedDot
+      .attr("cx", x)
+      .attr("cy", y)
+      .attr("opacity", 1);
+
+    clickedLine
+      .attr("x1", x)
+      .attr("x2", x)
+      .attr("opacity", 1);
+    
+    svg.selectAll('circle, path')
+      .style('cursor', 'pointer');
+
+    console.log(`Selected Year: ${selectedData.date.getFullYear()}`);
   });
 }
