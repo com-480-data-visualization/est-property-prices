@@ -1,6 +1,6 @@
 import { createTimeline } from "./charts/timeline.js";
 
-const dataDirectory = "/static/data/geojson/counties.json";
+const dataDirectory = "/static/data/counties.json";
 
 const getCountyRelatedData = (data, id) => { 
   return data.filter((d) => d.properties.MKOOD === id)[0];
