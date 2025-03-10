@@ -1,3 +1,5 @@
+import { dispatch } from "../county.js"
+
 const dimensions = {
   width: 600,
   height: 150,
@@ -113,6 +115,7 @@ export function renderTimeline(data) {
     svg.selectAll('circle, path')
       .style('cursor', 'pointer');
 
-    console.log(`Selected Year: ${selectedData.date.getFullYear()}`);
+    var selectedYear = selectedData.date.getFullYear();
+    dispatch.call("start", null, selectedYear);
   });
 }

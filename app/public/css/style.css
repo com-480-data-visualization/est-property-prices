@@ -1,7 +1,7 @@
 svg {
 	width: 100%;
 	height: auto;
-	/* outline: 1px solid; */
+	outline: 1px dashed;
 }
 
 #map-container {
