@@ -31,14 +31,14 @@ This dataset contains information on property transactions in Estonia since **19
 #### Selected Features  
 We focus on the following key aspects:  
 - 🏡 **Property prices**  
+- 🏢 **Property types** 
 - 🌍 **Land details**  
-- 🏢 **Property types**  
 - 🌎 **Nationalities of transaction participants**  
 
 #### Data Acquisition & Quality  
 The dataset was not available in CSV format, so we performed **web scraping** to extract the data into an Excel file before converting it to CSV.  
 
-✅ **Data quality:** The dataset is **well-structured** and already includes precomputed statistics, minimizing the need for extensive data cleaning.  
+✅ **Data quality:** The dataset is **well-structured** and already includes precomputed statistics, minimizing the need for extensive data cleaning. We usually have access to: min, max, median, average, std. 
 
 #### Data Preprocessing  
 To enhance visualization and analysis, we will:  
