@@ -5979,39 +5979,7 @@
       "properties": {
         "MNIMI": "Harju maakond",
         "MKOOD": "0037",
-        "AREA": 4312853674.405274,
-        "timeline": {
-          "2015": {
-            "pricePerSquareMeter": 25
-          },
-          "2016": {
-            "pricePerSquareMeter": 37
-          },
-          "2017": {
-            "pricePerSquareMeter": 39
-          },
-          "2018": {
-            "pricePerSquareMeter": 42
-          },
-          "2019": {
-            "pricePerSquareMeter": 45
-          },
-          "2020": {
-            "pricePerSquareMeter": 50
-          },
-          "2021": {
-            "pricePerSquareMeter": 46
-          },
-          "2022": {
-            "pricePerSquareMeter": 48
-          },
-          "2023": {
-            "pricePerSquareMeter": 55
-          },
-          "2024": {
-            "pricePerSquareMeter": 60
-          }
-        }
+        "AREA": 4312853674.405274
       }
     },
     {

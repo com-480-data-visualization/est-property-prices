@@ -5,7 +5,7 @@ function getValueForID(data, id) {
   const yearList = data.filter((d) => d.MKOOD === id)[0].data[year];
 
   const statistic = "Price per unit area median(eur /m2)";
-  return yearList.filter((d) => d["Area(m2)"] === "10-29,99")[0][statistic];
+  return yearList.filter((d) => d["Area(m2)"] === "TOTAL")[0][statistic];
 }
 
 export function renderMap(geoJson, statsData) {
@@ -142,7 +142,6 @@ function formatPathID(pathID) {
 }
 
 export function updateYearMap(statsData) {
-  console.log("Updating map with new year.");
   chart
     .transition()
     .duration(150)

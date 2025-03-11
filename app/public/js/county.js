@@ -2,25 +2,32 @@ import { renderTimeline } from "./charts/timeline.js";
 import { renderMunicipalityMap } from "./charts/municipalityMap.js";
 import { renderSpiderChart, updateYearSpider } from "./charts/spiderChart.js";
 import { renderBubbleChart, updateYearBubble } from "./charts/bubbleChart.js";
-import { renderTreemapChart, updateYearTreemap } from "./charts/treemapChart.js";
+import {
+  renderTreemapChart,
+  updateYearTreemap,
+} from "./charts/treemapChart.js";
 
-const countyFilePath = "/static/data/counties.json";
 const municipalityFilePath = "/static/data/municipalities.json";
+const statisticsFilePath = "/static/data/transactions_with_residential_apartments_county_level.json"
 
 sessionStorage.setItem("selectedYear", 2024); // initial default value
 
 export const dispatch = d3.dispatch("start", "end");
 dispatch.on("start", updateChartsWithYear);
 
-const getCountyRelatedData = (data, id) => {
+const getCountyRelatedMap = (data, id) => {
   return data.filter((d) => d.properties.MKOOD === id)[0];
 };
 
-const getTimeline = (data) => {
-  return Object.entries(data.properties.timeline)
+const getCountyRelatedStatistics = (data, id) => {
+  return data.filter((d) => d.MKOOD === id)[0];
+};
+
+const formatTimelineData = (statistics) => {
+  return Object.entries(statistics.data)
     .map(([year, entry]) => ({
       date: new Date(`${year}-01-01`),
-      pricePerSquareMeter: entry.pricePerSquareMeter,
+      pricePerSquareMeter: entry.filter((d) => d["Area(m2)"] === "TOTAL")[0]["Price per unit area median(eur /m2)"],
     }))
     .sort((a, b) => d3.ascending(a.date, b.date));
 };
@@ -28,35 +35,31 @@ const getTimeline = (data) => {
 const getMunicipalitiesByCounty = (data, id) => {
   return {
     type: "FeatureCollection",
-    features: data.features.filter((feature) => feature.properties.MKOOD === id)
+    features: data.features.filter(
+      (feature) => feature.properties.MKOOD === id
+    ),
   };
 };
 
-fetch(countyFilePath)
-  .then((response) => response.json())
-  .then((data) => {
+Promise.all([
+  fetch(municipalityFilePath).then((response) => response.json()),
+  fetch(statisticsFilePath).then((response) => response.json()),
+])
+  .then(([municipalityMapData, countyData]) => {
     const id = sessionStorage.getItem("countyId");
-    const countyData = getCountyRelatedData(data.features, id);
+    countyData = getCountyRelatedStatistics(countyData, id);
 
-    const timelineData = getTimeline(countyData);
+    const timelineData = formatTimelineData(countyData);
     renderTimeline(timelineData);
 
     renderSpiderChart(null);
     renderBubbleChart(null);
     renderTreemapChart(null);
-  })
-  .catch((error) => console.log(error));
 
-fetch(municipalityFilePath)
-  .then((response) => response.json())
-  .then((data) => {
-    const id = sessionStorage.getItem("countyId");
-
-    const municipalityMapData = getMunicipalitiesByCounty(data, id);
+    municipalityMapData = getMunicipalitiesByCounty(municipalityMapData, id);
     renderMunicipalityMap(municipalityMapData);
   })
   .catch((error) => console.log(error));
-
 
 function updateChartsWithYear(selectedYear) {
   sessionStorage.setItem("selectedYear", selectedYear);
