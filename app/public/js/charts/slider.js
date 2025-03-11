@@ -1,3 +1,5 @@
+import { dispatch } from "../map.js";
+
 export const rangeSlider = () => {
   const sliders = document.querySelectorAll(".range-slider");
 
@@ -9,6 +11,8 @@ export const rangeSlider = () => {
 
     range.addEventListener("input", () => {
       value.textContent = range.value;
+      sessionStorage.setItem("mapYear", range.value);
+      dispatch.call("start", null, range.value);
     });
   });
 };

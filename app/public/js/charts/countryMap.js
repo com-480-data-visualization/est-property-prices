@@ -1,5 +1,14 @@
+let chart;
 
-export function createMap(geoJson) {
+function getValueForID(data, id) {
+  const year = sessionStorage.getItem("mapYear");
+  const yearList = data.filter((d) => d.MKOOD === id)[0].data[year];
+
+  const statistic = "Price per unit area median(eur /m2)";
+  return yearList.filter((d) => d["Area(m2)"] === "10-29,99")[0][statistic];
+}
+
+export function renderMap(geoJson, statsData) {
   const container = d3.select("#map-container");
   const width = container.node().getBoundingClientRect().width;
   const height = container.node().getBoundingClientRect().height;
@@ -15,18 +24,20 @@ export function createMap(geoJson) {
   const pathGenerator = d3.geoPath().projection(projection);
 
   // Bind data and create paths
-  const paths = rotationGroup
+  chart = rotationGroup
     .selectAll("path")
     .data(geoJson.features)
     .enter()
     .append("path")
     .attr("d", pathGenerator)
     .style("fill", (d) => {
-      const value = Math.sqrt(d.properties.AREA);
+      const id = d.properties.MKOOD;
+      const value = getValueForID(statsData, id);
       return value
-        ? d3.scaleSequential(d3.interpolateViridis).domain([0, 100000])(value)
-        : "#000000";
-    });
+        ? d3.scaleSequential(d3.interpolateViridis).domain([0, 2000])(value)
+        : "#ccc";
+    })
+    .style("stroke", "white");
 
   // Rotate map to center it properly
   const node = svg.node();
@@ -35,22 +46,19 @@ export function createMap(geoJson) {
   rotationGroup.attr("transform", `rotate(70, ${xCenter}, ${yCenter})`);
 
   // Add interactivity (tooltips and click events)
-  setupTooltip(paths);
+  setupTooltip(chart);
 
-  paths.on("click", (event, d) => {
+  chart.on("click", (event, d) => {
     const pathId = formatPathID(d.properties.MNIMI);
     window.location.href = `/county/${pathId}`;
-    sessionStorage.setItem("countyId", d.properties.MKOOD); 
+    sessionStorage.setItem("countyId", d.properties.MKOOD);
   });
 
-  // Add zoom functionality
   setupZoom(svg, zoomGroup);
-
-  // Add legend
   createLegend(svg, width);
 }
 
-export function setupZoom(svg, zoomGroup) {
+function setupZoom(svg, zoomGroup) {
   const zoomBehavior = d3
     .zoom()
     .scaleExtent([0.5, 1.5])
@@ -61,7 +69,7 @@ export function setupZoom(svg, zoomGroup) {
   svg.call(zoomBehavior);
 }
 
-export function createLegend(svg, width) {
+function createLegend(svg, width) {
   const colorScale = d3
     .scaleSequential(d3.interpolateViridis)
     .domain([0, 100000]);
@@ -99,7 +107,7 @@ export function createLegend(svg, width) {
     .text((d) => d);
 }
 
-export function setupTooltip(paths) {
+function setupTooltip(paths) {
   const tooltip = d3
     .select("body")
     .append("div")
@@ -126,9 +134,24 @@ export function setupTooltip(paths) {
     });
 }
 
-export function formatPathID(pathID) {
+function formatPathID(pathID) {
   return pathID
     .toLowerCase()
     .replace(/\s+/g, "-")
     .replace(/[^a-zõäöõü0-9-]/g, "");
+}
+
+export function updateYearMap(statsData) {
+  console.log("Updating map with new year.");
+  chart
+    .transition()
+    .duration(150)
+    .style("fill", (d) => {
+      const id = d.properties.MKOOD;
+      const value = getValueForID(statsData, id);
+      return value
+        ? d3.scaleSequential(d3.interpolateViridis).domain([0, 2000])(value)
+        : "#ccc";
+    })
+    .style("stroke", "white");
 }
