@@ -1,4 +1,5 @@
 let chart;
+let globalStatsData;
 
 function getValueForID(data, id) {
   const year = sessionStorage.getItem("mapYear");
@@ -9,6 +10,7 @@ function getValueForID(data, id) {
 }
 
 export function renderMap(geoJson, statsData) {
+  globalStatsData = statsData
   const container = d3.select("#map-container");
   const width = container.node().getBoundingClientRect().width;
   const height = container.node().getBoundingClientRect().height;
@@ -124,9 +126,10 @@ function setupTooltip(paths) {
     })
     .on("mouseout", function () {
       d3.select(this).style("fill", (d) => {
-        const value = Math.sqrt(d.properties.AREA);
+        const id = d.properties.MKOOD;
+        const value = getValueForID(globalStatsData, id);
         return value
-          ? d3.scaleSequential(d3.interpolateCividis).domain([0, 100000])(value)
+          ? d3.scaleSequential(d3.interpolateCividis).domain([0, 2000])(value)
           : "#000000";
       });
       tooltip.transition().duration(500).style("opacity", 0);
