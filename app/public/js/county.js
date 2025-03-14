@@ -46,10 +46,12 @@ Promise.all([
   fetch(statisticsFilePath).then((response) => response.json()),
 ])
   .then(([municipalityMapData, countyData]) => {
+    const year = sessionStorage.getItem("selectedYear");
+    
     const id = sessionStorage.getItem("countyId");
     countyData = getCountyRelatedStatistics(countyData, id);
 
-    const timelineData = formatTimelineData(countyData);
+    const timelineData = formatTimelineData(countyData, year);
     renderTimeline(timelineData);
 
     renderSpiderChart(null);

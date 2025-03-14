@@ -16,11 +16,16 @@ export function renderMap(geoJson, statsData) {
   // Remove existing SVG if any
   container.select("svg").remove();
 
-  const svg = container.append("svg").attr("viewBox", `0 0 ${width} ${height}`);
-  const zoomGroup = svg.append("g");
-  const rotationGroup = zoomGroup.append("g");
+  const svg = container
+    .append("svg")
+    .attr("width", "100%") // Make it responsive
+    .attr("height", "100%")
+    .attr("viewBox", `0 0 ${width} ${height}`)
+    .attr('preserveAspectRatio', 'xMidYMid meet');
+  
+  const rotationGroup = svg.append("g");
 
-  const projection = d3.geoAlbers().fitSize([width, height], geoJson);
+  const projection = d3.geoMercator().fitExtent([[0, 0], [width - 0, height - 0]], geoJson)
   const pathGenerator = d3.geoPath().projection(projection);
 
   // Bind data and create paths
@@ -39,12 +44,6 @@ export function renderMap(geoJson, statsData) {
     })
     .style("stroke", "white");
 
-  // Rotate map to center it properly
-  const node = svg.node();
-  const xCenter = node.getBBox().x + node.getBBox().width / 2;
-  const yCenter = node.getBBox().y + node.getBBox().height / 1.7;
-  rotationGroup.attr("transform", `rotate(70, ${xCenter}, ${yCenter})`);
-
   // Add interactivity (tooltips and click events)
   setupTooltip(chart);
 
@@ -54,8 +53,8 @@ export function renderMap(geoJson, statsData) {
     sessionStorage.setItem("countyId", d.properties.MKOOD);
   });
 
-  setupZoom(svg, zoomGroup);
-  createLegend(svg, width);
+  // setupZoom(svg, zoomGroup);
+  // createLegend(svg, width);
 }
 
 function setupZoom(svg, zoomGroup) {
