@@ -16,13 +16,19 @@ function getValueForID(data, countyId, municipalityName) {
   let municipalityList
   if (countyYear.hasOwnProperty(municipalityName)) {
     municipalityList = countyYear[municipalityName].data
-  }
-  else{
+  } else{
     console.log("Could not find '" + municipalityName + "' in the JSON data")
     return 0;
   }
-  const statistic = "Price per unit area median(eur /m2)";
-  return municipalityList.filter((d) => d["Area(m2)"] === "TOTAL")[0][statistic];
+  const totalList = municipalityList.filter((d) => d["Area(m2)"] === "TOTAL")
+  if (totalList.length > 0) {
+    const statistic = "Price per unit area median(eur /m2)";
+    return totalList[0][statistic];
+  } else {
+    console.log("Could not find 'TOTAL' aggregation for: " + municipalityName)
+    return 0;
+  }
+  
 }
 
 function renderOneMunicipality(d) {
