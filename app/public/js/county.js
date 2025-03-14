@@ -1,5 +1,5 @@
 import { renderTimeline } from "./charts/timeline.js";
-import { renderMunicipalityMap } from "./charts/municipalityMap.js";
+import { renderMunicipalityMap, updateMunicipalityMap } from "./charts/municipalityMap.js";
 import { renderSpiderChart, updateYearSpider } from "./charts/spiderChart.js";
 import { renderBubbleChart, updateYearBubble } from "./charts/bubbleChart.js";
 import {
@@ -9,6 +9,8 @@ import {
 
 const municipalityFilePath = "/static/data/municipalities.json";
 const statisticsFilePath = "/static/data/transactions_with_residential_apartments_county_level.json"
+const municipalityStatisticsFilePath = "/static/data/transactions_with_residential_apartments_detailed.json"
+
 
 sessionStorage.setItem("selectedYear", 2024); // initial default value
 
@@ -44,8 +46,9 @@ const getMunicipalitiesByCounty = (data, id) => {
 Promise.all([
   fetch(municipalityFilePath).then((response) => response.json()),
   fetch(statisticsFilePath).then((response) => response.json()),
+  fetch(municipalityStatisticsFilePath).then((response) => response.json()),
 ])
-  .then(([municipalityMapData, countyData]) => {
+  .then(([municipalityMapData, countyData, municipalityStats]) => {
     const id = sessionStorage.getItem("countyId");
     countyData = getCountyRelatedStatistics(countyData, id);
 
@@ -57,7 +60,7 @@ Promise.all([
     renderTreemapChart(null);
 
     municipalityMapData = getMunicipalitiesByCounty(municipalityMapData, id);
-    renderMunicipalityMap(municipalityMapData);
+    renderMunicipalityMap(municipalityMapData, municipalityStats);
   })
   .catch((error) => console.log(error));
 
@@ -66,4 +69,5 @@ function updateChartsWithYear(selectedYear) {
   updateYearSpider(null, selectedYear);
   updateYearBubble(null, selectedYear);
   updateYearTreemap(null, selectedYear);
+  updateMunicipalityMap();
 }
