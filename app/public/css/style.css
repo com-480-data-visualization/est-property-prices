@@ -4,6 +4,11 @@ svg {
 	/* outline: 1px dashed; */
 }
 
+#map-container {
+  margin-top: -80px;
+}
+
+
 .tooltip {
   position: absolute;
   text-align: center;

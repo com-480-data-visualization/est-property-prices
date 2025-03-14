@@ -148,7 +148,7 @@ export function updateYearMap(statsData) {
       const id = d.properties.MKOOD;
       const value = getValueForID(statsData, id);
       return value
-        ? d3.scaleSequential(d3.interpolateViridis).domain([0, 2000])(value)
+        ? d3.scaleSequential(d3.interpolateCividis).domain([0, 2000])(value)
         : "#ccc";
     })
     .style("stroke", "white");
