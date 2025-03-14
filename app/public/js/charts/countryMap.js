@@ -39,7 +39,7 @@ export function renderMap(geoJson, statsData) {
       const id = d.properties.MKOOD;
       const value = getValueForID(statsData, id);
       return value
-        ? d3.scaleSequential(d3.interpolateViridis).domain([0, 2000])(value)
+        ? d3.scaleSequential(d3.interpolateCividis).domain([0, 2000])(value)
         : "#ccc";
     })
     .style("stroke", "white");
@@ -70,7 +70,7 @@ function setupZoom(svg, zoomGroup) {
 
 function createLegend(svg, width) {
   const colorScale = d3
-    .scaleSequential(d3.interpolateViridis)
+    .scaleSequential(d3.interpolateCividis)
     .domain([0, 100000]);
   const legendWidth = 300;
 
@@ -126,7 +126,7 @@ function setupTooltip(paths) {
       d3.select(this).style("fill", (d) => {
         const value = Math.sqrt(d.properties.AREA);
         return value
-          ? d3.scaleSequential(d3.interpolateViridis).domain([0, 100000])(value)
+          ? d3.scaleSequential(d3.interpolateCividis).domain([0, 100000])(value)
           : "#000000";
       });
       tooltip.transition().duration(500).style("opacity", 0);

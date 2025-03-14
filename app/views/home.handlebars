@@ -1,14 +1,24 @@
 <div class="uk-container uk-flex uk-flex-column uk-height-viewport">
-  <h1 class="uk-heading-xlarge uk-margin-remove-bottom">Your Large Hero Header</h1>
-  <div class="uk-flex uk-flex-right uk-margin-medium-bottom">
-    <p class="uk-text-left uk-text-large uk-width-1-2@m">
-      Your paragraph text here. This text will be aligned to the right, start
-      from the middle of the screen on medium-sized devices and larger, and be
-      vertically close to the hero header.
-    </p>
-  </div>
-  <div class="range-slider">
-      <span class="range-slider__value">0</span>
+  <p
+    class="uk-text-muted uk-text-large uk-margin-remove-bottom uk-margin-medium-top"
+  >
+    smaller title
+  </p>
+  <h1 class="uk-heading-xlarge uk-margin-remove">Your Large Hero Header</h1>
+  <div class="uk-margin-medium-bottom uk-grid">
+    <!-- Range Slider -->
+    <div class="uk-width-1-2@m uk-flex-last@m uk-margin-small-top">
+
+      <p class="uk-text-left uk-text-large">
+        Your paragraph text here. This text will be aligned to the right, start
+        from the middle of the screen on medium-sized devices and larger, and be
+        vertically close to the hero header.
+      </p>
+    </div>
+
+    <div
+      class="range-slider uk-margin-large-top uk-width-1-2@m uk-flex-first@m"
+    >
       <input
         class="range-slider__range"
         type="range"
@@ -16,8 +26,17 @@
         min="2010"
         max="2024"
       />
+      <span
+        class="range-slider__value uk-text-muted uk-heading-large uk-margin-remove"
+      >0</span>
     </div>
-  <div id="map-container" style="min-height: 40vw" class="uk-container uk-height-large uk-width-1-1"> </div>
+
+  </div>
+  <div
+    id="map-container"
+    style="min-height: 40vw"
+    class="uk-container uk-height-large uk-width-1-1"
+  > </div>
 </div>
 
 <script type="module" src="../static/js/map.js"></script>
