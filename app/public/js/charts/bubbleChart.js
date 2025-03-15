@@ -11,7 +11,7 @@ export function renderBubbleChart(data) {
     .append("svg")
     .attr("viewBox", `0 0 ${dimensions.width} ${dimensions.height}`);
 
-  var year = sessionStorage.getItem("selectedYear");
+  var year = sessionStorage.getItem("year");
 
   chart = svg
     .append("text")

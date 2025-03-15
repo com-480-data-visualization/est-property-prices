@@ -9,7 +9,7 @@ let globalStatsData;
 export const dispatch = d3.dispatch("start", "end");
 dispatch.on("start", updateMapWithYear);
 
-sessionStorage.setItem("mapYear", 2024); // initial default value
+sessionStorage.setItem("year", 2024); // initial default value
 
 Promise.all([
   d3.json(mapFilePath),
@@ -22,6 +22,6 @@ Promise.all([
 rangeSlider();
 
 function updateMapWithYear(selectedYear) {
-  sessionStorage.setItem("selectedYearMap", selectedYear);
+  sessionStorage.setItem("year", selectedYear);
   updateYearMap(globalStatsData);
 }

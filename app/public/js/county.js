@@ -12,7 +12,7 @@ const statisticsFilePath = "/static/data/transactions_with_residential_apartment
 const municipalityStatisticsFilePath = "/static/data/transactions_with_residential_apartments_detailed.json"
 
 
-sessionStorage.setItem("selectedYear", 2024); // initial default value
+const year = sessionStorage.getItem("mapYear");
 
 export const dispatch = d3.dispatch("start", "end");
 dispatch.on("start", updateChartsWithYear);

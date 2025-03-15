@@ -11,7 +11,7 @@ const conf = {
 };
 
 function getValueForID(data, countyId, municipalityName) {
-  const year = sessionStorage.getItem("selectedYear");
+  const year = sessionStorage.getItem("year");
   const countyYear = data.filter((d) => d.MKOOD === countyId)[0].data[year];
   let municipalityList
   if (countyYear.hasOwnProperty(municipalityName)) {

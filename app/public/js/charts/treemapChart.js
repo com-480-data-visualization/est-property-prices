@@ -11,7 +11,7 @@ const dimensions = {
       .append("svg")
       .attr("viewBox", `0 0 ${dimensions.width} ${dimensions.height}`);
   
-    var year = sessionStorage.getItem("selectedYear");
+    const year = sessionStorage.getItem("year");
   
     chart = svg
       .append("text")
