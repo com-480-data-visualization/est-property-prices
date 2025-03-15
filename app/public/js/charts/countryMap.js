@@ -2,7 +2,7 @@ let chart;
 let globalStatsData;
 
 function getValueForID(data, id) {
-  const year = sessionStorage.getItem("mapYear");
+  const year = sessionStorage.getItem("year");
   const yearList = data.filter((d) => d.MKOOD === id)[0].data[year];
 
   const statistic = "Price per unit area median(eur /m2)";

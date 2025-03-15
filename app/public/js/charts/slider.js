@@ -11,7 +11,7 @@ export const rangeSlider = () => {
 
     range.addEventListener("input", () => {
       value.textContent = range.value;
-      sessionStorage.setItem("mapYear", range.value);
+      sessionStorage.setItem("year", range.value);
       dispatch.call("start", null, range.value);
     });
   });

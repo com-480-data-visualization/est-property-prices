@@ -12,7 +12,7 @@ const statisticsFilePath = "/static/data/transactions_with_residential_apartment
 const municipalityStatisticsFilePath = "/static/data/transactions_with_residential_apartments_detailed.json"
 
 
-const year = sessionStorage.getItem("mapYear");
+const year = sessionStorage.getItem("year");
 
 export const dispatch = d3.dispatch("start", "end");
 dispatch.on("start", updateChartsWithYear);
