@@ -55,19 +55,7 @@ export function renderMap(geoJson, statsData) {
     sessionStorage.setItem("countyId", d.properties.MKOOD);
   });
 
-  // setupZoom(svg, zoomGroup);
   // createLegend(svg, width);
-}
-
-function setupZoom(svg, zoomGroup) {
-  const zoomBehavior = d3
-    .zoom()
-    .scaleExtent([0.5, 1.5])
-    .on("zoom", (event) => {
-      zoomGroup.attr("transform", event.transform);
-    });
-
-  svg.call(zoomBehavior);
 }
 
 function createLegend(svg, width) {

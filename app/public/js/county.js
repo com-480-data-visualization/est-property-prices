@@ -6,6 +6,7 @@ import { renderTreemapChart, updateYearTreemap } from "./charts/treemapChart.js"
 
 const municipalityFilePath = "/static/data/municipalities.json";
 const statisticsFilePath = "/static/data/transactions_with_residential_apartments_county_level.json"
+const municipalityStatisticsFilePath = "/static/data/transactions_with_residential_apartments_detailed.json"
 const landtypeFilePath = "/static/data/normalized_spider_data.json";
 
 
@@ -52,9 +53,10 @@ const formatSpiderData = (yearData) =>
   Promise.all([
     fetch(municipalityFilePath).then((response) => response.json()),
     fetch(statisticsFilePath).then((response) => response.json()),
-    fetch(landtypeFilePath).then((response) => response.json())
+    fetch(landtypeFilePath).then((response) => response.json()),
+    fetch(municipalityStatisticsFilePath).then((response) => response.json())
   ])
-    .then(([municipalityMapData, countyData, fetchedData]) => {
+    .then(([municipalityMapData, countyData, fetchedData, municipalityStats]) => {
       // fetchedLandTypeData = fetchedData; // Store globally
   
       const id = sessionStorage.getItem("countyId");
@@ -78,9 +80,8 @@ const formatSpiderData = (yearData) =>
   
       renderBubbleChart(null);
       renderTreemapChart(null);
-  
       municipalityMapData = getMunicipalitiesByCounty(municipalityMapData, id);
-      renderMunicipalityMap(municipalityMapData);
+      renderMunicipalityMap(municipalityMapData, municipalityStats);
     })
     .catch((error) => console.log(error));
   

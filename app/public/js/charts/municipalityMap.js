@@ -12,6 +12,7 @@ const conf = {
 
 function getValueForID(data, countyId, municipalityName) {
   const year = sessionStorage.getItem("year");
+  console.log("year: ", year)
   const countyYear = data.filter((d) => d.MKOOD === countyId)[0].data[year];
   let municipalityList
   if (countyYear.hasOwnProperty(municipalityName)) {
@@ -43,12 +44,15 @@ function renderOneMunicipality(d) {
 
 export function renderMunicipalityMap(data, municipalityStats) {
   globalMunicipalityStats = municipalityStats
-  const projection = d3.geoAlbers().fitSize([conf.width, conf.height], data);
+
+  const projection = d3.geoMercator().fitExtent([[0, 0], [conf.width - 0, conf.height - 0]], data)
   const pathGenerator = d3.geoPath().projection(projection);
 
   const svg = d3
     .select("[municipality-map]")
     .append("svg")
+    .attr("width", "100%") // Make it responsive
+    .attr("height", "100%")
     .attr("viewBox", `0 0 ${conf.width} ${conf.height}`);
 
   path = svg
@@ -59,11 +63,6 @@ export function renderMunicipalityMap(data, municipalityStats) {
     .style("fill", renderOneMunicipality)
     .attr("stroke", conf.landStroke)
     .attr("stroke-width", 1);
-
-  const node = svg.node();
-  const xCenter = node.getBBox().x + node.getBBox().width / 2;
-  const yCenter = node.getBBox().y + node.getBBox().height / 2;
-  path.attr("transform", `rotate(70, ${xCenter}, ${yCenter})`);
 }
 
 export function updateMunicipalityMap() {
