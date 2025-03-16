@@ -1,5 +1,5 @@
 import { renderTimeline } from "./charts/timeline.js";
-import { renderMunicipalityMap } from "./charts/municipalityMap.js";
+import { renderMunicipalityMap, updateMunicipalityMap } from "./charts/municipalityMap.js";
 import { renderSpiderChart, updateYearSpider } from "./charts/spiderChart.js";
 import { renderBubbleChart, updateYearBubble } from "./charts/bubbleChart.js";
 import { renderTreemapChart, updateYearTreemap } from "./charts/treemapChart.js";
@@ -8,7 +8,8 @@ const municipalityFilePath = "/static/data/municipalities.json";
 const statisticsFilePath = "/static/data/transactions_with_residential_apartments_county_level.json"
 const landtypeFilePath = "/static/data/normalized_spider_data.json";
 
-sessionStorage.setItem("selectedYear", 2024); // initial default value
+
+const year = sessionStorage.getItem("year");
 
 export const dispatch = d3.dispatch("start", "end");
 dispatch.on("start", updateChartsWithYear);
@@ -57,7 +58,7 @@ const formatSpiderData = (yearData) =>
       // fetchedLandTypeData = fetchedData; // Store globally
   
       const id = sessionStorage.getItem("countyId");
-      const selectedYear = sessionStorage.getItem("selectedYear");
+      const selectedYear = sessionStorage.getItem("year");
   
       countyData = getCountyRelatedStatistics(countyData, id);
       landTypeData = getCountyRelatedStatistics(fetchedData, id);
@@ -84,7 +85,7 @@ const formatSpiderData = (yearData) =>
     .catch((error) => console.log(error));
   
   function updateChartsWithYear(selectedYear) {
-    sessionStorage.setItem("selectedYear", selectedYear);
+    sessionStorage.setItem("year", selectedYear);
   
     const maxValue = Math.max(
       ...Object.values(landTypeData.data) // Iterate over all years' data

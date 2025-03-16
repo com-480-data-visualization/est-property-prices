@@ -1,3 +1,6 @@
+let globalMunicipalityStats;
+let path;
+
 const conf = {
   width: 600,
   height: 350,
@@ -7,7 +10,39 @@ const conf = {
   backgroundColor: "#EAF2FA",
 };
 
-export function renderMunicipalityMap(data) {
+function getValueForID(data, countyId, municipalityName) {
+  const year = sessionStorage.getItem("year");
+  const countyYear = data.filter((d) => d.MKOOD === countyId)[0].data[year];
+  let municipalityList
+  if (countyYear.hasOwnProperty(municipalityName)) {
+    municipalityList = countyYear[municipalityName].data
+  } else{
+    console.log("Could not find '" + municipalityName + "' in the JSON data")
+    return 0;
+  }
+  const totalList = municipalityList.filter((d) => d["Area(m2)"] === "TOTAL")
+  if (totalList.length > 0) {
+    const statistic = "Price per unit area median(eur /m2)";
+    return totalList[0][statistic];
+  } else {
+    console.log("Could not find 'TOTAL' aggregation for: " + municipalityName)
+    return 0;
+  }
+  
+}
+
+function renderOneMunicipality(d) {
+  //const value = Math.sqrt(d.properties.AREA);
+  const countyId = d.properties.MKOOD;
+  const municipalityName = d.properties.ONIMI
+  const value = getValueForID(globalMunicipalityStats, countyId, municipalityName);
+  return value
+    ? d3.scaleSequential(d3.interpolateViridis).domain([0, 2000])(value)
+    : "#000000";
+}
+
+export function renderMunicipalityMap(data, municipalityStats) {
+  globalMunicipalityStats = municipalityStats
   const projection = d3.geoAlbers().fitSize([conf.width, conf.height], data);
   const pathGenerator = d3.geoPath().projection(projection);
 
@@ -16,17 +51,12 @@ export function renderMunicipalityMap(data) {
     .append("svg")
     .attr("viewBox", `0 0 ${conf.width} ${conf.height}`);
 
-  const path = svg
+  path = svg
     .selectAll("path")
     .data(data.features)
     .join("path")
     .attr("d", pathGenerator)
-    .style("fill", (d) => {
-      const value = Math.sqrt(d.properties.AREA);
-      return value
-        ? d3.scaleSequential(d3.interpolateViridis).domain([0, 100000])(value)
-        : "#000000";
-    })
+    .style("fill", renderOneMunicipality)
     .attr("stroke", conf.landStroke)
     .attr("stroke-width", 1);
 
@@ -34,4 +64,12 @@ export function renderMunicipalityMap(data) {
   const xCenter = node.getBBox().x + node.getBBox().width / 2;
   const yCenter = node.getBBox().y + node.getBBox().height / 2;
   path.attr("transform", `rotate(70, ${xCenter}, ${yCenter})`);
+}
+
+export function updateMunicipalityMap() {
+  path
+    .transition()
+    .duration(150)
+    .style("fill", renderOneMunicipality)
+    .style("stroke", "white");
 }

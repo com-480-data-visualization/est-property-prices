@@ -1,7 +1,8 @@
 let chart;
+let globalStatsData;
 
 function getValueForID(data, id) {
-  const year = sessionStorage.getItem("mapYear");
+  const year = sessionStorage.getItem("year");
   const yearList = data.filter((d) => d.MKOOD === id)[0].data[year];
 
   const statistic = "Price per unit area median(eur /m2)";
@@ -9,6 +10,7 @@ function getValueForID(data, id) {
 }
 
 export function renderMap(geoJson, statsData) {
+  globalStatsData = statsData
   const container = d3.select("#map-container");
   const width = container.node().getBoundingClientRect().width;
   const height = container.node().getBoundingClientRect().height;
@@ -16,11 +18,16 @@ export function renderMap(geoJson, statsData) {
   // Remove existing SVG if any
   container.select("svg").remove();
 
-  const svg = container.append("svg").attr("viewBox", `0 0 ${width} ${height}`);
-  const zoomGroup = svg.append("g");
-  const rotationGroup = zoomGroup.append("g");
+  const svg = container
+    .append("svg")
+    .attr("width", "100%") // Make it responsive
+    .attr("height", "100%")
+    .attr("viewBox", `0 0 ${width} ${height}`)
+    .attr('preserveAspectRatio', 'xMidYMid meet');
+  
+  const rotationGroup = svg.append("g");
 
-  const projection = d3.geoAlbers().fitSize([width, height], geoJson);
+  const projection = d3.geoMercator().fitExtent([[0, 0], [width - 0, height - 0]], geoJson)
   const pathGenerator = d3.geoPath().projection(projection);
 
   // Bind data and create paths
@@ -34,16 +41,10 @@ export function renderMap(geoJson, statsData) {
       const id = d.properties.MKOOD;
       const value = getValueForID(statsData, id);
       return value
-        ? d3.scaleSequential(d3.interpolateViridis).domain([0, 2000])(value)
+        ? d3.scaleSequential(d3.interpolateCividis).domain([0, 2000])(value)
         : "#ccc";
     })
     .style("stroke", "white");
-
-  // Rotate map to center it properly
-  const node = svg.node();
-  const xCenter = node.getBBox().x + node.getBBox().width / 2;
-  const yCenter = node.getBBox().y + node.getBBox().height / 1.7;
-  rotationGroup.attr("transform", `rotate(70, ${xCenter}, ${yCenter})`);
 
   // Add interactivity (tooltips and click events)
   setupTooltip(chart);
@@ -54,8 +55,8 @@ export function renderMap(geoJson, statsData) {
     sessionStorage.setItem("countyId", d.properties.MKOOD);
   });
 
-  setupZoom(svg, zoomGroup);
-  createLegend(svg, width);
+  // setupZoom(svg, zoomGroup);
+  // createLegend(svg, width);
 }
 
 function setupZoom(svg, zoomGroup) {
@@ -71,7 +72,7 @@ function setupZoom(svg, zoomGroup) {
 
 function createLegend(svg, width) {
   const colorScale = d3
-    .scaleSequential(d3.interpolateViridis)
+    .scaleSequential(d3.interpolateCividis)
     .domain([0, 100000]);
   const legendWidth = 300;
 
@@ -125,9 +126,10 @@ function setupTooltip(paths) {
     })
     .on("mouseout", function () {
       d3.select(this).style("fill", (d) => {
-        const value = Math.sqrt(d.properties.AREA);
+        const id = d.properties.MKOOD;
+        const value = getValueForID(globalStatsData, id);
         return value
-          ? d3.scaleSequential(d3.interpolateViridis).domain([0, 100000])(value)
+          ? d3.scaleSequential(d3.interpolateCividis).domain([0, 2000])(value)
           : "#000000";
       });
       tooltip.transition().duration(500).style("opacity", 0);
@@ -149,7 +151,7 @@ export function updateYearMap(statsData) {
       const id = d.properties.MKOOD;
       const value = getValueForID(statsData, id);
       return value
-        ? d3.scaleSequential(d3.interpolateViridis).domain([0, 2000])(value)
+        ? d3.scaleSequential(d3.interpolateCividis).domain([0, 2000])(value)
         : "#ccc";
     })
     .style("stroke", "white");
