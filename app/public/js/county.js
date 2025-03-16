@@ -2,13 +2,11 @@ import { renderTimeline } from "./charts/timeline.js";
 import { renderMunicipalityMap } from "./charts/municipalityMap.js";
 import { renderSpiderChart, updateYearSpider } from "./charts/spiderChart.js";
 import { renderBubbleChart, updateYearBubble } from "./charts/bubbleChart.js";
-import {
-  renderTreemapChart,
-  updateYearTreemap,
-} from "./charts/treemapChart.js";
+import { renderTreemapChart, updateYearTreemap } from "./charts/treemapChart.js";
 
 const municipalityFilePath = "/static/data/municipalities.json";
 const statisticsFilePath = "/static/data/transactions_with_residential_apartments_county_level.json"
+const landtypeFilePath = "/static/data/normalized_spider_data.json";
 
 sessionStorage.setItem("selectedYear", 2024); // initial default value
 
@@ -41,29 +39,64 @@ const getMunicipalitiesByCounty = (data, id) => {
   };
 };
 
-Promise.all([
-  fetch(municipalityFilePath).then((response) => response.json()),
-  fetch(statisticsFilePath).then((response) => response.json()),
-])
-  .then(([municipalityMapData, countyData]) => {
-    const id = sessionStorage.getItem("countyId");
-    countyData = getCountyRelatedStatistics(countyData, id);
+const formatSpiderData = (yearData) => 
+  yearData.map(entry => ({
+    category: entry.Name,
+    value: entry["Total area (ha)"]
+  }));
 
-    const timelineData = formatTimelineData(countyData);
-    renderTimeline(timelineData);
+  let landTypeData = {}; 
+  // let fetchedLandTypeData = {}; // Declare globally
+  
+  Promise.all([
+    fetch(municipalityFilePath).then((response) => response.json()),
+    fetch(statisticsFilePath).then((response) => response.json()),
+    fetch(landtypeFilePath).then((response) => response.json())
+  ])
+    .then(([municipalityMapData, countyData, fetchedData]) => {
+      // fetchedLandTypeData = fetchedData; // Store globally
+  
+      const id = sessionStorage.getItem("countyId");
+      const selectedYear = sessionStorage.getItem("selectedYear");
+  
+      countyData = getCountyRelatedStatistics(countyData, id);
+      landTypeData = getCountyRelatedStatistics(fetchedData, id);
 
-    renderSpiderChart(null);
-    renderBubbleChart(null);
-    renderTreemapChart(null);
-
-    municipalityMapData = getMunicipalitiesByCounty(municipalityMapData, id);
-    renderMunicipalityMap(municipalityMapData);
-  })
-  .catch((error) => console.log(error));
-
-function updateChartsWithYear(selectedYear) {
-  sessionStorage.setItem("selectedYear", selectedYear);
-  updateYearSpider(null, selectedYear);
-  updateYearBubble(null, selectedYear);
-  updateYearTreemap(null, selectedYear);
-}
+      const maxValue = Math.max(
+        ...Object.values(landTypeData.data) // Iterate over all years' data
+          .flatMap(year => year.map(entry => entry["Total area (ha)"])) // Extract values
+      );
+      console.log(maxValue)
+  
+      const timelineData = formatTimelineData(countyData);
+      renderTimeline(timelineData);
+  
+      const yearData = landTypeData.data[selectedYear];
+      const spiderData = formatSpiderData(yearData);
+      renderSpiderChart(spiderData, maxValue);
+  
+      renderBubbleChart(null);
+      renderTreemapChart(null);
+  
+      municipalityMapData = getMunicipalitiesByCounty(municipalityMapData, id);
+      renderMunicipalityMap(municipalityMapData);
+    })
+    .catch((error) => console.log(error));
+  
+  function updateChartsWithYear(selectedYear) {
+    sessionStorage.setItem("selectedYear", selectedYear);
+  
+    const maxValue = Math.max(
+      ...Object.values(landTypeData.data) // Iterate over all years' data
+        .flatMap(year => year.map(entry => entry["Total area (ha)"])) // Extract values
+    );
+    
+  
+    const yearData = landTypeData.data[selectedYear];
+    const spiderData = formatSpiderData(yearData);
+    renderSpiderChart(spiderData, maxValue);
+  
+    updateYearBubble(null, selectedYear);
+    updateYearTreemap(null, selectedYear);
+  }
+  
