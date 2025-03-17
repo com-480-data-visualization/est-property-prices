@@ -1,7 +1,19 @@
 let chart;
 let svg;
 let legend;
+let legendContainer;
+let legendSvg;
 let globalStatsData;
+let maxValue;
+
+const legendConf = {
+  height: 40,
+  width: "100%",
+  tickSize: 6,
+  marginTop: 0,
+  marginRight: 0,
+  marginLeft: 0,
+};
 
 function getValueForID(data, id) {
   const year = sessionStorage.getItem("year");
@@ -15,11 +27,12 @@ function getMaxValueForCurrentYear(data) {
   const year = sessionStorage.getItem("year");
   const statistic = "Price per unit area median(eur /m2)";
 
-  const maxValue = Math.max(...data
-    .flatMap(item => item.data[year] || [])
-    .filter(d => d["Area(m2)"] === "TOTAL")
-    .map(d => parseFloat(d[statistic]))
-    .filter(value => !isNaN(value))
+  const maxValue = Math.max(
+    ...data
+      .flatMap((item) => item.data[year] || [])
+      .filter((d) => d["Area(m2)"] === "TOTAL")
+      .map((d) => parseFloat(d[statistic]))
+      .filter((value) => !isNaN(value))
   );
 
   // Round up to the nearest 500
@@ -51,7 +64,7 @@ export function renderMap(geoJson, statsData) {
   );
   const pathGenerator = d3.geoPath().projection(projection);
 
-  var maxValue = getMaxValueForCurrentYear(statsData)
+  maxValue = getMaxValueForCurrentYear(statsData);
 
   // Bind data and create paths
   chart = svg
@@ -78,63 +91,32 @@ export function renderMap(geoJson, statsData) {
     sessionStorage.setItem("countyId", d.properties.MKOOD);
   });
 
-  legend = svg
-    .append("g")
-    .attr("class", "legend")
-    .attr("transform", `translate(${width - 400},30)`);
+  legendContainer = d3.select("#map-legend");
+  const legendWidth = legendContainer.node().getBoundingClientRect().width;
+  const legendHeight = legendContainer.node().getBoundingClientRect().height;
 
-  const legendSvg = Legend(
-    d3.scaleSequential([0, maxValue], d3.interpolateCividis),
-    {
-      title: "",
-      width: 400,
-      marginLeft: 10,
-      tickSize: 6,
-    }
-  );
+  legendSvg = legendContainer
+    .append("svg")
+    .attr("width", "100%") // Make it responsive
+    .attr("height", "100%")
+    .attr("viewBox", `0 0 ${legendWidth} ${legendHeight}`)
+    .attr("preserveAspectRatio", "xMidYMid meet");
 
-  console.log("global data: ", globalStatsData)
+  legend = legendSvg.append("g").attr("class", "legend");
+  // .attr("transform", `translate(${width - 400},30)`);
+
+  Legend(d3.scaleSequential([0, maxValue], d3.interpolateCividis), {
+    title: "",
+    width: 400,
+    marginLeft: 10,
+    tickSize: 6,
+  });
+
+  console.log("global data: ", globalStatsData);
   // createLegend(svg, width);
-  resizeObserver.observe(svg.node().parentNode);
 }
 
-function createLegend(svg, width) {
-  const colorScale = d3
-    .scaleSequential(d3.interpolateCividis)
-    .domain([0, 100000]);
-  const legendWidth = 300;
-
-  const legendGroup = svg
-    .append("g")
-    .attr("class", "legend")
-    .attr("transform", `translate(${(width - legendWidth) / 2},10)`);
-
-  const legendItems = legendGroup
-    .selectAll(".legend-item")
-    .data(colorScale.ticks(6))
-    .enter()
-    .append("g")
-    .attr("class", "legend-item")
-    .attr(
-      "transform",
-      (d, i) =>
-        `translate(${i * (legendWidth / colorScale.ticks(6).length)},140)`
-    );
-
-  legendItems
-    .append("rect")
-    .attr("width", 20)
-    .attr("height", 20)
-    .style("fill", colorScale);
-
-  legendItems
-    .append("text")
-    .attr("x", 10)
-    .attr("y", -5)
-    .attr("text-anchor", "middle")
-    .style("font-size", "12px")
-    .text((d) => d);
-}
+function createLegend(svg, width) {}
 
 function setupTooltip(paths) {
   const tooltip = d3
@@ -179,7 +161,7 @@ export function updateYearMap(statsData) {
       const id = d.properties.MKOOD;
       const value = getValueForID(statsData, id);
       return value
-        ? d3.scaleSequential(d3.interpolateCividis).domain([0, 2000])(value)
+        ? d3.scaleSequential(d3.interpolateCividis).domain([0, maxValue])(value)
         : "#ccc";
     })
     .style("stroke", "white");
@@ -192,9 +174,9 @@ function Legend(
     title,
     tickSize = 6,
     width = 500,
-    height = 34 + tickSize,
+    height = 24 + tickSize,
     marginTop = 0,
-    marginRight = 0,
+    marginRight = 14,
     marginBottom = 16 + tickSize,
     marginLeft = 0,
     ticks = width / 64,
@@ -213,6 +195,9 @@ function Legend(
     }
     return canvas;
   }
+
+  width = legendContainer.node().getBoundingClientRect().width;
+  height = legendContainer.node().getBoundingClientRect().height;
 
   let tickAdjust = (g) =>
     g.selectAll(".tick line").attr("y1", marginTop + marginBottom - height);
@@ -275,21 +260,12 @@ function Legend(
         .attr("class", "title")
         .text(title)
     );
-
-  var svgHeight = parseInt(svg.style("height"), 10);
-  updateLegendPosition(svgHeight);
-
-  return svg.node();
+  // updateLegendPosition();
 }
 
-const resizeObserver = new ResizeObserver((entries) => {
-  for (let entry of entries) {
-    const { width, height } = entry.contentRect;
-    updateLegendPosition(height);
-  }
-});
-
-function updateLegendPosition(height) {
-  console.log("height is: ", height)
+function updateLegendPosition() {
+  var height = parseInt(svg.style("height"), 10);
   legend.attr("transform", `translate(0, ${height - 35})`);
 }
+
+window.onresize = updateLegendPosition;
