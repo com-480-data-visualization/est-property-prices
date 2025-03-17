@@ -1,6 +1,6 @@
 let chart;
 let svg;
-let legendGroup;
+let legend;
 let globalStatsData;
 
 function getValueForID(data, id) {
@@ -11,11 +11,26 @@ function getValueForID(data, id) {
   return yearList.filter((d) => d["Area(m2)"] === "TOTAL")[0][statistic];
 }
 
+function getMaxValueForCurrentYear(data) {
+  const year = sessionStorage.getItem("year");
+  const statistic = "Price per unit area median(eur /m2)";
+
+  const maxValue = Math.max(...data
+    .flatMap(item => item.data[year] || [])
+    .filter(d => d["Area(m2)"] === "TOTAL")
+    .map(d => parseFloat(d[statistic]))
+    .filter(value => !isNaN(value))
+  );
+
+  // Round up to the nearest 500
+  return isFinite(maxValue) ? Math.ceil(maxValue / 500) * 500 : null;
+}
+
 export function renderMap(geoJson, statsData) {
   globalStatsData = statsData;
   const container = d3.select("#map-container");
   const width = container.node().getBoundingClientRect().width;
-  const height = container.node().getBoundingClientRect().height;
+  const height = width / 1.53;
 
   // Remove existing SVG if any
   container.select("svg").remove();
@@ -27,8 +42,6 @@ export function renderMap(geoJson, statsData) {
     .attr("viewBox", `0 0 ${width} ${height}`)
     .attr("preserveAspectRatio", "xMidYMid meet");
 
-  const rotationGroup = svg.append("g");
-
   const projection = d3.geoMercator().fitExtent(
     [
       [0, 0],
@@ -38,8 +51,10 @@ export function renderMap(geoJson, statsData) {
   );
   const pathGenerator = d3.geoPath().projection(projection);
 
+  var maxValue = getMaxValueForCurrentYear(statsData)
+
   // Bind data and create paths
-  chart = rotationGroup
+  chart = svg
     .selectAll("path")
     .data(geoJson.features)
     .enter()
@@ -49,7 +64,7 @@ export function renderMap(geoJson, statsData) {
       const id = d.properties.MKOOD;
       const value = getValueForID(statsData, id);
       return value
-        ? d3.scaleSequential(d3.interpolateCividis).domain([0, 2000])(value)
+        ? d3.scaleSequential(d3.interpolateCividis).domain([0, maxValue])(value)
         : "#ccc";
     })
     .style("stroke", "white");
@@ -63,22 +78,24 @@ export function renderMap(geoJson, statsData) {
     sessionStorage.setItem("countyId", d.properties.MKOOD);
   });
 
-  legendGroup = svg
+  legend = svg
     .append("g")
     .attr("class", "legend")
     .attr("transform", `translate(${width - 400},30)`);
 
   const legendSvg = Legend(
-    d3.scaleSequential([0, 100000], d3.interpolateCividis),
+    d3.scaleSequential([0, maxValue], d3.interpolateCividis),
     {
       title: "",
       width: 400,
       marginLeft: 10,
-      tickSize: 12,
+      tickSize: 6,
     }
   );
 
+  console.log("global data: ", globalStatsData)
   // createLegend(svg, width);
+  resizeObserver.observe(svg.node().parentNode);
 }
 
 function createLegend(svg, width) {
@@ -174,9 +191,9 @@ function Legend(
   {
     title,
     tickSize = 6,
-    width = 320,
-    height = 44 + tickSize,
-    marginTop = 18,
+    width = 500,
+    height = 34 + tickSize,
+    marginTop = 0,
     marginRight = 0,
     marginBottom = 16 + tickSize,
     marginLeft = 0,
@@ -212,7 +229,7 @@ function Legend(
     }
   );
 
-  legendGroup
+  legend
     .append("image")
     .attr("x", marginLeft)
     .attr("y", marginTop)
@@ -234,7 +251,7 @@ function Legend(
     }
   }
 
-  legendGroup
+  legend
     .append("g")
     .attr("transform", `translate(0,${height - marginBottom})`)
     .call(
@@ -259,5 +276,20 @@ function Legend(
         .text(title)
     );
 
+  var svgHeight = parseInt(svg.style("height"), 10);
+  updateLegendPosition(svgHeight);
+
   return svg.node();
+}
+
+const resizeObserver = new ResizeObserver((entries) => {
+  for (let entry of entries) {
+    const { width, height } = entry.contentRect;
+    updateLegendPosition(height);
+  }
+});
+
+function updateLegendPosition(height) {
+  console.log("height is: ", height)
+  legend.attr("transform", `translate(0, ${height - 35})`);
 }
