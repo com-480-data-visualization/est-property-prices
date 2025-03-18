@@ -2,13 +2,11 @@
 
 | Student's name             | SCIPER |
 | -------------------------- | ------ |
-|                            |        |
-|                            |        |
 | Jan Kokla                  | 367628 |
 | Mahlia Merville-Hipeau     | 345625 |
 | Siim Markus Marvet         | 377510 |
 
-[Milestone 1](#milestone-1) • [Milestone 2](#milestone-2) • [Milestone 3](#milestone-3)
+[Milestone 1](#-milestone-1) • [Milestone 2](#milestone-2) • [Milestone 3](#milestone-3)
 
 ## 📝 Milestone 1
 
@@ -18,7 +16,8 @@
 For this project, we selected a dataset provided by the **Estonian Government**:  
 [Estonian Real Estate Transactions](https://www.maaamet.ee/kinnisvara/htraru/FilterUI.aspx).  
 
-This dataset contains information on property transactions in Estonia since **1996**. We decided to focus on the last 14 years, using data from **2010 to 2024**.  
+This dataset contains information on property transactions in Estonia since **1996**. We decided to focus on the last 14 years, 
+using data from **2010 to 2024** due to the higher data quality in that timeframe. 
 
 #### Selected Features  
 We focus on the following key aspects:  
@@ -28,16 +27,18 @@ We focus on the following key aspects:
 - 🌎 **Nationalities of transaction participants**  
 
 #### Data Acquisition
-We performed **web scraping** to extract Excel files data then converted it to **JSON** format for easy reuse.
+We used web scraping to gather the necessary data from the [Estonian Real Estate Transactions](https://www.maaamet.ee/kinnisvara/htraru/FilterUI.aspx) website of the 
+Estonian Land Board. This yielded many Excel files that we in turn parsed for relevant data and converted into JSON for 
+easier ingestion into our web-application.
 
 #### Data Quality
 
 ✅ **Data quality:** The dataset is **well-structured** and already includes precomputed statistics, minimizing the need for extensive data cleaning. We usually have access to: min, max, median, average, and standard deviation.  
-❌ **Missing data**: We are missing data where there were fewer than **5** transactions.  
-🚫 **Governmental data**: For evident privacy reasons, some information about the transactions is hidden.
+❌ **Missing data**: We are occasionally missing data for the smallest municipalities. When there were **5** or less transactions in a year the data is hidden to preserve privacy.  
+🚫 **Governmental data**: For privacy reasons, we are only given aggregated data, slightly narrowing our opportunities of visualization.
 
 #### Data Preprocessing  
-The data is already split into two scales: county and municipality. We will group the data by year to observe the trends over time.  
+The data is already split into two granularity levels: data by county and data by municipality. We will group the data by year to observe the trends over time.  
 
 For the different graphs we plan to create, we will pre-process the data to ensure it is in the proper format for direct use. 
 
