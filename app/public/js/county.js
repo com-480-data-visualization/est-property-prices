@@ -69,7 +69,6 @@ const formatSpiderData = (yearData) =>
         ...Object.values(landTypeData.data) // Iterate over all years' data
           .flatMap(year => year.map(entry => entry["Total area (ha)"])) // Extract values
       );
-      console.log(maxValue)
   
       const timelineData = formatTimelineData(countyData);
       renderTimeline(timelineData);
