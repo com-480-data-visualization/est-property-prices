@@ -38,9 +38,9 @@ easier ingestion into our web-application.
 🚫 **Governmental data**: For privacy reasons, we are only given aggregated data, slightly narrowing our opportunities of visualization.
 
 #### Data Preprocessing  
-The data is already split into two granularity levels: data by county and data by municipality. We will group the data by year to observe the trends over time.  
+The data is already split into two granularity levels: data by `county` and data by `municipality`. We will group the data by year to observe the trends over time.  
 
-For the different graphs we plan to create, we will pre-process the data to ensure it is in the proper format for direct use. 
+For the different graphs we plan to create, we will pre-process the data to ensure it is in the proper format for direct use. Our initial analysis can be found in the [notebook](notebooks/initial_data_analysis.ipynb).
 
 ### 🔍 Problematic
 
@@ -70,7 +70,14 @@ You can find our data analysis here (link to notebook).
 
 #### 👓 Existing Visualizations  
 Currently, the **official Estonian real estate website** only provides **raw tabular data** without any visual representation. However, we found some real estate-related statistics and visualizations here:  
-🔗 [Statistics Estonia – Housing Data](https://stat.ee/en/find-statistics/statistics-theme/economy/housing)  
+🔗 [Statistics Estonia – Housing Data](https://stat.ee/en/find-statistics/statistics-theme/economy/housing)
+
+There are comparable visualizations for other countries, such as:
+
+🔗 [European Union - Property Price Dashboard](https://ec.europa.eu/eurostat/cache/dashboard/prices/)
+
+🔗 [Swiss Real Estate Prices](https://realadvisor.ch/en/property-prices/1352-agiez)
+
 
 #### 💡 Our Original Approach  
 Our project stands out because it aims to:  
