@@ -89,3 +89,5 @@ We took inspiration from various **interactive and well-designed visualizations*
 - **[John Brandt’s D3 Portfolio](https://johnbrandt.org/portfolio/d3/)** – For its innovative use of D3.js in data representation.  
 - **[Dashboard template](https://dribbble.com/shots/25124941-Locust-Dashboard-Earn-a-Stake-in-AI)** – Dashboard showing different types of graphs.  
 - **[Line template](https://tympanus.net/codrops/2022/03/29/building-an-interactive-sparkline-graph-with-d3/)** – Interactive sparkline.
+- **[Interactive Map](https://luissevillano.net/historical-evolution-of-the-unemployment-rate-in-spain/map/)** – Interaction with drag.
+- **[Interactivity Between Charts](https://luissevillano.net/historical-evolution-of-the-unemployment-rate-in-spain/graphs/)** – Interaction with hover.
