@@ -1,0 +1,80 @@
+<div class="uk-container uk-margin">
+  <h1 class="uk-heading-large">{{pageTitle}}</h1>
+
+  <div uk-grid class="uk-grid-small">
+    <div class="uk-width-1-1">
+      <div class="uk-card uk-card-default">
+        <div class="uk-card-header">
+          <h3 class="uk-card-title uk-margin-remove-bottom">Timeline</h3>
+          <p class="uk-text-meta uk-margin-remove-top">Subtitle</p>
+        </div>
+
+        <div class="uk-card-body">
+          <figure timeline></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div uk-grid class="uk-grid-small uk-grid-match">
+    <div class="uk-width-expand@m">
+      <div class="uk-card uk-card-default">
+        <div class="uk-flex uk-flex-between uk-card-header uk-flex-bottom">
+          <div>
+            <h3 class="uk-card-title uk-margin-remove-bottom">Map</h3>
+            <p class="uk-text-meta uk-margin-remove">Subtitle</p>
+          </div>
+          <div>
+            <select class="uk-select" aria-label="Select">
+              <option>Option 01</option>
+              <option>Option 02</option>
+            </select>
+          </div>
+        </div>
+        <div class="uk-card-body">
+          <figure municipality-map></figure>
+        </div>
+      </div>
+    </div>
+    <div class="uk-width-2-5@m">
+      <div class="uk-card uk-card-default">
+        <div class="uk-flex uk-flex-between uk-card-header">
+          <div>
+            <h3 class="uk-card-title uk-margin-remove-bottom">Spider Chart</h3>
+            <p class="uk-text-meta uk-margin-remove">Subtitle</p>
+          </div>
+        </div>
+        <div class="uk-card-body">
+          <figure spider-chart></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div uk-grid class="uk-grid-small uk-grid-match">
+    <div class="uk-width-1-2@m">
+      <div class="uk-card uk-card-default uk-height-1-1">
+        <div class="uk-card-header">
+          <h3 class="uk-card-title uk-margin-remove-bottom">Bubble</h3>
+          <p class="uk-text-meta uk-margin-remove-top">Subtitle</p>
+        </div>
+        <div class="uk-card-body">
+          <figure bubble-chart></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="uk-width-1-2@m">
+      <div class="uk-card uk-card-default uk-height-1-1">
+        <div class="uk-card-header">
+          <h3 class="uk-card-title uk-margin-remove-bottom">Tree-map Sellers and
+            Buyers</h3>
+          <p class="uk-text-meta uk-margin-remove-top">Subtitle</p>
+        </div>
+        <div class="uk-card-body">
+          <figure treemap-chart></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="../static/js/county.js"></script>

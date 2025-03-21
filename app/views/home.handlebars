@@ -1,0 +1,49 @@
+<div class="uk-container uk-flex uk-flex-column uk-margin-large-bottom">
+  <p
+    class="uk-text-muted uk-text-large uk-margin-remove-bottom uk-margin-medium-top"
+  >
+    data visualization
+  </p>
+  <h1 class="uk-heading-xlarge uk-margin-remove">Property Prices in<br
+    />Estonia</h1>
+  <div class="uk-margin-medium-bottom uk-grid">
+    <!-- Range Slider -->
+    <div class="uk-width-1-2@m uk-flex-last@m uk-margin-small-top">
+
+      <p class="uk-text-left uk-text-large">
+        Your paragraph text here. This text will be aligned to the right, start
+        from the middle of the screen on medium-sized devices and larger, and be
+        vertically close to the hero header &#128071;
+      </p>
+    </div>
+
+    <div
+      class="range-slider uk-margin-large-top uk-width-1-2@m uk-flex-first@m"
+    >
+      <input
+        class="range-slider__range"
+        type="range"
+        value="2024"
+        min="2010"
+        max="2024"
+      />
+      <span
+        class="range-slider__value uk-text-muted uk-heading-large uk-margin-remove"
+      >0</span>
+    </div>
+
+  </div>
+  <div
+    id="map-container"
+    class="uk-container uk-flex uk-flex-column uk-width-1-1 uk-margin-medium-bottom uk-position-relative"
+  >
+    <div
+      id="map-legend"
+      class="uk-position-bottom-left uk-width-1-2"
+      style="height: 34px"
+    >
+    </div>
+  </div>
+</div>
+
+<script type="module" src="../static/js/map.js"></script>

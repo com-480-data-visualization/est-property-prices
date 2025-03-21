@@ -1,0 +1,116 @@
+svg {
+	width: 100%;
+	height: auto;
+	/* outline: 1px dashed; */
+}
+
+#map-container {
+  margin-top: -80px;
+}
+
+
+.tooltip {
+  position: absolute;
+  text-align: center;
+  padding: 8px;
+  font: 12px sans-serif;
+  background: lightsteelblue;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+/* RANGE SLIDER */
+
+/* Base Colors */
+:root {
+  --shade-10: #2c3e50;
+  --shade-1: #d7dcdf;
+  --shade-0: #fff;
+  --teal: #1abc9c;
+}
+
+/* Reset */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.range-slider {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.range-slider__range {
+  -webkit-appearance: none;
+  width: calc(100% - 73px);
+  height: 10px;
+  border-radius: 5px;
+  background: var(--shade-1);
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Range Handle */
+.range-slider__range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--shade-10);
+  cursor: pointer;
+  transition: background 0.15s ease-in-out;
+}
+
+.range-slider__range::-webkit-slider-thumb:hover {
+  background: var(--teal);
+}
+
+.range-slider__range:active::-webkit-slider-thumb {
+  background: var(--teal);
+}
+
+.range-slider__range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--shade-10);
+  cursor: pointer;
+  transition: background 0.15s ease-in-out;
+}
+
+.range-slider__range::-moz-range-thumb:hover {
+  background: var(--teal);
+}
+
+.range-slider__range:active::-moz-range-thumb {
+  background: var(--teal);
+}
+
+/* Focus state */
+.range-slider__range:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px var(--shade-0),
+              0 0 0 6px var(--teal);
+}
+
+/* Range Label */
+.range-slider__value {
+  display: inline-block;
+  color: var(--shade-10);
+  border-radius: 3px;
+  padding: 20px 10px;
+  margin-left: 8px;
+}
+
+/* Firefox Overrides */
+::-moz-range-track {
+  background: var(--shade-1);
+  border: 0;
+}
+
+input::-moz-focus-inner,
+input::-moz-focus-outer { 
+  border: 0; 
+}
