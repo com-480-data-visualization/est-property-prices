@@ -100,5 +100,6 @@ const formatSpiderData = (yearData) =>
   
     updateYearBubble(null, selectedYear);
     updateYearTreemap(null, selectedYear);
+    updateMunicipalityMap();
   }
   
