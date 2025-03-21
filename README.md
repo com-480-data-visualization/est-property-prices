@@ -40,7 +40,7 @@ easier ingestion into our web-application.
 #### Data Preprocessing  
 The data is already split into two granularity levels: data by `county` and data by `municipality`. We will group the data by year to observe the trends over time.  
 
-For the different graphs we plan to create, we will pre-process the data to ensure it is in the proper format for direct use. Our initial analysis can be found in the [notebook](notebooks/initial_data_analysis.ipynb).
+For the different graphs we plan to create, we will pre-process the data to ensure it is in the proper format for direct use.
 
 ### 🔍 Problematic
 
@@ -64,7 +64,7 @@ While our project focuses on **Estonia**, we believe that our **methodology** an
 
 ### 📊 Exploratory Data Analysis
 
-You can find our data analysis here (link to notebook).
+You can find our initial data analysis [notebook](notebooks/initial_data_analysis.ipynb).
 
 ### 📚 Related Work
 
