@@ -8,6 +8,31 @@ svg {
   margin-top: -80px;
 }
 
+/* override UIKit CSS*/
+
+.uk-card-default .uk-card-header {
+  border-bottom: None;
+}
+
+@media (min-width: 1200px) {
+  .uk-card-header {
+      padding: 20px 20px 0px 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .uk-card-body {
+      padding: 0 20px 20px 20px;
+  }
+}
+
+.uk-card {
+  border-radius: 1.3em;
+}
+
+.timeline-card {
+  overflow: hidden;
+}
 
 .tooltip {
   position: absolute;
