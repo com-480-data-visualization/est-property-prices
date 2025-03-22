@@ -3,7 +3,7 @@ import { dispatch } from "../county.js";
 let svg;
 
 const size = {
-  height: 160,
+  height: 140,
 };
 
 const margin = { top: 0, right: 0, bottom: 6, left: 0 };

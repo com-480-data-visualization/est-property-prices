@@ -30,6 +30,10 @@ svg {
   border-radius: 1.3em;
 }
 
+.uk-select {
+  border-radius: 0.5em;
+}
+
 .timeline-card {
   overflow: hidden;
 }
