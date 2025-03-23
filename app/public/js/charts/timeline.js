@@ -92,6 +92,12 @@ export function renderTimeline(data) {
 
   const bisect = d3.bisector(xAccessor);
 
+  const tooltip = d3
+    .select("body")
+    .append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+
   // Hover functionality
   svg.on("mousemove", (e) => {
     const [posX] = d3.pointer(e);
@@ -106,8 +112,17 @@ export function renderTimeline(data) {
     hoverLineHorizontal.attr("y1", y).attr("y2", y).attr("opacity", 1);
     hoverDot.attr("cx", x).attr("cy", y).attr("opacity", 1);
 
+    const svgRect = svg.node().getBoundingClientRect();
+    const tooltipX = svgRect.left + x;
+    const tooltipY = svgRect.top + y;
+  
+    tooltip.transition().duration(200).style("opacity", 0.9);
+    tooltip
+      .html(d.pricePerSquareMeter)
+      .style("left", `${tooltipX}px`)
+      .style("top", `${tooltipY}px`);
+  
     var selectedYear = d.date.getFullYear();
     dispatch.call("start", null, selectedYear);
-    console.log(selectedYear);
   });
 }
