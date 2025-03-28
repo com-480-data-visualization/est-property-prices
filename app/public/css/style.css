@@ -1,7 +1,7 @@
 svg {
-	width: 100%;
-	height: auto;
-	/* outline: 1px dashed; */
+  width: 100%;
+  height: auto;
+  /* outline: 1px dashed; */
 }
 
 #map-container {
@@ -10,20 +10,28 @@ svg {
 
 /* override UIKit CSS*/
 
+@media (min-width: 1200px) {
+  .uk-heading-xlarge {
+    font-size: 6rem;
+  }
+
+  .uk-card-header {
+    padding: 20px 20px 0px 20px;
+  }
+
+  .uk-card-body {
+    padding: 0 20px 20px 20px;
+  }
+}
+
+@media (min-width: 960px) {
+  .map-description {
+    margin-top: -60px;
+  }
+}
+
 .uk-card-default .uk-card-header {
   border-bottom: None;
-}
-
-@media (min-width: 1200px) {
-  .uk-card-header {
-      padding: 20px 20px 0px 20px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .uk-card-body {
-      padding: 0 20px 20px 20px;
-  }
 }
 
 .uk-card {
@@ -60,7 +68,9 @@ svg {
 }
 
 /* Reset */
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
@@ -120,8 +130,7 @@ svg {
 
 /* Focus state */
 .range-slider__range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 3px var(--shade-0),
-              0 0 0 6px var(--teal);
+  box-shadow: 0 0 0 3px var(--shade-0), 0 0 0 6px var(--teal);
 }
 
 /* Range Label */
@@ -140,6 +149,6 @@ svg {
 }
 
 input::-moz-focus-inner,
-input::-moz-focus-outer { 
-  border: 0; 
+input::-moz-focus-outer {
+  border: 0;
 }

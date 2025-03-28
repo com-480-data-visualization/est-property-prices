@@ -102,21 +102,13 @@ export function renderMap(geoJson, statsData) {
     .attr("viewBox", `0 0 ${legendWidth} ${legendHeight}`)
     .attr("preserveAspectRatio", "xMidYMid meet");
 
-  legend = legendSvg.append("g").attr("class", "legend");
-  // .attr("transform", `translate(${width - 400},30)`);
-
   Legend(d3.scaleSequential([0, maxValue], d3.interpolateCividis), {
     title: "",
     width: 400,
     marginLeft: 10,
     tickSize: 6,
   });
-
-  console.log("global data: ", globalStatsData);
-  // createLegend(svg, width);
 }
-
-function createLegend(svg, width) {}
 
 function setupTooltip(paths) {
   const tooltip = d3
@@ -214,7 +206,7 @@ function Legend(
     }
   );
 
-  legend
+  legendSvg
     .append("image")
     .attr("x", marginLeft)
     .attr("y", marginTop)
@@ -236,7 +228,7 @@ function Legend(
     }
   }
 
-  legend
+  legendSvg
     .append("g")
     .attr("transform", `translate(0,${height - marginBottom})`)
     .call(
@@ -260,12 +252,4 @@ function Legend(
         .attr("class", "title")
         .text(title)
     );
-  // updateLegendPosition();
 }
-
-function updateLegendPosition() {
-  var height = parseInt(svg.style("height"), 10);
-  legend.attr("transform", `translate(0, ${height - 35})`);
-}
-
-window.onresize = updateLegendPosition;

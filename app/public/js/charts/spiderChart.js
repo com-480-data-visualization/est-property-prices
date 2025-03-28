@@ -7,7 +7,8 @@ const dimensions = {
 let svg; // Declare chart at the module level
 
 export function renderSpiderChart(data, maxValue) {
-  d3.select("[spider-chart]").selectAll("*").remove(); // Clear previous chart
+
+  d3.select("[spider-chart]").selectAll("*").remove();
 
   const svg = d3
     .select("[spider-chart]")
