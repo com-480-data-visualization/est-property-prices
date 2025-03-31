@@ -104,10 +104,18 @@
 
     <div class="uk-width-1-2@m">
       <div class="uk-card uk-card-default uk-height-1-1">
-        <div class="uk-card-header">
-          <h3 class="uk-card-title uk-margin-remove-bottom">Tree-map Sellers and
-            Buyers</h3>
-          <p class="uk-text-meta uk-margin-remove-top">Subtitle</p>
+        <div class="uk-flex uk-flex-between uk-card-header uk-flex-top">
+          <div>
+            <h3 class="uk-card-title uk-margin-remove-bottom">Tree-map Sellers and Buyers</h3>
+            <p class="uk-text-meta uk-margin-remove">Subtitle</p>
+          </div>
+          <div>
+            <select class="uk-select treemap-select" aria-label="Select">
+              <option>Number of Transactions</option>
+              <option>Total area (ha)</option>
+              <option>Total value (€)</option>
+            </select>
+          </div>
         </div>
         <div class="uk-card-body">
           <figure treemap-chart></figure>
