@@ -24,7 +24,7 @@ jobs:
     - name: Setup and run tests
       working-directory: ./app
       run: |
-        pwd && ls -lah
+        cd .. && pwd && ls -lah
 
     - name: Build project
       working-directory: ./app
