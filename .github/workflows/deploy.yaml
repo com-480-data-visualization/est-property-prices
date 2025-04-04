@@ -22,7 +22,6 @@ jobs:
       run: npm install
 
     - name: Setup and run tests
-      working-directory: ./app
       run: |
         cd .. && pwd && ls -lah
 
