@@ -1,3 +1,5 @@
 app/node_modules/
 .DS_Store
 .venv/
+.idea/
+app/dist/
