@@ -8,9 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./app
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -21,12 +18,15 @@ jobs:
         node-version: '22.x'
 
     - name: Install dependencies
+      working-directory: ./app
       run: npm install
 
     - name: Build project
+      working-directory: ./app
       run: npm run build
 
     - name: Deploy to GitHub Pages
+      working-directory: ./app
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
