@@ -53,6 +53,8 @@ Maps are central to this project, showcasing both temporal dynamics and geograph
   - Tooltips provide additional details (e.g., region name, average salary).
   - Dropdown or toggle options allow users to switch between median and average transaction prices.
 
+---
+
 ### Line Chart
 
 The line chart visualizes price trends over time while serving as an interactive time-slider for the entire dashboard.
@@ -64,6 +66,8 @@ The line chart visualizes price trends over time while serving as an interactive
 
 - **Extras**:
   - Users can toggle between median and average transaction prices for comparison.
+
+---
 
 ### Key Statistics
 
