@@ -38,6 +38,16 @@ Each visualization is designed to complement the others, providing users with a 
 
 ## Individual Visualizations
 
+Below is an overview of the chart ideation along with the list of relevant sources and lectures that will guide the development process. Certain foundational lectures are applicable to all visualizations, including:
+
+- **Lecture 1**: Web Development  
+- **Lectures 2 & 3**: JavaScript  
+- **Lecture 6**: Perception and Color  
+- **Lecture 7**: Do's and Don'ts in Design  
+- **Lecture 12**: Storytelling  
+
+These lectures provide essential principles and techniques that will be applied universally across all charts.
+
 ### Maps
 
 Maps are central to this project, showcasing both temporal dynamics and geographical differences in transaction prices.
@@ -53,6 +63,12 @@ Maps are central to this project, showcasing both temporal dynamics and geograph
   - Tooltips provide additional details (e.g., region name, average salary).
   - Dropdown or toggle options allow users to switch between median and average transaction prices.
 
+#### Tools and Lectures
+
+- TopoJSON and GeoJSON 
+- Lecture 8: Maps
+- Lecture 5: Interactions
+
 ---
 
 ### Line Chart
@@ -67,6 +83,12 @@ The line chart visualizes price trends over time while serving as an interactive
 - **Extras**:
   - Users can toggle between median and average transaction prices for comparison.
 
+#### Tools and Lectures
+
+- [D3 line charts](https://d3-graph-gallery.com/line)
+- Lecture 5: Interactions
+- Lecture 11: Tabular Data
+
 ---
 
 ### Key Statistics
@@ -80,6 +102,13 @@ Key statistics are presented as simple numerical values, emphasizing clarity ove
 - **Extras**:
   - Salary values include icons and percentage changes compared to the previous year for added context.
 
+#### Tools and Lectures
+
+- [D3 Formatting](https://d3js.org/d3-format)
+- Lecture 8: Text Visualization
+- Lecture 5: Interactions
+- Lecture 11: Tabular Data
+
 ---
 
 ### Radar Chart
@@ -92,6 +121,12 @@ The radar chart depicts the distribution of transactions by land type (e.g., res
 
 - **Extras**:
   - A dropdown menu allows users to switch between different metrics (e.g., count of transactions, total area sold, total transaction value).
+
+#### Tools and Lectures
+
+- [D3 Spider Chart](https://d3-graph-gallery.com/spider)
+- Lecture 5: Interactions
+- Lecture 11: Tabular Data
 
 ---
 
@@ -108,6 +143,12 @@ The circular packing chart visualizes land use categories in a hierarchical form
   - Tooltips display additional details about each category upon hovering.
   - A dropdown menu allows users to adjust the visualization dynamically based on predefined categories.
 
+#### Tools and Lectures
+
+- [D3 Circular Packing](https://d3-graph-gallery.com/circularpacking.html)
+- Lecture 5: Interactions
+- Lecture 11: Tabular Data
+
 ---
 
 ### Treemap
@@ -122,6 +163,12 @@ The treemap highlights non-local transactions by visualizing buyer-seller relati
   - Filters enable users to focus on specific buyer or seller regions.
   - Color gradients indicate transaction density or value intensity within each category.
   - A dropdown menu allows users to switch between different metrics (count, total area, total value).
+
+#### Tools and Lectures
+
+- [D3 Treemap](https://d3-graph-gallery.com/treemap.html)
+- Lecture 5: Interactions
+- Lecture 11: Tabular Data
 
 ---
 
