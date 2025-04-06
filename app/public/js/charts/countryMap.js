@@ -24,15 +24,17 @@ function getValueForID(data, id) {
 }
 
 function getMaxValueForCurrentYear(data) {
-  const year = sessionStorage.getItem("year");
+  
   const statistic = "Price per unit area median(eur /m2)";
 
   const maxValue = Math.max(
-    ...data
-      .flatMap((item) => item.data[year] || [])
-      .filter((d) => d["Area(m2)"] === "TOTAL")
-      .map((d) => parseFloat(d[statistic]))
-      .filter((value) => !isNaN(value))
+    ...data.flatMap((item) =>
+      Object.values(item.data) // Get data for all years
+        .flatMap((yearData) => yearData || [])
+        .filter((d) => d["Area(m2)"] === "TOTAL")
+        .map((d) => parseFloat(d[statistic]))
+        .filter((value) => !isNaN(value))
+    )
   );
 
   // Round up to the nearest 500

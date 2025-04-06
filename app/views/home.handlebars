@@ -1,5 +1,6 @@
 <div class="uk-container uk-flex uk-flex-column uk-margin-large-bottom">
-  <h1 class="uk-heading-xlarge uk-margin-remove">Property Prices in<br/>Estonia</h1>
+  <h1 class="uk-heading-xlarge uk-margin-remove">Property Prices in<br
+    />Estonia</h1>
   <div class="uk-margin-small-bottom uk-grid">
 
     <div class="uk-width-1-2@m uk-flex-last@m uk-margin-small-top">
@@ -14,13 +15,19 @@
     <div
       class="range-slider uk-margin-medium-top uk-width-1-2@m uk-flex-first@m"
     >
-      <input
-        class="range-slider__range"
-        type="range"
-        value="2024"
-        min="2010"
-        max="2024"
-      />
+      <div class="uk-flex-row">
+        <button id="slider-play-button" class="uk-icon-button uk-margin-small-right">
+          <i id="play-icon" class="fas fa-play"></i>
+        </button>
+        <input
+          class="range-slider__range"
+          type="range"
+          value="2010"
+          min="2010"
+          max="2024"
+        />
+      </div>
+
       <span
         class="range-slider__value uk-text-muted uk-heading-large uk-margin-remove uk-padding-remove-bottom"
       >0</span>

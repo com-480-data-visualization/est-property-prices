@@ -8,6 +8,21 @@ svg {
   margin-top: -80px;
 }
 
+#slider-play-button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+  font-size: 1.1rem;
+  width: 3rem;
+  height: 3rem;
+}
+
+#slider-play-button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
 /* override UIKit CSS*/
 
 @media (min-width: 1200px) {
