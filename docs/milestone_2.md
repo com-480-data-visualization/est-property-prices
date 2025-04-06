@@ -61,6 +61,7 @@ Maps are central to this project, showcasing both temporal dynamics and geograph
 
 - **Extras**:
   - Tooltips provide additional details (e.g., region name, average salary).
+  - Play button that enables to see the progress automatically.
   - Dropdown or toggle options allow users to switch between median and average transaction prices.
 
 #### Tools and Lectures
