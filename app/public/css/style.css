@@ -199,7 +199,7 @@ input::-moz-focus-outer {
 
 /* Subtle gridline styling */
 .grid line {
-  stroke: #949494; /* Very light gray */
+  stroke: #94949458; /* Very light gray */
   stroke-width: 0.5; /* Thin lines */
 }
 
