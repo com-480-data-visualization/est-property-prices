@@ -3,12 +3,9 @@ import {
   renderMunicipalityMap,
   updateMunicipalityMap,
 } from "./charts/municipalityMap.js";
-import { renderSpiderChart, updateYearSpider } from "./charts/spiderChart.js";
+import { renderSpiderChart } from "./charts/spiderChart.js";
 import { renderBubbleChart, updateYearBubble } from "./charts/bubbleChart.js";
-import {
-  renderTreemapChart,
-  updateYearTreemap,
-} from "./charts/treemapChart.js";
+import { renderTreemapChart } from "./charts/treemapChart.js";
 
 const municipalityFilePath = "/static/data/municipalities.json";
 const statisticsFilePath =
@@ -179,7 +176,6 @@ function updateChartsWithYear(selectedYear) {
   renderTreemapChart(treemapData, treemapDropdown.value);
 
   updateYearBubble(null, selectedYear);
-  updateYearTreemap(null, selectedYear);
   updateMunicipalityMap();
 }
 

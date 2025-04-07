@@ -3,16 +3,25 @@ const dimensions = {
   height: 600,
 };
 
-let chart;
+const hidden = {
+  width: 100,
+  height: 40,
+};
+
 
 export function renderTreemapChart(data, metric = "Number of Transactions") {
   d3.select("[treemap-chart]").selectAll("*").remove();
+
+  const tooltip = d3
+    .select("body")
+    .append("div")
+    .attr("id", "treemap-tooltip")
+    .style("opacity", 0);
 
   const svg = d3
     .select("[treemap-chart]")
     .append("svg")
     .attr("viewBox", `0 0 ${dimensions.width} ${dimensions.height}`);
-  
 
   const propertyMap = {
     "Number of Transactions": "Number",
@@ -22,69 +31,68 @@ export function renderTreemapChart(data, metric = "Number of Transactions") {
 
   const propertyName = propertyMap[metric] || "Number";
 
-  // Give the data to this cluster layout:
   var root = d3.hierarchy(data).sum(function (d) {
     return d[propertyName];
   });
 
-  // Then d3.treemap computes the position of each element of the hierarchy
   var treemap = d3
     .treemap()
     .size([dimensions.width, dimensions.height])
     .paddingTop(28)
     .paddingRight(7)
-    .paddingInner(3)(
-    // Padding between each rectangle
-    //.paddingOuter(6)
-    //.padding(20)
-    root
-  );
+    .paddingInner(3)(root);
 
-  // prepare a color scale
   var color = d3
     .scaleOrdinal()
     .domain(["Buyers", "Sellers"])
     .range(["#402D54", "#D18975"]);
 
-  // And an opacity scale
-  var opacity = d3.scaleLinear().domain([10, 30]).range([0.5, 1]);
-
-  // use this information to add rectangles:
+  // add rectangles with tooltip interactions
   svg
     .selectAll("rect")
     .data(root.leaves())
     .enter()
     .append("rect")
-    .attr("x", function (d) {
-      return d.x0;
-    })
-    .attr("y", function (d) {
-      return d.y0;
-    })
-    .attr("width", function (d) {
-      return d.x1 - d.x0;
-    })
-    .attr("height", function (d) {
-      return d.y1 - d.y0;
-    })
+    .attr("x", (d) => d.x0)
+    .attr("y", (d) => d.y0)
+    .attr("width", (d) => d.x1 - d.x0)
+    .attr("height", (d) => d.y1 - d.y0)
     .style("stroke", "black")
-    .style("fill", function (d) {
-      return color(d.parent.data.Name);
-    })
-    .style("opacity", function (d) {
-      return opacity(d.data[propertyName]);
-    })
+    .style("fill", (d) => color(d.parent.data.name))
     .attr("rx", 6)
-    .attr("ry", 6);
+    .attr("ry", 6)
+    .on("mouseover", function (event, d) {
+      // Get metric label from propertyMap
+      const metricLabel = Object.keys(propertyMap).find(
+        (key) => propertyMap[key] === propertyName
+      );
 
-  // and to add the text labels
-  // const tooSmall = width < 0.001 || height < 0.001
+      tooltip.transition().duration(200).style("opacity", 0.9);
+      tooltip
+        .html(
+          `
+        <strong>${d.data.Name}</strong><br>
+        ${metricLabel}: ${d.data[propertyName].toLocaleString()}
+      `
+        )
+        .style("left", event.pageX + 10 + "px")
+        .style("top", event.pageY - 28 + "px");
+    })
+    .on("mouseout", function () {
+      tooltip.transition().duration(500).style("opacity", 0);
+    });
 
+  // add text labels only if the cell is large enough
   svg
     .selectAll("text")
     .data(root.leaves())
     .enter()
     .append("text")
+    .filter(function (d) {
+      const width = d.x1 - d.x0;
+      const height = d.y1 - d.y0;
+      return width > hidden.width && height > hidden.height;
+    })
     .attr("x", function (d) {
       return d.x0 + 5;
     }) // +10 to adjust position (more right)
@@ -94,16 +102,19 @@ export function renderTreemapChart(data, metric = "Number of Transactions") {
     .text(function (d) {
       return d.data.Name;
     })
-    // .attr('opacity', tooSmall ? 0 : 0.9)
-    .attr("font-size", "16px")
+    .attr("font-size", "15px")
     .attr("fill", "white");
 
-  // and to add the text labels
   svg
     .selectAll("vals")
     .data(root.leaves())
     .enter()
     .append("text")
+    .filter(function (d) {
+      const width = d.x1 - d.x0;
+      const height = d.y1 - d.y0;
+      return width > hidden.width && height > hidden.height;
+    })
     .attr("x", function (d) {
       return d.x0 + 5;
     }) // +10 to adjust position (more right)
@@ -114,20 +125,20 @@ export function renderTreemapChart(data, metric = "Number of Transactions") {
       return d.data[propertyName];
     })
     .attr("font-size", "10px")
-    .attr("fill", "white");
+    .attr("fill", "white")
 
-  // Add title for the 3 groups
+  // add title for the groups ("Buyers" and "Sellers")
   svg
     .selectAll("titles")
     .data(
       root.descendants().filter(function (d) {
-        return d.depth == 1;
+        return d.depth === 1;
       })
     )
     .enter()
     .append("text")
     .attr("x", function (d) {
-      return d.x0;
+      return d.x0 + 5;
     })
     .attr("y", function (d) {
       return d.y0 + 21;
@@ -135,36 +146,4 @@ export function renderTreemapChart(data, metric = "Number of Transactions") {
     .text(function (d) {
       return d.data.name;
     })
-    .attr("font-size", "19px")
-    .attr("fill", function (d) {
-      return color(d.data.name);
-    });
-
-  // Add title for the 3 groups
-  svg
-    .selectAll("titles")
-    .data(
-      root.descendants().filter(function (d) {
-        return d.depth == 1;
-      })
-    )
-    .enter()
-    .append("text")
-    .attr("x", function (d) {
-      return d.x0;
-    })
-    .attr("y", function (d) {
-      return d.y0 + 21;
-    })
-    .text(function (d) {
-      return d.data.Name;
-    })
-    .attr("font-size", "19px")
-    .attr("fill", function (d) {
-      return color(d.data.Name);
-    });
-}
-
-export function updateYearTreemap(data, newYear) {
-  chart.transition().duration(1500).text(newYear);
 }
