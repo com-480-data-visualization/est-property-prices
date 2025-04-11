@@ -5,6 +5,7 @@ let globalMunicipalityStats;
 let path;
 let maxValue;
 let colorScale;
+let currentCountyId;
 
 const conf = {
   width: 600,
@@ -12,20 +13,21 @@ const conf = {
   landStroke: "#FCF5E9",
 };
 
-function getMaxValueForCurrentYear(data) {
+function getMaxValueForCurrentCounty(data, countyId) {
   const statistic = "Price per unit area median(eur /m2)";
+  
+  const countyData = data.find(d => d.MKOOD === countyId);
+  if (!countyData) return 0;
 
-  const values = data
-    .flatMap((item) =>
-      Object.values(item.data).flatMap((yearData) =>
-        Object.values(yearData).flatMap((municipality) =>
-          municipality.data
-            .filter((d) => d["Area(m2)"] === "TOTAL")
-            .map((d) => parseFloat(d[statistic]))
-        )
+  const values = Object.values(countyData.data)
+    .flatMap(yearData => 
+      Object.values(yearData).flatMap(municipality =>
+        municipality.data
+          .filter(d => d["Area(m2)"] === "TOTAL")
+          .map(d => parseFloat(d[statistic]))
       )
     )
-    .filter((v) => !isNaN(v));
+    .filter(v => !isNaN(v));
 
   const rawMax = values.length ? Math.max(...values) : 0;
   return Math.ceil(rawMax / 500) * 500; // Round up to nearest 500
@@ -33,17 +35,17 @@ function getMaxValueForCurrentYear(data) {
 
 function getValueForID(data, countyId, municipalityName) {
   const year = sessionStorage.getItem("year");
-  const county = data.find((d) => d.MKOOD === countyId);
+  const county = data.find(d => d.MKOOD === countyId);
   if (!county) return null;
 
   const yearData = county.data[year] || {};
   const municipality = yearData[municipalityName];
   if (!municipality) return null;
 
-  const totalEntry = municipality.data.find((d) => d["Area(m2)"] === "TOTAL");
-  return totalEntry
-    ? parseFloat(totalEntry["Price per unit area median(eur /m2)"])
-    : null;
+  const totalEntry = municipality.data.find(d => d["Area(m2)"] === "TOTAL");
+  return totalEntry ? 
+    parseFloat(totalEntry["Price per unit area median(eur /m2)"]) : 
+    null;
 }
 
 function renderOneMunicipality(d) {
@@ -58,7 +60,9 @@ function renderOneMunicipality(d) {
 
 export function renderMunicipalityMap(data, municipalityStats) {
   globalMunicipalityStats = municipalityStats;
-  maxValue = getMaxValueForCurrentYear(municipalityStats);
+  
+  currentCountyId = data.features[0]?.properties.MKOOD;
+  maxValue = getMaxValueForCurrentCounty(municipalityStats, currentCountyId);
 
   colorScale = CustomGradient(0, maxValue);
   
@@ -95,7 +99,7 @@ export function renderMunicipalityMap(data, municipalityStats) {
 }
 
 export function updateMunicipalityMap() {
-  maxValue = getMaxValueForCurrentYear(globalMunicipalityStats);
+  maxValue = getMaxValueForCurrentCounty(globalMunicipalityStats, currentCountyId);
   colorScale.domain([0, maxValue]);
 
   path

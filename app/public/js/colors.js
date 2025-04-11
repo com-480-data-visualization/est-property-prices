@@ -1,4 +1,5 @@
 export const baseColor = "#35978f";
+export const darkBaseColor = "#256a64";
 export const contrastColor = "#bf812d";
 
 export const CustomInterpolate = (t) => {
