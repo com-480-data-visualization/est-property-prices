@@ -31,7 +31,7 @@ The county-specific dashboards provide a more granular view of real estate data,
 3. **Detailed Map**: Focuses on parish-level (commune-level) data within the selected county.
 4. **Radar Chart**: Illustrates the distribution of transactions by land type (e.g., residential, agricultural).
 5. **Circular Packing Chart**: Visualizes land use categories in a hierarchical bubble format.
-6. **Treemap**: Highlights non-local transactions based on buyer and seller locations.
+6. **Treemap**: Highlights non-local transactions based on buyer and seller nationalities.
 
 Each visualization is designed to complement the others, providing users with a comprehensive understanding of real estate trends in the selected county.
 
