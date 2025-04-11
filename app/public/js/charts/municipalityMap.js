@@ -1,5 +1,9 @@
+import { Legend } from "./countryMap.js";
+
 let globalMunicipalityStats;
 let path;
+let maxValue;
+let colorScale;
 
 const conf = {
   width: 600,
@@ -10,47 +14,68 @@ const conf = {
   backgroundColor: "#EAF2FA",
 };
 
+function getMaxValueForCurrentYear(data) {
+  const statistic = "Price per unit area median(eur /m2)";
+
+  const values = data
+    .flatMap((item) =>
+      Object.values(item.data).flatMap((yearData) =>
+        Object.values(yearData).flatMap((municipality) =>
+          municipality.data
+            .filter((d) => d["Area(m2)"] === "TOTAL")
+            .map((d) => parseFloat(d[statistic]))
+        )
+      )
+    )
+    .filter((v) => !isNaN(v));
+
+  const rawMax = values.length ? Math.max(...values) : 0;
+  return Math.ceil(rawMax / 500) * 500; // Round up to nearest 500
+}
+
 function getValueForID(data, countyId, municipalityName) {
   const year = sessionStorage.getItem("year");
-  const countyYear = data.filter((d) => d.MKOOD === countyId)[0].data[year];
-  let municipalityList
-  if (countyYear.hasOwnProperty(municipalityName)) {
-    municipalityList = countyYear[municipalityName].data
-  } else{
-    console.log("Could not find '" + municipalityName + "' in the JSON data")
-    return 0;
-  }
-  const totalList = municipalityList.filter((d) => d["Area(m2)"] === "TOTAL")
-  if (totalList.length > 0) {
-    const statistic = "Price per unit area median(eur /m2)";
-    return totalList[0][statistic];
-  } else {
-    console.log("Could not find 'TOTAL' aggregation for: " + municipalityName)
-    return 0;
-  }
-  
+  const county = data.find((d) => d.MKOOD === countyId);
+  if (!county) return null;
+
+  const yearData = county.data[year] || {};
+  const municipality = yearData[municipalityName];
+  if (!municipality) return null;
+
+  const totalEntry = municipality.data.find((d) => d["Area(m2)"] === "TOTAL");
+  return totalEntry
+    ? parseFloat(totalEntry["Price per unit area median(eur /m2)"])
+    : null;
 }
 
 function renderOneMunicipality(d) {
-  //const value = Math.sqrt(d.properties.AREA);
-  const countyId = d.properties.MKOOD;
-  const municipalityName = d.properties.ONIMI
-  const value = getValueForID(globalMunicipalityStats, countyId, municipalityName);
-  return value
-    ? d3.scaleSequential(d3.interpolateViridis).domain([0, 2000])(value)
-    : "#000000";
+  const value = getValueForID(
+    globalMunicipalityStats,
+    d.properties.MKOOD,
+    d.properties.ONIMI
+  );
+
+  return value !== null ? colorScale(value) : "#CCCCCC";
 }
 
 export function renderMunicipalityMap(data, municipalityStats) {
-  globalMunicipalityStats = municipalityStats
+  globalMunicipalityStats = municipalityStats;
+  maxValue = getMaxValueForCurrentYear(municipalityStats);
 
-  const projection = d3.geoMercator().fitExtent([[0, 0], [conf.width - 0, conf.height - 0]], data)
-  const pathGenerator = d3.geoPath().projection(projection);
+  colorScale = d3.scaleSequential(d3.interpolateCividis).domain([0, maxValue]);
+
+  const projection = d3.geoMercator().fitExtent(
+    [
+      [0, 0],
+      [conf.width, conf.height],
+    ],
+    data
+  );
 
   const svg = d3
     .select("[municipality-map]")
     .append("svg")
-    .attr("width", "100%") // Make it responsive
+    .attr("width", "100%")
     .attr("height", "100%")
     .attr("viewBox", `0 0 ${conf.width} ${conf.height}`);
 
@@ -58,16 +83,26 @@ export function renderMunicipalityMap(data, municipalityStats) {
     .selectAll("path")
     .data(data.features)
     .join("path")
-    .attr("d", pathGenerator)
-    .style("fill", renderOneMunicipality)
+    .attr("d", d3.geoPath().projection(projection))
+    .style("fill", (d) => renderOneMunicipality(d))
     .attr("stroke", conf.landStroke)
     .attr("stroke-width", 1);
+
+  Legend(d3.scaleSequential([0, maxValue], d3.interpolateCividis), {
+    title: "",
+    width: 400,
+    marginLeft: 10,
+    tickSize: 6,
+  });
 }
 
 export function updateMunicipalityMap() {
+  maxValue = getMaxValueForCurrentYear(globalMunicipalityStats);
+  colorScale.domain([0, maxValue]);
+
   path
     .transition()
-    .duration(150)
-    .style("fill", renderOneMunicipality)
-    .style("stroke", "white");
+    .duration(300)
+    .style("fill", (d) => renderOneMunicipality(d))
+    .style("stroke", conf.landStroke);
 }

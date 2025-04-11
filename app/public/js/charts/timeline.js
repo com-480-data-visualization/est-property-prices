@@ -49,7 +49,7 @@ export function renderTimeline(data) {
     .axisBottom(xScale)
     .tickSize(-(size.height - margin.top - margin.bottom))
     .tickFormat("")
-    .ticks(d3.timeYear.every(1));
+    .ticks(d3.timeYear.every(2));
 
   chartGroup
     .append("g")
@@ -63,7 +63,7 @@ export function renderTimeline(data) {
   // X Axis
   const xAxis = d3
     .axisBottom(xScale)
-    .ticks(d3.timeYear.every(1))
+    .ticks(d3.timeYear.every(2))
     .tickFormat(d3.timeFormat("%Y"));
 
   svg
@@ -126,9 +126,15 @@ export function renderTimeline(data) {
     .attr("dy", "-0.5em");
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {;
   const slider = document.getElementById("year-slider");
   const selectedYearDisplay = document.getElementById("selected-year");
+
+  const storedYear = sessionStorage.getItem("year");
+  if (storedYear) {
+    slider.value = storedYear;
+    selectedYearDisplay.textContent = storedYear;
+  }
 
   const updateSliderIndicator = (year) => {
     if (!xScale) return;

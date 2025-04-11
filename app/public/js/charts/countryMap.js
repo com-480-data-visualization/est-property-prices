@@ -1,8 +1,5 @@
 let chart;
 let svg;
-let legend;
-let legendContainer;
-let legendSvg;
 let globalStatsData;
 let maxValue;
 
@@ -23,8 +20,7 @@ function getValueForID(data, id) {
   return yearList.filter((d) => d["Area(m2)"] === "TOTAL")[0][statistic];
 }
 
-function getMaxValueForCurrentYear(data) {
-  
+export function getMaxValueForCurrentYear(data) {
   const statistic = "Price per unit area median(eur /m2)";
 
   const maxValue = Math.max(
@@ -93,17 +89,6 @@ export function renderMap(geoJson, statsData) {
     sessionStorage.setItem("countyId", d.properties.MKOOD);
   });
 
-  legendContainer = d3.select("#map-legend");
-  const legendWidth = legendContainer.node().getBoundingClientRect().width;
-  const legendHeight = legendContainer.node().getBoundingClientRect().height;
-
-  legendSvg = legendContainer
-    .append("svg")
-    .attr("width", "100%") // Make it responsive
-    .attr("height", "100%")
-    .attr("viewBox", `0 0 ${legendWidth} ${legendHeight}`)
-    .attr("preserveAspectRatio", "xMidYMid meet");
-
   Legend(d3.scaleSequential([0, maxValue], d3.interpolateCividis), {
     title: "",
     width: 400,
@@ -133,7 +118,9 @@ function setupTooltip(paths) {
         const id = d.properties.MKOOD;
         const value = getValueForID(globalStatsData, id);
         return value
-          ? d3.scaleSequential(d3.interpolateCividis).domain([0, 2000])(value)
+          ? d3.scaleSequential(d3.interpolateCividis).domain([0, maxValue])(
+              value
+            )
           : "#000000";
       });
       tooltip.transition().duration(500).style("opacity", 0);
@@ -162,9 +149,10 @@ export function updateYearMap(statsData) {
 }
 
 // https://observablehq.com/@d3/color-legend
-function Legend(
+export function Legend(
   color,
   {
+    legendId = "#map-legend",
     title,
     tickSize = 6,
     width = 500,
@@ -190,8 +178,19 @@ function Legend(
     return canvas;
   }
 
+  const legendContainer = d3.select("#map-legend");
+  const legendWidth = legendContainer.node().getBoundingClientRect().width;
+  const legendHeight = legendContainer.node().getBoundingClientRect().height;
+
   width = legendContainer.node().getBoundingClientRect().width;
   height = legendContainer.node().getBoundingClientRect().height;
+
+  const legendSvg = legendContainer
+    .append("svg")
+    .attr("width", "100%") // Make it responsive
+    .attr("height", "100%")
+    .attr("viewBox", `0 0 ${legendWidth} ${legendHeight}`)
+    .attr("preserveAspectRatio", "xMidYMid meet");
 
   let tickAdjust = (g) =>
     g.selectAll(".tick line").attr("y1", marginTop + marginBottom - height);
