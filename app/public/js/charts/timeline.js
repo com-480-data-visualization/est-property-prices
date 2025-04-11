@@ -1,3 +1,4 @@
+import { baseColor } from "../colors.js";
 import { dispatch } from "../county.js";
 
 let svg, xScale;
@@ -100,7 +101,7 @@ export function renderTimeline(data) {
     .append("path")
     .datum(data)
     .attr("d", lineGenerator)
-    .attr("stroke", "darkcyan")
+    .attr("stroke", baseColor)
     .attr("stroke-width", 3)
     .attr("fill", "none");
 
@@ -112,7 +113,7 @@ export function renderTimeline(data) {
 
   sliderIndicator
     .append("line")
-    .attr("stroke", "darkcyan")
+    .attr("stroke", baseColor)
     .attr("stroke-width", 1.5)
     .attr("stroke-dasharray", "3,3")
     .attr("y1", 0)

@@ -1,3 +1,5 @@
+import { CustomGradient } from "../colors.js";
+
 let chart;
 let svg;
 let globalStatsData;
@@ -74,9 +76,8 @@ export function renderMap(geoJson, statsData) {
     .style("fill", (d) => {
       const id = d.properties.MKOOD;
       const value = getValueForID(statsData, id);
-      return value
-        ? d3.scaleSequential(d3.interpolateCividis).domain([0, maxValue])(value)
-        : "#ccc";
+      const colorScale = CustomGradient(0, maxValue)
+      return value ? colorScale(value) : "#ccc";
     })
     .style("stroke", "white");
 
@@ -89,7 +90,7 @@ export function renderMap(geoJson, statsData) {
     sessionStorage.setItem("countyId", d.properties.MKOOD);
   });
 
-  Legend(d3.scaleSequential([0, maxValue], d3.interpolateCividis), {
+  Legend(CustomGradient(0, maxValue), {
     title: "",
     width: 400,
     marginLeft: 10,
@@ -117,11 +118,8 @@ function setupTooltip(paths) {
       d3.select(this).style("fill", (d) => {
         const id = d.properties.MKOOD;
         const value = getValueForID(globalStatsData, id);
-        return value
-          ? d3.scaleSequential(d3.interpolateCividis).domain([0, maxValue])(
-              value
-            )
-          : "#000000";
+        const colorScale = CustomGradient(0, maxValue)
+        return value ? colorScale(value) : "#ccc";
       });
       tooltip.transition().duration(500).style("opacity", 0);
     });
@@ -141,9 +139,8 @@ export function updateYearMap(statsData) {
     .style("fill", (d) => {
       const id = d.properties.MKOOD;
       const value = getValueForID(statsData, id);
-      return value
-        ? d3.scaleSequential(d3.interpolateCividis).domain([0, maxValue])(value)
-        : "#ccc";
+        const colorScale = CustomGradient(0, maxValue)
+        return value ? colorScale(value) : "#ccc";
     })
     .style("stroke", "white");
 }
@@ -197,13 +194,11 @@ export function Legend(
   let x;
 
   x = Object.assign(
-    color
-      .copy()
-      .interpolator(d3.interpolateRound(marginLeft, width - marginRight)),
+    color.copy().interpolator(d3.interpolateRound(marginLeft, width - marginRight)),
     {
       range() {
         return [marginLeft, width - marginRight];
-      },
+      }
     }
   );
 

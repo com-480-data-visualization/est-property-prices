@@ -1,4 +1,5 @@
 import { Legend } from "./countryMap.js";
+import { CustomGradient } from "../colors.js";
 
 let globalMunicipalityStats;
 let path;
@@ -8,10 +9,7 @@ let colorScale;
 const conf = {
   width: 600,
   height: 350,
-  landColor: "#09A573",
   landStroke: "#FCF5E9",
-  markerColor: "#E26F99",
-  backgroundColor: "#EAF2FA",
 };
 
 function getMaxValueForCurrentYear(data) {
@@ -62,8 +60,8 @@ export function renderMunicipalityMap(data, municipalityStats) {
   globalMunicipalityStats = municipalityStats;
   maxValue = getMaxValueForCurrentYear(municipalityStats);
 
-  colorScale = d3.scaleSequential(d3.interpolateCividis).domain([0, maxValue]);
-
+  colorScale = CustomGradient(0, maxValue);
+  
   const projection = d3.geoMercator().fitExtent(
     [
       [0, 0],
@@ -88,7 +86,7 @@ export function renderMunicipalityMap(data, municipalityStats) {
     .attr("stroke", conf.landStroke)
     .attr("stroke-width", 1);
 
-  Legend(d3.scaleSequential([0, maxValue], d3.interpolateCividis), {
+  Legend(colorScale, {
     title: "",
     width: 400,
     marginLeft: 10,

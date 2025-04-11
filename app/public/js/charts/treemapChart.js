@@ -1,3 +1,5 @@
+import { baseColor, contrastColor } from "../colors.js";
+
 const dimensions = {
   width: 600,
   height: 600,
@@ -45,7 +47,7 @@ export function renderTreemapChart(data, metric = "Number of Transactions") {
   var color = d3
     .scaleOrdinal()
     .domain(["Buyers", "Sellers"])
-    .range(["#402D54", "#D18975"]);
+    .range([baseColor, contrastColor]);
 
   // add rectangles with tooltip interactions
   svg
@@ -57,7 +59,6 @@ export function renderTreemapChart(data, metric = "Number of Transactions") {
     .attr("y", (d) => d.y0)
     .attr("width", (d) => d.x1 - d.x0)
     .attr("height", (d) => d.y1 - d.y0)
-    .style("stroke", "black")
     .style("fill", (d) => color(d.parent.data.name))
     .attr("rx", 6)
     .attr("ry", 6)
