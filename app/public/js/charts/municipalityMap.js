@@ -9,7 +9,7 @@ let currentCountyId;
 
 const conf = {
   width: 600,
-  height: 350,
+  height: 340,
   landStroke: "#FCF5E9",
 };
 

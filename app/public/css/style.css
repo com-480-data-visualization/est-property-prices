@@ -221,3 +221,45 @@ input::-moz-focus-outer {
 .tick line {
   stroke-dasharray: none; /* Optional: Remove dashed lines for simplicity */
 }
+
+/* Tooltip - Maps */
+
+.tooltip {
+  position: absolute;
+  background-color: white;
+  border: none;
+  border-radius: 2px;
+  padding: 12px 15px;
+  min-width: 180px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  z-index: 1000;
+  text-align: left;
+}
+.tooltip::after {
+  content: '';
+  position: absolute;
+  left: 15px;
+  bottom: -8px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid white;
+}
+.tooltip-title {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 5px;
+  text-align: left;
+}
+.tooltip-label {
+  font-size: 13px;
+  color: #666;
+  text-align: left;
+}
+.tooltip-value {
+  font-weight: bold;
+  font-size: 22px;
+  text-align: left;
+}

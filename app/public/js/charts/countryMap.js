@@ -18,12 +18,12 @@ function getValueForID(data, id) {
   const year = sessionStorage.getItem("year");
   const yearList = data.filter((d) => d.MKOOD === id)[0].data[year];
 
-  const statistic = "Price per unit area median(eur /m2)";
+  const statistic = "Price per unit area avg(eur /m2)";
   return yearList.filter((d) => d["Area(m2)"] === "TOTAL")[0][statistic];
 }
 
 export function getMaxValueForCurrentYear(data) {
-  const statistic = "Price per unit area median(eur /m2)";
+  const statistic = "Price per unit area avg(eur /m2)";
 
   const maxValue = Math.max(
     ...data.flatMap((item) =>
@@ -99,6 +99,7 @@ export function renderMap(geoJson, statsData) {
 }
 
 function setupTooltip(paths) {
+
   const tooltip = d3
     .select("body")
     .append("div")
@@ -107,23 +108,82 @@ function setupTooltip(paths) {
 
   paths
     .on("mouseover", function (event, d) {
-      d3.select(this).style("fill", "orange").style("cursor", "pointer");
-      tooltip.transition().duration(200).style("opacity", 0.9);
+      // Change cursor to pointer
+      d3.select(this)
+        .style("cursor", "pointer")
+        .style("fill", "orange");
+        
+      const id = d.properties.MKOOD;
+      const year = sessionStorage.getItem("year");
+      const stats = globalStatsData.find((item) => item.MKOOD === id)?.data[year]?.find(
+        (data) => data["Area(m2)"] === "TOTAL"
+      );
+
+      if (!stats) return;
+
+      const min = stats["Price per unit area min(eur /m2)"];
+      const max = stats["Price per unit area max(eur /m2)"];
+      const median = stats["Price per unit area median(eur /m2)"];
+      const avg = stats["Price per unit area avg(eur /m2)"];
+      const std = stats["Price per unit area std(eur /m2)"];
+      
+      const q1 = Math.max(min, median - std/2);
+      const q3 = Math.min(max, median + std/2);
+
+      tooltip.html("");
+
+      tooltip.append("div")
+        .attr("class", "tooltip-title")
+        .text(d.properties.MNIMI);
+
+      tooltip.append("div")
+        .attr("class", "tooltip-label")
+        .text("Average transaction price (€ / m²):");
+
+      tooltip.append("div")
+        .attr("class", "tooltip-value")
+        .text(`${median.toFixed(2)}`);
+
+      const tooltipHeight = tooltip.node().getBoundingClientRect().height;
+      
       tooltip
-        .html(d.properties.MNIMI)
-        .style("left", `${event.pageX}px`)
-        .style("top", `${event.pageY - 28}px`);
+        .style("left", `${event.pageX - 20}px`)
+        .style("top", `${event.pageY - tooltipHeight - 15}px`) // Position above the cursor
+        .transition()
+        .duration(200)
+        .style("opacity", 1);
     })
     .on("mouseout", function () {
-      d3.select(this).style("fill", (d) => {
-        const id = d.properties.MKOOD;
-        const value = getValueForID(globalStatsData, id);
-        const colorScale = CustomGradient(0, maxValue)
-        return value ? colorScale(value) : "#ccc";
-      });
+      d3.select(this)
+        .style("cursor", "default")
+        .style("fill", (d) => {
+          const id = d.properties.MKOOD;
+          const value = getValueForID(globalStatsData, id);
+          const colorScale = CustomGradient(0, maxValue)
+          return value ? colorScale(value) : "#ccc";
+        });
+        
       tooltip.transition().duration(500).style("opacity", 0);
+    })
+    .on("mousemove", function(event) {
+
+      const tooltipNode = tooltip.node();
+      const tooltipHeight = tooltipNode.getBoundingClientRect().height;
+      const tooltipWidth = tooltipNode.getBoundingClientRect().width;
+      
+      let xPosition = event.pageX - 20;
+      let yPosition = event.pageY - tooltipHeight - 15;
+      
+      if (xPosition + tooltipWidth > window.innerWidth) {
+        xPosition = window.innerWidth - tooltipWidth - 10;
+      }
+      
+      tooltip
+        .style("left", `${xPosition}px`)
+        .style("top", `${yPosition}px`);
     });
 }
+
 
 function formatPathID(pathID) {
   return pathID
