@@ -157,12 +157,13 @@ The treemap highlights non-local transactions by visualizing buyer-seller relati
 
 ### To Do
 
-- [] be more specific with chart titles and tooltip descriptions
-- [] find best color scheme
-- [] boxplot for tooltip of the main map?
-- [] fix alignment of the year for the main page
-- [] add average salary for the year
-- [] add tooltip for the smaller map
-- [] fix tooltip design for treemap
-- [] add sequential coloring (based on values) for treemap
-- [] fix title of the county formatting
+- [ ] Be more specific with chart titles and **tooltip descriptions** to ensure clarity and usability.  
+- [ ] Find the **optimal color scheme** that enhances readability and visual appeal.  
+- [ ] Add a **boxplot visualization** to the tooltip of the main map for detailed statistical insights.  
+- [ ] Fix the **alignment of the year** on the main page for consistent formatting.  
+- [ ] Include the **average salary data** for the selected year to provide economic context.  
+- [ ] Add a **tooltip for the smaller map** to offer additional information or context.  
+- [ ] Improve the **tooltip design for the treemap** for better readability and aesthetics.  
+- [ ] Implement **sequential coloring based on values** in the treemap to highlight data trends effectively.  
+- [ ] Correct the **county title formatting** for a more polished appearance.
+
