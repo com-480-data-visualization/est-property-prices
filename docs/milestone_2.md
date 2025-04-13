@@ -102,6 +102,7 @@ The radar chart depicts the distribution of transactions by land type (e.g., res
 
 - **Extras**:
   - A dropdown menu allows users to switch between different metrics (e.g., count of transactions, total area sold, total transaction value).
+  - Alternatively, tooltip provides the additional information mentioned above.
 
 #### Tools and Lectures
 
