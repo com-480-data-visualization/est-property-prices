@@ -14,7 +14,7 @@ Our data visualization project consists of two main components:
 
 The landing page is designed to be **simple yet informative**, offering users a bird's-eye view of real estate trends at the county level. Key features include:
 
-- **County-Level Yearly Average Transaction Prices**: Displayed on an interactive map.
+- **County-Level Yearly Average Transaction Prices** (€ / m²): Displayed on an interactive map.
 - **Time-Slider**: Allows users to explore how prices have evolved over the years.
 - **Hover and Click Interactions**:
   - Hovering over a county reveals a pop-up with summary statistics (e.g., average price, median price).
@@ -26,8 +26,8 @@ This page serves as the entry point for users to explore temporal and spatial tr
 
 The county-specific dashboards provide a more granular view of real estate data, offering multiple visualizations and statistics. These dashboards include:
 
-1. **Line Chart**: Displays price dynamics over time and doubles as a time-slider for the dashboard.
-2. **Key Statistics**: Highlights essential metrics such as the selected year's average transaction price and average salary for the county.
+1. **Time Slider & Average Salary**: Enables to adjust the dashboard for certain year and provides average salary of the county for the year.
+2. **Line Chart**: Displays price dynamics over time (€ / m²).
 3. **Detailed Map**: Focuses on parish-level (commune-level) data within the selected county.
 4. **Radar Chart**: Illustrates the distribution of transactions by land type (e.g., residential, agricultural).
 5. **Circular Packing Chart**: Visualizes land use categories in a hierarchical bubble format.
@@ -66,7 +66,7 @@ Maps are central to this project, showcasing both temporal dynamics and geograph
 
 #### Tools and Lectures
 
-- TopoJSON and GeoJSON 
+- [TopoJSON and GeoJSON](https://d3js.org/d3-geo)
 - Lecture 8: Maps
 - Lecture 5: Interactions
 
@@ -74,7 +74,7 @@ Maps are central to this project, showcasing both temporal dynamics and geograph
 
 ### Line Chart
 
-The line chart visualizes price trends over time while serving as an interactive time-slider for the entire dashboard.
+The line chart visualizes price trends over time for the county.
 
 #### Features:
 - **MVP**:
@@ -87,26 +87,6 @@ The line chart visualizes price trends over time while serving as an interactive
 #### Tools and Lectures
 
 - [D3 line charts](https://d3-graph-gallery.com/line)
-- Lecture 5: Interactions
-- Lecture 11: Tabular Data
-
----
-
-### Key Statistics
-
-Key statistics are presented as simple numerical values, emphasizing clarity over complexity. These include metrics such as the selected year's average transaction price and county-wide average salary.
-
-#### Features:
-- **MVP**:
-  - Clear display of key values with descriptive labels.
-
-- **Extras**:
-  - Salary values include icons and percentage changes compared to the previous year for added context.
-
-#### Tools and Lectures
-
-- [D3 Formatting](https://d3js.org/d3-format)
-- Lecture 8: Text Visualization
 - Lecture 5: Interactions
 - Lecture 11: Tabular Data
 
@@ -174,3 +154,15 @@ The treemap highlights non-local transactions by visualizing buyer-seller relati
 ---
 
 ## Current Prototype
+
+### To Do
+
+- [] be more specific with chart titles and tooltip descriptions
+- [] find best color scheme
+- [] boxplot for tooltip of the main map?
+- [] fix alignment of the year for the main page
+- [] add average salary for the year
+- [] add tooltip for the smaller map
+- [] fix tooltip design for treemap
+- [] add sequential coloring (based on values) for treemap
+- [] fix title of the county formatting
