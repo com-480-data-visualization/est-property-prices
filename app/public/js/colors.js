@@ -1,22 +1,30 @@
-export const baseColor = "#35978f";
-export const darkBaseColor = "#256a64";
-export const contrastColor = "#bf812d";
 
-export const CustomInterpolate = (t) => {
-    const colors  = [
-        "#01665e",
-        "#35978f",
-        "#80cdc1",
-        "#c7eae5",
-        "#f5f5f5",
-        "#f6e8c3",
-        "#dfc27d",
-        "#bf812d",
-        "#8c510a",
-      ];
-  return d3.interpolateRgbBasis(colors)(t);
+export const baseColor = "#0B6477";
+export const darkBaseColor = "#213A57";
+export const contrastColor = "#0AD1C8";
+
+const kingYna = [
+  "#1a2a6c",
+  "#b21f1f",
+  "#fdbb2d"
+];
+
+const defaultColors = [
+  "#213A57",
+  "#0B6477",
+  "#14919B",
+  "#0AD1C8",
+  "#45DFB1",
+  "#80ED99"
+];
+
+export const CustomInterpolate = (colors = defaultColors) => {
+  return d3.interpolateRgbBasis(colors);
 };
 
-export const CustomGradient = (minValue, maxValue) => {
-  return d3.scaleSequential(CustomInterpolate).domain([minValue, maxValue]);
+export const CustomGradient = (minValue, maxValue, colors) => {
+  const colorScheme = colors || defaultColors;
+
+  const interpolate = CustomInterpolate(colorScheme);
+  return d3.scaleSequential(interpolate).domain([minValue, maxValue]);
 };
