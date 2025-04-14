@@ -3,12 +3,6 @@ export const baseColor = "#0B6477";
 export const darkBaseColor = "#213A57";
 export const contrastColor = "#0AD1C8";
 
-const kingYna = [
-  "#1a2a6c",
-  "#b21f1f",
-  "#fdbb2d"
-];
-
 const defaultColors = [
   "#213A57",
   "#0B6477",

@@ -134,7 +134,7 @@ function setupTooltip(paths) {
 
       tooltip.append("div")
         .attr("class", "tooltip-title")
-        .text(d.properties.MNIMI);
+        .text(d.properties.MNIMI.replace("maakond", "county"));
 
       tooltip.append("div")
         .attr("class", "tooltip-label")

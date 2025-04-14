@@ -67,7 +67,7 @@ function setupTooltip(paths) {
 
   paths
     .on("mouseover", function (event, d) {
-      d3.select(this).style("cursor", "pointer").style("fill", "orange");
+      d3.select(this).style("fill", "orange");
 
       const countyId = d.properties.MKOOD;
       const municipalityName = d.properties.ONIMI;
@@ -79,6 +79,10 @@ function setupTooltip(paths) {
           (d) => d["Area(m2)"] === "TOTAL"
         );
 
+      const municipalityNameEnglish = municipalityName
+        .replace(" vald", " parish")
+        .replace(" linn", " town");
+
       if (!stats) return;
 
       tooltip.html("");
@@ -86,7 +90,7 @@ function setupTooltip(paths) {
       tooltip
         .append("div")
         .attr("class", "tooltip-title")
-        .text(municipalityName);
+        .text(municipalityNameEnglish);
 
       tooltip
         .append("div")
@@ -108,7 +112,6 @@ function setupTooltip(paths) {
     })
     .on("mouseout", function () {
       d3.select(this)
-        .style("cursor", "default")
         .style("fill", (d) => renderOneMunicipality(d));
 
       tooltip.transition().duration(500).style("opacity", 0);
