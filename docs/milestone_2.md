@@ -168,6 +168,8 @@ The treemap highlights non-local transactions by visualizing buyer-seller relati
 
 ## Current Prototype
 
+You can find our current data visualization [here](https://suvariik.eu/).
+
 ### To Do
 
 - [ ] Be more specific with chart titles and **tooltip descriptions** to ensure clarity and usability.  
@@ -178,4 +180,5 @@ The treemap highlights non-local transactions by visualizing buyer-seller relati
 - [ ] Implement **sequential coloring based on values** in the treemap to highlight data trends effectively.  
 - [ ] Correct the **county title formatting** for a more polished appearance.
 - [ ] Continue the **circular packing** chart.
+- [ ] Adjust CSS for **tablet and phone** view.
 

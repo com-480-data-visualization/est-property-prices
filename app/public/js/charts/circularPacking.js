@@ -6,7 +6,6 @@ const dimensions = {
 let focus;
 
 export function renderCircularPacking(data) {
-
   d3.select("[bubble-chart]").selectAll("*").remove();
   const svg = d3
     .select("[bubble-chart]")
@@ -43,7 +42,6 @@ export function renderCircularPacking(data) {
 }
 
 function draw(svg, root, color) {
-
   const node = svg
     .selectAll("circle")
     .data(root.descendants().slice(1))
@@ -63,7 +61,6 @@ function draw(svg, root, color) {
         .attr("stroke", "#222")
         .attr("stroke-width", 3)
         .attr("fill", d3.color(d3.select(this).attr("fill")).darker(0.5));
-      // Optionally, show a tooltip here
     })
     .on("mouseout", function (event, d) {
       d3.select(this)
