@@ -1,13 +1,14 @@
+import { baseColor, darkBaseColor } from "../colors.js";
+
 const dimensions = {
   width: 500,
   height: 500,
   radius: 200,
 };
 
-let svg; // Declare chart at the module level
-
 export function renderSpiderChart(data, maxValue) {
-  d3.select("[spider-chart]").selectAll("*").remove(); // Clear previous chart
+
+  d3.select("[spider-chart]").selectAll("*").remove();
 
   const svg = d3
     .select("[spider-chart]")
@@ -20,7 +21,7 @@ export function renderSpiderChart(data, maxValue) {
     );
 
   const angleSlice = (2 * Math.PI) / data.length;
-  // const maxValue = d3.max(data, (d) => d.value);
+  
   const scale = d3
     .scaleLinear()
     .domain([0, maxValue])
@@ -63,8 +64,10 @@ export function renderSpiderChart(data, maxValue) {
     .append("path")
     .datum(data)
     .attr("d", line)
-    .attr("fill", "steelblue")
-    .attr("opacity", 0.5);
+    .attr("fill", baseColor)
+    .attr("stroke", darkBaseColor)
+    .attr("stroke-width", 2)
+    .attr("opacity", 0.7);
 
   // Add category labels
   svg
@@ -115,8 +118,8 @@ export function renderSpiderChart(data, maxValue) {
       "cy",
       (d, i) => scale(d.value) * Math.sin(i * angleSlice - Math.PI / 2)
     )
-    .attr("r", 4)
-    .attr("fill", "steelblue")
+    .attr("r", 10)
+    .attr("opacity", 0)
     .on("mouseover", (event, d) => {
       tooltip
         .style("visibility", "visible")

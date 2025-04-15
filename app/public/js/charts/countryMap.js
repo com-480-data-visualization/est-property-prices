@@ -1,8 +1,7 @@
+import { CustomGradient } from "../colors.js";
+
 let chart;
 let svg;
-let legend;
-let legendContainer;
-let legendSvg;
 let globalStatsData;
 let maxValue;
 
@@ -19,20 +18,21 @@ function getValueForID(data, id) {
   const year = sessionStorage.getItem("year");
   const yearList = data.filter((d) => d.MKOOD === id)[0].data[year];
 
-  const statistic = "Price per unit area median(eur /m2)";
+  const statistic = "Price per unit area avg(eur /m2)";
   return yearList.filter((d) => d["Area(m2)"] === "TOTAL")[0][statistic];
 }
 
-function getMaxValueForCurrentYear(data) {
-  const year = sessionStorage.getItem("year");
-  const statistic = "Price per unit area median(eur /m2)";
+export function getMaxValueForCurrentYear(data) {
+  const statistic = "Price per unit area avg(eur /m2)";
 
   const maxValue = Math.max(
-    ...data
-      .flatMap((item) => item.data[year] || [])
-      .filter((d) => d["Area(m2)"] === "TOTAL")
-      .map((d) => parseFloat(d[statistic]))
-      .filter((value) => !isNaN(value))
+    ...data.flatMap((item) =>
+      Object.values(item.data) // Get data for all years
+        .flatMap((yearData) => yearData || [])
+        .filter((d) => d["Area(m2)"] === "TOTAL")
+        .map((d) => parseFloat(d[statistic]))
+        .filter((value) => !isNaN(value))
+    )
   );
 
   // Round up to the nearest 500
@@ -76,9 +76,8 @@ export function renderMap(geoJson, statsData) {
     .style("fill", (d) => {
       const id = d.properties.MKOOD;
       const value = getValueForID(statsData, id);
-      return value
-        ? d3.scaleSequential(d3.interpolateCividis).domain([0, maxValue])(value)
-        : "#ccc";
+      const colorScale = CustomGradient(0, maxValue)
+      return value ? colorScale(value) : "#ccc";
     })
     .style("stroke", "white");
 
@@ -91,34 +90,16 @@ export function renderMap(geoJson, statsData) {
     sessionStorage.setItem("countyId", d.properties.MKOOD);
   });
 
-  legendContainer = d3.select("#map-legend");
-  const legendWidth = legendContainer.node().getBoundingClientRect().width;
-  const legendHeight = legendContainer.node().getBoundingClientRect().height;
-
-  legendSvg = legendContainer
-    .append("svg")
-    .attr("width", "100%") // Make it responsive
-    .attr("height", "100%")
-    .attr("viewBox", `0 0 ${legendWidth} ${legendHeight}`)
-    .attr("preserveAspectRatio", "xMidYMid meet");
-
-  legend = legendSvg.append("g").attr("class", "legend");
-  // .attr("transform", `translate(${width - 400},30)`);
-
-  Legend(d3.scaleSequential([0, maxValue], d3.interpolateCividis), {
+  Legend(CustomGradient(0, maxValue), {
     title: "",
     width: 400,
     marginLeft: 10,
     tickSize: 6,
   });
-
-  console.log("global data: ", globalStatsData);
-  // createLegend(svg, width);
 }
 
-function createLegend(svg, width) {}
-
 function setupTooltip(paths) {
+
   const tooltip = d3
     .select("body")
     .append("div")
@@ -127,24 +108,82 @@ function setupTooltip(paths) {
 
   paths
     .on("mouseover", function (event, d) {
-      d3.select(this).style("fill", "orange").style("cursor", "pointer");
-      tooltip.transition().duration(200).style("opacity", 0.9);
+      // Change cursor to pointer
+      d3.select(this)
+        .style("cursor", "pointer")
+        .style("fill", "orange");
+        
+      const id = d.properties.MKOOD;
+      const year = sessionStorage.getItem("year");
+      const stats = globalStatsData.find((item) => item.MKOOD === id)?.data[year]?.find(
+        (data) => data["Area(m2)"] === "TOTAL"
+      );
+
+      if (!stats) return;
+
+      const min = stats["Price per unit area min(eur /m2)"];
+      const max = stats["Price per unit area max(eur /m2)"];
+      const median = stats["Price per unit area median(eur /m2)"];
+      const avg = stats["Price per unit area avg(eur /m2)"];
+      const std = stats["Price per unit area std(eur /m2)"];
+      
+      const q1 = Math.max(min, median - std/2);
+      const q3 = Math.min(max, median + std/2);
+
+      tooltip.html("");
+
+      tooltip.append("div")
+        .attr("class", "tooltip-title")
+        .text(d.properties.MNIMI.replace("maakond", "county"));
+
+      tooltip.append("div")
+        .attr("class", "tooltip-label")
+        .text("Average transaction price (€ / m²):");
+
+      tooltip.append("div")
+        .attr("class", "tooltip-value")
+        .text(`${median.toFixed(2)}`);
+
+      const tooltipHeight = tooltip.node().getBoundingClientRect().height;
+      
       tooltip
-        .html(d.properties.MNIMI)
-        .style("left", `${event.pageX}px`)
-        .style("top", `${event.pageY - 28}px`);
+        .style("left", `${event.pageX - 20}px`)
+        .style("top", `${event.pageY - tooltipHeight - 15}px`) // Position above the cursor
+        .transition()
+        .duration(200)
+        .style("opacity", 1);
     })
     .on("mouseout", function () {
-      d3.select(this).style("fill", (d) => {
-        const id = d.properties.MKOOD;
-        const value = getValueForID(globalStatsData, id);
-        return value
-          ? d3.scaleSequential(d3.interpolateCividis).domain([0, 2000])(value)
-          : "#000000";
-      });
+      d3.select(this)
+        .style("cursor", "default")
+        .style("fill", (d) => {
+          const id = d.properties.MKOOD;
+          const value = getValueForID(globalStatsData, id);
+          const colorScale = CustomGradient(0, maxValue)
+          return value ? colorScale(value) : "#ccc";
+        });
+        
       tooltip.transition().duration(500).style("opacity", 0);
+    })
+    .on("mousemove", function(event) {
+
+      const tooltipNode = tooltip.node();
+      const tooltipHeight = tooltipNode.getBoundingClientRect().height;
+      const tooltipWidth = tooltipNode.getBoundingClientRect().width;
+      
+      let xPosition = event.pageX - 20;
+      let yPosition = event.pageY - tooltipHeight - 15;
+      
+      if (xPosition + tooltipWidth > window.innerWidth) {
+        xPosition = window.innerWidth - tooltipWidth - 10;
+      }
+      
+      tooltip
+        .style("left", `${xPosition}px`)
+        .style("top", `${yPosition}px`);
     });
 }
+
 
 function formatPathID(pathID) {
   return pathID
@@ -160,17 +199,17 @@ export function updateYearMap(statsData) {
     .style("fill", (d) => {
       const id = d.properties.MKOOD;
       const value = getValueForID(statsData, id);
-      return value
-        ? d3.scaleSequential(d3.interpolateCividis).domain([0, maxValue])(value)
-        : "#ccc";
+        const colorScale = CustomGradient(0, maxValue)
+        return value ? colorScale(value) : "#ccc";
     })
     .style("stroke", "white");
 }
 
 // https://observablehq.com/@d3/color-legend
-function Legend(
+export function Legend(
   color,
   {
+    legendId = "#map-legend",
     title,
     tickSize = 6,
     width = 500,
@@ -196,25 +235,34 @@ function Legend(
     return canvas;
   }
 
+  const legendContainer = d3.select("#map-legend");
+  const legendWidth = legendContainer.node().getBoundingClientRect().width;
+  const legendHeight = legendContainer.node().getBoundingClientRect().height;
+
   width = legendContainer.node().getBoundingClientRect().width;
   height = legendContainer.node().getBoundingClientRect().height;
+
+  const legendSvg = legendContainer
+    .append("svg")
+    .attr("width", "100%") // Make it responsive
+    .attr("height", "100%")
+    .attr("viewBox", `0 0 ${legendWidth} ${legendHeight}`)
+    .attr("preserveAspectRatio", "xMidYMid meet");
 
   let tickAdjust = (g) =>
     g.selectAll(".tick line").attr("y1", marginTop + marginBottom - height);
   let x;
 
   x = Object.assign(
-    color
-      .copy()
-      .interpolator(d3.interpolateRound(marginLeft, width - marginRight)),
+    color.copy().interpolator(d3.interpolateRound(marginLeft, width - marginRight)),
     {
       range() {
         return [marginLeft, width - marginRight];
-      },
+      }
     }
   );
 
-  legend
+  legendSvg
     .append("image")
     .attr("x", marginLeft)
     .attr("y", marginTop)
@@ -236,7 +284,7 @@ function Legend(
     }
   }
 
-  legend
+  legendSvg
     .append("g")
     .attr("transform", `translate(0,${height - marginBottom})`)
     .call(
@@ -260,12 +308,4 @@ function Legend(
         .attr("class", "title")
         .text(title)
     );
-  // updateLegendPosition();
 }
-
-function updateLegendPosition() {
-  var height = parseInt(svg.style("height"), 10);
-  legend.attr("transform", `translate(0, ${height - 35})`);
-}
-
-window.onresize = updateLegendPosition;

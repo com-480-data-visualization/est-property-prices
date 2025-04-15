@@ -1,12 +1,42 @@
 <div class="uk-container uk-margin">
   <h1 class="uk-heading-large">{{pageTitle}}</h1>
 
-  <div uk-grid class="uk-grid-small">
-    <div class="uk-width-1-1">
+  <div
+    uk-grid
+    class="uk-grid-small uk-grid-divider"
+    uk-height-match="target: > div > .uk-card"
+  >
+
+    <div class="uk-width-2-5@m">
+      <div class="uk-card uk-card-default uk-flex uk-flex-column">
+        <div class="uk-card-header">
+          <h3 class="uk-card-title uk-margin-remove-bottom">Curious about your
+            county?</h3>
+          <p class="uk-text-meta uk-margin-remove-top">Use the slider to explore
+            changes in your local area over time.</p>
+          <h4 id="selected-year" class="uk-margin-remove">2010</h4>
+        </div>
+
+        <div class="uk-card-body uk-padding-remove-top">
+          <input
+            id="year-slider"
+            class="range-slider__range"
+            type="range"
+            value="2010"
+            min="2010"
+            max="2024"
+          />
+          <p class="uk-text-small"><i>This is where we have the average salary
+              for this specific county for that year.</i></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="uk-width-3-5@m">
       <div class="uk-card uk-card-default">
         <div class="uk-card-header">
-          <h3 class="uk-card-title uk-margin-remove-bottom">Timeline</h3>
-          <p class="uk-text-meta uk-margin-remove-top">Subtitle</p>
+          <h3 class="uk-card-title uk-margin-remove-bottom">Yearly Trends in Real Estate Prices</h3>
+          <p class="uk-text-meta uk-margin-remove-top">Median Price per Unit Area (€ / m²) Over Time</p>
         </div>
 
         <div class="uk-card-body">
@@ -14,33 +44,39 @@
         </div>
       </div>
     </div>
+
   </div>
-  <div uk-grid class="uk-grid-small uk-grid-match">
+
+  <hr />
+
+  <div uk-grid class="uk-grid-small uk-grid-match uk-grid-divider">
     <div class="uk-width-expand@m">
       <div class="uk-card uk-card-default">
-        <div class="uk-flex uk-flex-between uk-card-header uk-flex-bottom">
+        <div class="uk-flex uk-flex-between uk-card-header uk-flex-top">
           <div>
-            <h3 class="uk-card-title uk-margin-remove-bottom">Map</h3>
-            <p class="uk-text-meta uk-margin-remove">Subtitle</p>
-          </div>
-          <div>
-            <select class="uk-select" aria-label="Select">
-              <option>Option 01</option>
-              <option>Option 02</option>
-            </select>
+            <h3 class="uk-card-title uk-margin-remove-bottom">Geographic Breakdown of Real Estate Prices</h3>
+            <p class="uk-text-meta uk-margin-remove">Mapping Median Price per Square Meter (€ / m²) by Parish</p>
           </div>
         </div>
         <div class="uk-card-body">
           <figure municipality-map></figure>
         </div>
       </div>
+
+      <div
+      id="map-legend"
+      class="uk-position-bottom-right uk-width-1-2"
+      style="height: 30px"
+    >
+    </div>
+
     </div>
     <div class="uk-width-2-5@m">
       <div class="uk-card uk-card-default">
         <div class="uk-flex uk-flex-between uk-card-header">
           <div>
-            <h3 class="uk-card-title uk-margin-remove-bottom">Spider Chart</h3>
-            <p class="uk-text-meta uk-margin-remove">Subtitle</p>
+            <h3 class="uk-card-title uk-margin-remove-bottom">Land Type Transaction Distribution</h3>
+            <p class="uk-text-meta uk-margin-remove">Land Transaction Breakdown by Category and Area (Hectares)</p>
           </div>
         </div>
         <div class="uk-card-body">
@@ -49,11 +85,14 @@
       </div>
     </div>
   </div>
-  <div uk-grid class="uk-grid-small uk-grid-match">
+
+  <hr />
+
+  <div uk-grid class="uk-grid-small uk-grid-match uk-grid-divider">
     <div class="uk-width-1-2@m">
       <div class="uk-card uk-card-default uk-height-1-1">
         <div class="uk-card-header">
-          <h3 class="uk-card-title uk-margin-remove-bottom">Bubble</h3>
+          <h3 class="uk-card-title uk-margin-remove-bottom">Hierarchical View of Land Use Categories</h3>
           <p class="uk-text-meta uk-margin-remove-top">Subtitle</p>
         </div>
         <div class="uk-card-body">
@@ -64,10 +103,18 @@
 
     <div class="uk-width-1-2@m">
       <div class="uk-card uk-card-default uk-height-1-1">
-        <div class="uk-card-header">
-          <h3 class="uk-card-title uk-margin-remove-bottom">Tree-map Sellers and
-            Buyers</h3>
-          <p class="uk-text-meta uk-margin-remove-top">Subtitle</p>
+        <div class="uk-flex uk-flex-between uk-card-header uk-flex-top">
+          <div>
+            <h3 class="uk-card-title uk-margin-remove-bottom">Cross-Border Transactions</h3>
+            <p class="uk-text-meta uk-margin-remove">Buyer and Seller Nationalities in Non-Local Deals</p>
+          </div>
+          <div>
+            <select class="uk-select treemap-select" aria-label="Select">
+              <option>Number of Transactions</option>
+              <option>Total area (ha)</option>
+              <option>Total value (€)</option>
+            </select>
+          </div>
         </div>
         <div class="uk-card-body">
           <figure treemap-chart></figure>

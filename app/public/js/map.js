@@ -1,15 +1,18 @@
 import { renderMap, updateYearMap } from "./charts/countryMap.js";
-import { rangeSlider } from "./charts/slider.js";
+import { initializeSlider } from "./charts/slider.js";
 
 let mapFilePath = "/static/data/counties.json";
 let statisticsFilePath = "/static/data/transactions_with_residential_apartments_county_level.json"
 
+
 let globalStatsData;
+
+sessionStorage.setItem("year", 2010); // initial default value
 
 export const dispatch = d3.dispatch("start", "end");
 dispatch.on("start", updateMapWithYear);
 
-sessionStorage.setItem("year", 2024); // initial default value
+initializeSlider(dispatch);
 
 Promise.all([
   d3.json(mapFilePath),
@@ -18,8 +21,6 @@ Promise.all([
   globalStatsData = statsData;
   renderMap(geoData, statsData);
 }).catch(error => console.error(error));
-
-rangeSlider();
 
 function updateMapWithYear(selectedYear) {
   sessionStorage.setItem("year", selectedYear);

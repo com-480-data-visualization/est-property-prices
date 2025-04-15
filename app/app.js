@@ -19,8 +19,14 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/county/:pathId", (req, res) => {
-    const pathId = req.params.pathId;
-  res.render("county", { pageTitle: pathId });
+  const pathId = req.params.pathId;
+  
+  let [firstPart, secondPart] = pathId.split("-");
+  firstPart = firstPart.charAt(0).toUpperCase() + firstPart.slice(1);
+  secondPart = "county";
+  const formattedPathId = `${firstPart} ${secondPart}`;
+
+  res.render("county", { pageTitle: formattedPathId });
 });
 
 const PORT = 3000;
