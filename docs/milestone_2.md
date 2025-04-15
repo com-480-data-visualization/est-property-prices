@@ -168,7 +168,7 @@ The treemap highlights non-local transactions by visualizing buyer-seller relati
 
 ## Current Prototype
 
-You can find our current data visualization [here](https://suvariik.eu/).
+You can find our data visualization [here](https://suvariik.eu/).
 
 ### To Do
 
