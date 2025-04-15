@@ -4,7 +4,7 @@ import {
   updateMunicipalityMap,
 } from "./charts/municipalityMap.js";
 import { renderSpiderChart } from "./charts/spiderChart.js";
-import { renderBubbleChart, updateYearBubble } from "./charts/bubbleChart.js";
+import { renderCircularPacking } from "./charts/circularPacking.js";
 import { renderTreemapChart } from "./charts/treemapChart.js";
 
 const municipalityFilePath = "/static/data/municipalities.json";
@@ -18,6 +18,9 @@ const sellersFilePath =
 const buyersFilePath =
   "/static/data/transactions_by_residency_of_buyers_county_level.json";
 
+const circularFilePath =
+  "/static/data/transactions_by_type_of_real_property_county_level.json";
+
 const year = sessionStorage.getItem("year");
 const treemapDropdown = document.querySelector(".uk-select.treemap-select");
 
@@ -26,6 +29,7 @@ dispatch.on("start", updateChartsWithYear);
 
 let sellersDataGlobal;
 let buyersDataGlobal;
+let circularDataGlobal;
 
 const getCountyRelatedMap = (data, id) => {
   return data.filter((d) => d.properties.MKOOD === id)[0];
@@ -106,6 +110,7 @@ Promise.all([
   fetch(municipalityStatisticsFilePath).then((response) => response.json()),
   fetch(sellersFilePath).then((response) => response.json()),
   fetch(buyersFilePath).then((response) => response.json()),
+  fetch(circularFilePath).then((response) => response.json()),
 ])
   .then(
     ([
@@ -115,16 +120,19 @@ Promise.all([
       municipalityStats,
       sellersData,
       buyersData,
+      circularData,
     ]) => {
       // fetchedLandTypeData = fetchedData; // Store globally
       sellersDataGlobal = sellersData;
       buyersDataGlobal = buyersData;
+      circularDataGlobal = circularData;
 
       const id = sessionStorage.getItem("countyId");
       const selectedYear = sessionStorage.getItem("year");
 
       countyData = getCountyRelatedStatistics(countyData, id);
       landTypeData = getCountyRelatedStatistics(fetchedData, id);
+      circularData = getCountyRelatedStatistics(circularData, id);
 
       const maxValue = Math.max(
         ...Object.values(landTypeData.data) // Iterate over all years' data
@@ -138,7 +146,9 @@ Promise.all([
       const spiderData = formatSpiderData(yearData);
       renderSpiderChart(spiderData, maxValue);
 
-      renderBubbleChart(null);
+      const circularYearData = circularData.data[selectedYear];
+      renderCircularPacking(circularYearData);
+
       municipalityMapData = getMunicipalitiesByCounty(municipalityMapData, id);
       renderMunicipalityMap(municipalityMapData, municipalityStats);
 
@@ -175,8 +185,11 @@ function updateChartsWithYear(selectedYear) {
   console.log("rendering treemap");
   renderTreemapChart(treemapData, treemapDropdown.value);
 
-  updateYearBubble(null, selectedYear);
   updateMunicipalityMap();
+
+  const circularData = getCountyRelatedStatistics(circularDataGlobal, id);
+  const circularYearData = circularData.data[selectedYear];
+  renderCircularPacking(circularYearData);
 }
 
 treemapDropdown.addEventListener("change", (event) => {
