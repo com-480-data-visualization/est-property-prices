@@ -218,6 +218,16 @@ input::-moz-focus-outer {
   font-size: 0.775rem;
 }
 
+
+.radar-chart-scale {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.775rem;
+}
+
+.data-point:hover {
+  fill: var(--teal);
+}
+
 .tick line {
   stroke-dasharray: none; /* Optional: Remove dashed lines for simplicity */
 }
