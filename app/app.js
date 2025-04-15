@@ -20,6 +20,12 @@ app.get("/about", (req, res) => {
 
 app.get("/county/:pathId", (req, res) => {
   const pathId = req.params.pathId;
+
+  // Check if user input is a valid county to avoid XSS.
+  const counties = ['harju-maakond', 'hiiu-maakond', 'ida-viru-maakond', 'järva-maakond', 'jõgeva-maakond', 'lääne-maakond', 'lääne-viru-maakond', 'pärnu-maakond', 'põlva-maakond', 'rapla-maakond', 'saare-maakond', 'tartu-maakond', 'valga-maakond', 'viljandi-maakond', 'võru-maakond']
+  if (!counties.includes(pathId)){
+    res.status(403).send('Bad county name')
+  }
   
   let [firstPart, secondPart] = pathId.split("-");
   firstPart = firstPart.charAt(0).toUpperCase() + firstPart.slice(1);
