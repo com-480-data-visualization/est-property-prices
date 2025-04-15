@@ -121,7 +121,6 @@ export function renderTimeline(data) {
 
   sliderIndicator
     .append("text")
-    .text("You're here") // Updated text content
     .attr("class", "uk-text-meta uk-text-light")
     .attr("text-anchor", "middle")
     .attr("dy", "-0.5em");

@@ -6,8 +6,52 @@ const dimensions = {
   radius: 200,
 };
 
-export function renderSpiderChart(data, maxValue) {
+function setupTooltip(paths) {
+  const tooltip = d3
+    .select("body")
+    .append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
 
+  paths
+    .on("mouseover", function (event, d) {
+      tooltip.html("");
+
+      tooltip
+        .append("div")
+        .attr("class", "tooltip-label")
+        .text(`${d.category} (ha):`);
+
+      tooltip
+        .append("div")
+        .attr("class", "tooltip-value")
+        .text(`${d.value.toFixed(2)}`);
+
+      const tooltipHeight = tooltip.node().getBoundingClientRect().height;
+      tooltip
+        .style("left", `${event.pageX - 20}px`)
+        .style("top", `${event.pageY - tooltipHeight - 15}px`)
+        .transition()
+        .duration(200)
+        .style("opacity", 1);
+    })
+    .on("mouseout", function () {
+      tooltip.transition().duration(500).style("opacity", 0);
+    })
+    .on("mousemove", function (event) {
+      const tooltipNode = tooltip.node();
+      const tooltipWidth = tooltipNode.getBoundingClientRect().width;
+
+      let xPosition = event.pageX - 20;
+      if (xPosition + tooltipWidth > window.innerWidth) {
+        xPosition = window.innerWidth - tooltipWidth - 10;
+      }
+
+      tooltip.style("left", `${xPosition}px`);
+    });
+}
+
+export function renderSpiderChart(data, maxValue) {
   d3.select("[spider-chart]").selectAll("*").remove();
 
   const svg = d3
@@ -21,7 +65,7 @@ export function renderSpiderChart(data, maxValue) {
     );
 
   const angleSlice = (2 * Math.PI) / data.length;
-  
+
   const scale = d3
     .scaleLinear()
     .domain([0, maxValue])
@@ -46,10 +90,10 @@ export function renderSpiderChart(data, maxValue) {
     // Add scale labels
     gridGroup
       .append("text")
-      .attr("x", 5) // Adjust position
-      .attr("y", -r) // Place label on the left side of the grid
-      .attr("font-size", "12px")
-      .attr("fill", "black")
+      .attr("x", -12) // Adjust position
+      .attr("y", -r - 5) // Place label on the left side of the grid
+      .attr("class", "radar-chart-scale")
+      .attr("fill", "currentColor")
       .text(`${Math.round((i / numCircles) * maxValue)} ha`);
   });
 
@@ -60,13 +104,16 @@ export function renderSpiderChart(data, maxValue) {
     .angle((d, i) => i * angleSlice);
 
   // Draw filled area with transparency
+  const closedData = [...data, data[0]];
   svg
     .append("path")
-    .datum(data)
+    .datum(closedData)
     .attr("d", line)
-    .attr("fill", baseColor)
-    .attr("stroke", darkBaseColor)
+    .attr("fill", "none")
     .attr("stroke-width", 2)
+    // .attr("fill", baseColor)
+    // .attr("stroke-width", 0)
+    .attr("stroke", baseColor)
     .attr("opacity", 0.7);
 
   // Add category labels
@@ -75,7 +122,8 @@ export function renderSpiderChart(data, maxValue) {
     .data(data)
     .enter()
     .append("text")
-    .attr("class", "category-label") // Add class for differentiation
+    .attr("class", "uk-text-meta") // Add class for differentiation
+    // .attr("fill", "currentColor")
     .attr(
       "x",
       (d, i) =>
@@ -87,24 +135,9 @@ export function renderSpiderChart(data, maxValue) {
         (dimensions.radius + 20) * Math.sin(i * angleSlice - Math.PI / 2)
     )
     .attr("text-anchor", "middle")
-    .attr("font-size", "14px")
-    .attr("fill", "black") // Ensure text is visible
     .text((d) => d.category);
 
-
-  // Add interactive points with tooltips
-  const tooltip = d3
-    .select("body")
-    .append("div")
-    .attr("class", "tooltip")
-    .style("position", "absolute")
-    .style("background", "white")
-    .style("padding", "5px")
-    .style("border", "1px solid black")
-    .style("border-radius", "5px")
-    .style("visibility", "hidden");
-
-  svg
+  const circles = svg
     .selectAll("circle.data-point")
     .data(data)
     .enter()
@@ -118,21 +151,11 @@ export function renderSpiderChart(data, maxValue) {
       "cy",
       (d, i) => scale(d.value) * Math.sin(i * angleSlice - Math.PI / 2)
     )
-    .attr("r", 10)
-    .attr("opacity", 0)
-    .on("mouseover", (event, d) => {
-      tooltip
-        .style("visibility", "visible")
-        .text(`${d.category}: ${d.value.toFixed(2)}`);
-    })
-    .on("mousemove", (event) => {
-      tooltip
-        .style("top", `${event.pageY - 12}px`)
-        .style("left", `${event.pageX + 12}px`);
-    })
-    .on("mouseout", () => {
-      tooltip.style("visibility", "hidden");
-    });
+    .attr("r", 7)
+    .attr("opacity", 1)
+    .attr("fill", darkBaseColor);
+
+  setupTooltip(circles);
 }
 
 export function updateYearSpider(data) {
