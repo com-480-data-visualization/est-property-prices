@@ -7,7 +7,7 @@ app.engine("handlebars", exphbs.engine());
 app.set("view engine", "handlebars");
 
 const path = require("path");
-app.use("/static", express.static(path.join(__dirname, "public")));
+app.use("/static", express.static(path.join(__dirname, "public"), {maxAge: "10m"}));
 
 // Routes
 app.get("/", (req, res) => {

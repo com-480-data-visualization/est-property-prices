@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "build": "echo test"
+    "build": "echo scripts",
+    "start": "node app.js"
   },
   "author": "jan.kokla",
   "license": "ISC",
