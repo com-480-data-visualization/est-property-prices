@@ -94,7 +94,7 @@ The line chart visualizes price trends over time for the county.
 
 ### Radar Chart
 
-The radar chart depicts the distribution of transactions by land type (e.g., residential, commercial, agricultural).
+The radar chart depicts the distribution of transactions by land type (e.g., residential, commercial, agricultural), expressed in hectares. Each value was normalized by dividing the total area for that land type in a given county and year by the total area of that land type across all counties for the same year.
 
 #### Features:
 - **MVP**:
@@ -114,7 +114,19 @@ The radar chart depicts the distribution of transactions by land type (e.g., res
 
 ### Circular Packing Chart
 
-The circular packing chart visualizes land use categories in a hierarchical format using bubbles.
+The circular packing chart visualizes land use categories in a hierarchical format using bubbles. These are the following parents / children categories:
+- Transactions with immovables
+- Transactions of immovables without buildings
+  - Transactions of forest land
+  - Transactions of arable land
+  - Transactions with other immovables without buildings
+- Transactions of immovables with buildings
+  - Transactions of immovables with residential buildings
+  - Transactions of immovables with non-residential buildings
+- Transactions with appartments
+  - Transactions with residential appartments
+  - Transactions with non-residential apartments
+- Transactions with building lease
 
 #### Features:
 - **MVP**:
@@ -163,8 +175,7 @@ The treemap highlights non-local transactions by visualizing buyer-seller relati
 - [ ] Add a **boxplot visualization** to the tooltip of the main map for detailed statistical insights.  
 - [ ] Fix the **alignment of the year** on the main page for consistent formatting.  
 - [ ] Include the **average salary data** for the selected year to provide economic context.  
-- [ ] Add a **tooltip for the smaller map** to offer additional information or context.  
-- [ ] Improve the **tooltip design for the treemap** for better readability and aesthetics.  
 - [ ] Implement **sequential coloring based on values** in the treemap to highlight data trends effectively.  
 - [ ] Correct the **county title formatting** for a more polished appearance.
+- [ ] Continue the **circular packing** chart.
 
