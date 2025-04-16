@@ -8,18 +8,13 @@ import { renderCircularPacking } from "./charts/circularPacking.js";
 import { renderTreemapChart } from "./charts/treemapChart.js";
 
 const municipalityFilePath = "/static/data/municipalities.json";
-const statisticsFilePath =
-  "/static/data/transactions_with_residential_apartments_county_level.json";
-const municipalityStatisticsFilePath =
-  "/static/data/transactions_with_residential_apartments_detailed.json";
+const statisticsFilePath = "/static/data/transactions_with_residential_apartments_county_level.json";
+const municipalityStatisticsFilePath = "/static/data/transactions_with_residential_apartments_detailed.json";
 const landTypeFilePath = "/static/data/normalized_spider_data.json";
-const sellersFilePath =
-  "/static/data/transactions_by_residency_of_sellers_county_level.json";
-const buyersFilePath =
-  "/static/data/transactions_by_residency_of_buyers_county_level.json";
-
-const circularFilePath =
-  "/static/data/transactions_by_type_of_real_property_county_level.json";
+const sellersFilePath = "/static/data/transactions_by_residency_of_sellers_county_level.json";
+const buyersFilePath = "/static/data/transactions_by_residency_of_buyers_county_level.json";
+const circularFilePath = "/static/data/transactions_by_type_of_real_property_county_level.json";
+const salaryFilePath = "/static/data/mean_salaries_eur.json"
 
 const year = sessionStorage.getItem("year");
 const treemapDropdown = document.querySelector(".uk-select.treemap-select");
@@ -30,6 +25,8 @@ dispatch.on("start", updateChartsWithYear);
 let sellersDataGlobal;
 let buyersDataGlobal;
 let circularDataGlobal;
+let countyDataGlobal;
+let salaryDataGlobal;
 
 const getCountyRelatedMap = (data, id) => {
   return data.filter((d) => d.properties.MKOOD === id)[0];
@@ -39,13 +36,29 @@ const getCountyRelatedStatistics = (data, id) => {
   return data.filter((d) => d.MKOOD === id)[0];
 };
 
-const formatTimelineData = (statistics) => {
+const formatTimelineDataPrice = (statistics) => {
+  /** Formats data for the Eur/m2  graph */
+  
   return Object.entries(statistics.data)
     .map(([year, entry]) => ({
       date: new Date(`${year}-01-01`),
       pricePerSquareMeter: entry.filter((d) => d["Area(m2)"] === "TOTAL")[0][
         "Price per unit area median(eur /m2)"
       ],
+    }))
+    .sort((a, b) => d3.ascending(a.date, b.date));
+};
+
+const formatTimelineDataSalary = (countyData, salaryData) => {
+  /** Formats data for the mean_salary/m2 graph */
+
+  return Object.entries(countyData.data)
+    .map(([year, entry]) => ({
+      date: new Date(`${year}-01-01`),
+      // Compute: mean_m2_price / mean_salary
+      pricePerSquareMeter: entry.filter((d) => d["Area(m2)"] === "TOTAL")[0][
+        "Price per unit area median(eur /m2)"
+      ] / salaryData["values"][year],
     }))
     .sort((a, b) => d3.ascending(a.date, b.date));
 };
@@ -111,6 +124,7 @@ Promise.all([
   fetch(sellersFilePath).then((response) => response.json()),
   fetch(buyersFilePath).then((response) => response.json()),
   fetch(circularFilePath).then((response) => response.json()),
+  fetch(salaryFilePath).then((response) => response.json()),
 ])
   .then(
     ([
@@ -121,6 +135,7 @@ Promise.all([
       sellersData,
       buyersData,
       circularData,
+      salaryData,
     ]) => {
       // fetchedLandTypeData = fetchedData; // Store globally
       sellersDataGlobal = sellersData;
@@ -130,16 +145,17 @@ Promise.all([
       const id = sessionStorage.getItem("countyId");
       const selectedYear = sessionStorage.getItem("year");
 
-      countyData = getCountyRelatedStatistics(countyData, id);
+      countyDataGlobal = getCountyRelatedStatistics(countyData, id);
       landTypeData = getCountyRelatedStatistics(fetchedData, id);
       circularData = getCountyRelatedStatistics(circularData, id);
+      salaryDataGlobal = salaryData[id];
 
       const maxValue = Math.max(
         ...Object.values(landTypeData.data) // Iterate over all years' data
           .flatMap((year) => year.map((entry) => entry["Total area (ha)"])) // Extract values
       );
 
-      const timelineData = formatTimelineData(countyData);
+      const timelineData = formatTimelineDataPrice(countyDataGlobal);
       renderTimeline(timelineData);
 
       const yearData = landTypeData.data[selectedYear];
@@ -205,4 +221,22 @@ treemapDropdown.addEventListener("change", (event) => {
   );
 
   renderTreemapChart(treemapData, selectedValue);
+});
+
+
+// Attach a listener to the timeline switcher nav elements to trigger chart update
+document.querySelectorAll('#timeline-switcher li a').forEach((el, idx) => {
+  el.addEventListener('click', function(event) {
+    
+    if (idx == 1) {   // Render salary to m2 ratio graph. (idx corresponds to the index of the switcher li element)
+      
+      const timelineData = formatTimelineDataSalary(countyDataGlobal, salaryDataGlobal);
+      renderTimeline(timelineData, "salary");
+    } else {    // Render price to m2 ratio graph
+
+      const timelineData = formatTimelineDataPrice(countyDataGlobal);
+      renderTimeline(timelineData, "price");
+    }
+    
+  });
 });

@@ -5,7 +5,7 @@ let svg, xScale;
 const size = { height: 160 };
 const margin = { top: 20, right: 20, bottom: 30, left: 40 };
 
-export function renderTimeline(data) {
+export function renderTimeline(data, type="price") {
   const container = d3.select("[timeline]");
   const containerWidth = container.node().getBoundingClientRect().width;
   const width = containerWidth - margin.left - margin.right;
@@ -78,10 +78,20 @@ export function renderTimeline(data) {
     .call((g) => g.select(".domain").remove());
 
   // Y Axis
-  const yAxis = d3
+  let yAxis;
+
+  if (type == "price"){
+    yAxis = d3
     .axisLeft(yScale)
     .ticks(5)
     .tickFormat((d) => `€${d3.format(",.0f")(d)}`);
+  } else {
+    yAxis = d3
+    .axisLeft(yScale)
+    .ticks(5)
+    .tickFormat((d) => `${d3.format(",.2f")(d)}`);
+  }
+  
 
   svg
     .append("g")
