@@ -43,7 +43,7 @@ const formatTimelineDataPrice = (statistics) => {
     .map(([year, entry]) => ({
       date: new Date(`${year}-01-01`),
       pricePerSquareMeter: entry.filter((d) => d["Area(m2)"] === "TOTAL")[0][
-        "Price per unit area median(eur /m2)"
+        "Price per unit area avg(eur /m2)"
       ],
     }))
     .sort((a, b) => d3.ascending(a.date, b.date));
@@ -57,7 +57,7 @@ const formatTimelineDataSalary = (countyData, salaryData) => {
       date: new Date(`${year}-01-01`),
       // Compute: mean_m2_price / mean_salary
       pricePerSquareMeter: entry.filter((d) => d["Area(m2)"] === "TOTAL")[0][
-        "Price per unit area median(eur /m2)"
+        "Price per unit area avg(eur /m2)"
       ] / salaryData["values"][year],
     }))
     .sort((a, b) => d3.ascending(a.date, b.date));
