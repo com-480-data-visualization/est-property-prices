@@ -51,7 +51,11 @@ export function renderCircularPacking(data) {
     (d) => d.value / 1e6 // convert to millions
   );
   
-  colorScale = CustomGradient(valueExtent[0], valueExtent[1], defaultColors);
+  colorScale = CustomGradient(
+    valueExtent[0], 
+    valueExtent[1], 
+    defaultColors.slice(0, 4) // only use first 4 colors
+  );
 
   draw(svg, root);
 }
