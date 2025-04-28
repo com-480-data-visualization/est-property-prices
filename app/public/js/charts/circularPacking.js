@@ -1,9 +1,19 @@
+import { CustomGradient, defaultColors } from "../colors.js";
+
 const dimensions = {
   width: 928,
   height: 928,
 };
 
 let focus;
+let colorScale;
+
+Object.defineProperty(String.prototype, 'capitalize', {
+  value: function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+  },
+  enumerable: false
+});
 
 export function renderCircularPacking(data) {
   d3.select("[bubble-chart]").selectAll("*").remove();
@@ -17,8 +27,6 @@ export function renderCircularPacking(data) {
       }`
     )
     .attr("style", "max-width: 100%; height: auto;");
-
-  const color = d3.scaleSequential(d3.interpolateYlGnBu).domain([0, 5]);
 
   const rootData = {
     name: "root",
@@ -38,17 +46,35 @@ export function renderCircularPacking(data) {
   const root = packLayout(hierarchy);
   focus = root;
 
-  draw(svg, root, color);
+  const valueExtent = d3.extent(
+    root.descendants().slice(1),
+    (d) => d.value / 1e6 // convert to millions
+  );
+  
+  colorScale = CustomGradient(valueExtent[0], valueExtent[1], defaultColors);
+
+  draw(svg, root);
 }
 
-function draw(svg, root, color) {
+function draw(svg, root) {
+  const tooltip = d3.select("body")
+    .append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0)
+    .style("position", "absolute")
+    .style("background", "white")
+    .style("padding", "8px")
+    .style("border-radius", "4px")
+    .style("box-shadow", "0 2px 6px rgba(0,0,0,0.15)")
+    .style("pointer-events", "none");
+
   const node = svg
     .selectAll("circle")
     .data(root.descendants().slice(1))
     .join("circle")
-    .attr("fill", (d) => (d.children ? color(d.depth) : "white"))
-    .attr("stroke", "#000")
-    .attr("stroke-opacity", 0.1)
+    .attr("fill", (d) => colorScale(d.value / 1e6)) // convert to millions
+    .attr("stroke", "#213A57")
+    .attr("stroke-opacity", 0.3)
     .style("cursor", "pointer")
     .on(
       "click",
@@ -58,38 +84,58 @@ function draw(svg, root, color) {
   node
     .on("mouseover", function (event, d) {
       d3.select(this)
-        .attr("stroke", "#222")
-        .attr("stroke-width", 3)
-        .attr("fill", d3.color(d3.select(this).attr("fill")).darker(0.5));
+        .attr("stroke-opacity", 1)
+        .attr("stroke-width", 2)
+        .attr("fill", d3.color(colorScale(d.value / 1e6)).darker(0.3));
+
+      tooltip.html(`
+        <div class="tooltip-title">${d.data.name.capitalize()}</div>
+        <div class="tooltip-label">Total Value:</div>
+        <div class="tooltip-value">${d3.format(",.2f")(d.value / 1e6)}M €</div>
+      `);
+
+      const [x, y] = adjustTooltipPosition(event, tooltip);
+      tooltip
+        .style("left", `${x}px`)
+        .style("top", `${y}px`)
+        .transition()
+        .duration(200)
+        .style("opacity", 1);
     })
     .on("mouseout", function (event, d) {
       d3.select(this)
-        .attr("stroke", "#000")
+        .attr("stroke-opacity", 0.3)
         .attr("stroke-width", 1)
-        .attr("fill", d3.color(d3.select(this).attr("fill")).brighter(0.5));
-    });
+        .attr("fill", colorScale(d.value / 1e6));
 
-  const label = svg
-    .selectAll("text")
-    .data(root.descendants())
-    .join("text")
-    .style("font-size", "10px")
-    .attr("text-anchor", "middle")
-    .text(
-      (d) =>
-        `${d.data.name}\n${d3.format(",.2r")(d.data["Total value (eur)"])}€`
-    );
+      tooltip.transition().duration(500).style("opacity", 0);
+    })
+    .on("mousemove", function(event) {
+      const [x, y] = adjustTooltipPosition(event, tooltip);
+      tooltip.style("left", `${x}px`).style("top", `${y}px`);
+    });
 
   svg.on("click", (event) => zoom(event, root));
   zoomTo([focus.x, focus.y, focus.r * 2]);
 
+  function adjustTooltipPosition(event, tooltip) {
+    const tooltipNode = tooltip.node().getBoundingClientRect();
+    let x = event.pageX + 10;
+    let y = event.pageY - tooltipNode.height - 15;
+    
+    // Prevent right edge overflow
+    if (x + tooltipNode.width > window.innerWidth) {
+      x = window.innerWidth - tooltipNode.width - 10;
+    }
+    
+    // Prevent top edge overflow
+    if (y < 10) y = event.pageY + 20;
+    
+    return [x, y];
+  }
+
   function zoomTo(v) {
     const k = dimensions.width / v[2];
-
-    label.attr(
-      "transform",
-      (d) => `translate(${(d.x - v[0]) * k},${(d.y - v[1]) * k})`
-    );
     node.attr(
       "transform",
       (d) => `translate(${(d.x - v[0]) * k},${(d.y - v[1]) * k})`

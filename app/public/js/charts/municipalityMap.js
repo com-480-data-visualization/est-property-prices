@@ -30,7 +30,7 @@ function getMaxValueForCurrentCounty(data, countyId) {
     .filter((v) => !isNaN(v));
 
   const rawMax = values.length ? Math.max(...values) : 0;
-  return Math.ceil(rawMax / 500) * 500; // Round up to nearest 500
+  return Math.ceil(rawMax / 1000) * 1000;
 }
 
 function getValueForID(data, countyId, municipalityName) {
@@ -163,11 +163,22 @@ export function renderMunicipalityMap(data, municipalityStats) {
 
   setupTooltip(path);
 
+  // Generate tick values every 1000 from 0 to maxValue
+  const tickValues = [];
+  for (let i = 0; i <= maxValue; i += 1000) {
+    tickValues.push(i);
+  }
+  if (tickValues[tickValues.length - 1] !== maxValue) {
+    tickValues.push(maxValue);
+  }
+
   Legend(colorScale, {
     title: "",
     width: 400,
     marginLeft: 10,
     tickSize: 6,
+    tickValues: tickValues,
+    tickFormat: ",d",
   });
 }
 

@@ -5,15 +5,6 @@ let svg;
 let globalStatsData;
 let maxValue;
 
-const legendConf = {
-  height: 40,
-  width: "100%",
-  tickSize: 6,
-  marginTop: 0,
-  marginRight: 0,
-  marginLeft: 0,
-};
-
 function getValueForID(data, id) {
   const year = sessionStorage.getItem("year");
   const yearList = data.filter((d) => d.MKOOD === id)[0].data[year];
@@ -36,7 +27,7 @@ export function getMaxValueForCurrentYear(data) {
   );
 
   // Round up to the nearest 500
-  return isFinite(maxValue) ? Math.ceil(maxValue / 500) * 500 : null;
+  return isFinite(maxValue) ? Math.ceil(maxValue / 1000) * 1000 : null;
 }
 
 export function renderMap(geoJson, statsData) {
@@ -76,7 +67,7 @@ export function renderMap(geoJson, statsData) {
     .style("fill", (d) => {
       const id = d.properties.MKOOD;
       const value = getValueForID(statsData, id);
-      const colorScale = CustomGradient(0, maxValue)
+      const colorScale = CustomGradient(0, maxValue);
       return value ? colorScale(value) : "#ccc";
     })
     .style("stroke", "white");
@@ -90,16 +81,26 @@ export function renderMap(geoJson, statsData) {
     sessionStorage.setItem("countyId", d.properties.MKOOD);
   });
 
+  // Generate tick values every 1000 from 0 to maxValue
+  const tickValues = [];
+  for (let i = 0; i <= maxValue; i += 1000) {
+    tickValues.push(i);
+  }
+  if (tickValues[tickValues.length - 1] !== maxValue) {
+    tickValues.push(maxValue);
+  }
+
   Legend(CustomGradient(0, maxValue), {
     title: "",
     width: 400,
     marginLeft: 10,
     tickSize: 6,
+    tickValues: tickValues,
+    tickFormat: ",d",
   });
 }
 
 function setupTooltip(paths) {
-
   const tooltip = d3
     .select("body")
     .append("div")
@@ -159,21 +160,19 @@ function setupTooltip(paths) {
         .style("fill", (d) => {
           const id = d.properties.MKOOD;
           const value = getValueForID(globalStatsData, id);
-          const colorScale = CustomGradient(0, maxValue)
+          const colorScale = CustomGradient(0, maxValue);
           return value ? colorScale(value) : "#ccc";
         });
         
       tooltip.transition().duration(500).style("opacity", 0);
     })
     .on("mousemove", function(event) {
-
       const tooltipNode = tooltip.node();
       const tooltipHeight = tooltipNode.getBoundingClientRect().height;
       const tooltipWidth = tooltipNode.getBoundingClientRect().width;
       
       let xPosition = event.pageX - 20;
       let yPosition = event.pageY - tooltipHeight - 15;
-      
       if (xPosition + tooltipWidth > window.innerWidth) {
         xPosition = window.innerWidth - tooltipWidth - 10;
       }
@@ -183,7 +182,6 @@ function setupTooltip(paths) {
         .style("top", `${yPosition}px`);
     });
 }
-
 
 function formatPathID(pathID) {
   return pathID
@@ -199,8 +197,8 @@ export function updateYearMap(statsData) {
     .style("fill", (d) => {
       const id = d.properties.MKOOD;
       const value = getValueForID(statsData, id);
-        const colorScale = CustomGradient(0, maxValue)
-        return value ? colorScale(value) : "#ccc";
+      const colorScale = CustomGradient(0, maxValue);
+      return value ? colorScale(value) : "#ccc";
     })
     .style("stroke", "white");
 }
