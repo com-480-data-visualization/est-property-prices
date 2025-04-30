@@ -14,10 +14,16 @@ const hidden = {
 export function renderTreemapChart(data, metric = "Number of Transactions") {
   d3.select("[treemap-chart]").selectAll("*").remove();
 
-  const tooltip = d3
+  // const tooltip = d3
+  //   .select("body")
+  //   .append("div")
+  //   .attr("id", "treemap-tooltip")
+  //   .style("opacity", 0);
+
+    const tooltip = d3
     .select("body")
     .append("div")
-    .attr("id", "treemap-tooltip")
+    .attr("class", "tooltip")
     .style("opacity", 0);
 
   const svg = d3
@@ -62,26 +68,73 @@ export function renderTreemapChart(data, metric = "Number of Transactions") {
     .style("fill", (d) => color(d.parent.data.name))
     .attr("rx", 6)
     .attr("ry", 6)
+
+    // .on("mouseover", function (event, d) {
+    //   // Get metric label from propertyMap
+    //   const metricLabel = Object.keys(propertyMap).find(
+    //     (key) => propertyMap[key] === propertyName
+    //   );
+    //   tooltip.transition().duration(200).style("opacity", 0.9);
+    //   tooltip
+    //     .html(
+    //       `
+    //     <strong>${d.data.Name}</strong><br>
+    //     ${metricLabel}: ${d.data[propertyName].toLocaleString()}
+    //   `
+    //     )
+    //     .style("left", event.pageX + 10 + "px")
+    //     .style("top", event.pageY - 28 + "px");
+    // })
+
+
     .on("mouseover", function (event, d) {
-      // Get metric label from propertyMap
       const metricLabel = Object.keys(propertyMap).find(
         (key) => propertyMap[key] === propertyName
       );
+      d3.select(this).style("fill", "orange"); // <-- highlight on hover
 
-      tooltip.transition().duration(200).style("opacity", 0.9);
+      tooltip.html(""); // Clear any existing content
+    
       tooltip
-        .html(
-          `
-        <strong>${d.data.Name}</strong><br>
-        ${metricLabel}: ${d.data[propertyName].toLocaleString()}
-      `
-        )
-        .style("left", event.pageX + 10 + "px")
-        .style("top", event.pageY - 28 + "px");
+        .append("div")
+        .attr("class", "tooltip-title")
+        .text(d.data.Name);
+    
+      tooltip
+        .append("div")
+        .attr("class", "tooltip-label")
+        .text(`${metricLabel}:`);
+    
+      tooltip
+        .append("div")
+        .attr("class", "tooltip-value")
+        .text(d.data[propertyName].toLocaleString());
+    
+      tooltip
+        .transition()
+        .duration(200)
+        .style("opacity", 0.9);
     })
-    .on("mouseout", function () {
+    .on("mousemove", function (event) {
+      const tooltipNode = tooltip.node();
+      const tooltipWidth = tooltipNode.getBoundingClientRect().width;
+    
+      let xPosition = event.pageX - 20;
+      if (xPosition + tooltipWidth > window.innerWidth) {
+        xPosition = window.innerWidth - tooltipWidth - 10;
+      }
+    
+      tooltip
+        .style("left", `${xPosition}px`)
+        .style("top", `${event.pageY - 40}px`);
+    })
+    .on("mouseout", function (event, d) {
+      // restore original color
+      d3.select(this).style("fill", color(d.parent.data.name));
+    
       tooltip.transition().duration(500).style("opacity", 0);
-    });
+    })
+    
 
   // add text labels only if the cell is large enough
   svg
