@@ -14,12 +14,6 @@ const hidden = {
 export function renderTreemapChart(data, metric = "Number of Transactions") {
   d3.select("[treemap-chart]").selectAll("*").remove();
 
-  // const tooltip = d3
-  //   .select("body")
-  //   .append("div")
-  //   .attr("id", "treemap-tooltip")
-  //   .style("opacity", 0);
-
     const tooltip = d3
     .select("body")
     .append("div")
@@ -68,24 +62,6 @@ export function renderTreemapChart(data, metric = "Number of Transactions") {
     .style("fill", (d) => color(d.parent.data.name))
     .attr("rx", 6)
     .attr("ry", 6)
-
-    // .on("mouseover", function (event, d) {
-    //   // Get metric label from propertyMap
-    //   const metricLabel = Object.keys(propertyMap).find(
-    //     (key) => propertyMap[key] === propertyName
-    //   );
-    //   tooltip.transition().duration(200).style("opacity", 0.9);
-    //   tooltip
-    //     .html(
-    //       `
-    //     <strong>${d.data.Name}</strong><br>
-    //     ${metricLabel}: ${d.data[propertyName].toLocaleString()}
-    //   `
-    //     )
-    //     .style("left", event.pageX + 10 + "px")
-    //     .style("top", event.pageY - 28 + "px");
-    // })
-
 
     .on("mouseover", function (event, d) {
       const metricLabel = Object.keys(propertyMap).find(
@@ -159,27 +135,27 @@ export function renderTreemapChart(data, metric = "Number of Transactions") {
     .attr("font-size", "15px")
     .attr("fill", "white");
 
-  svg
-    .selectAll("vals")
-    .data(root.leaves())
-    .enter()
-    .append("text")
-    .filter(function (d) {
-      const width = d.x1 - d.x0;
-      const height = d.y1 - d.y0;
-      return width > hidden.width && height > hidden.height;
-    })
-    .attr("x", function (d) {
-      return d.x0 + 5;
-    }) // +10 to adjust position (more right)
-    .attr("y", function (d) {
-      return d.y0 + 35;
-    }) // +20 to adjust position (lower)
-    .text(function (d) {
-      return d.data[propertyName];
-    })
-    .attr("font-size", "10px")
-    .attr("fill", "white")
+  // svg
+  //   .selectAll("vals")
+  //   .data(root.leaves())
+  //   .enter()
+  //   .append("text")
+  //   .filter(function (d) {
+  //     const width = d.x1 - d.x0;
+  //     const height = d.y1 - d.y0;
+  //     return width > hidden.width && height > hidden.height;
+  //   })
+  //   .attr("x", function (d) {
+  //     return d.x0 + 5;
+  //   }) // +10 to adjust position (more right)
+  //   .attr("y", function (d) {
+  //     return d.y0 + 35;
+  //   }) // +20 to adjust position (lower)
+  //   .text(function (d) {
+  //     return d.data[propertyName];
+  //   })
+  //   .attr("font-size", "10px")
+  //   .attr("fill", "white")
 
   // add title for the groups ("Buyers" and "Sellers")
   svg
