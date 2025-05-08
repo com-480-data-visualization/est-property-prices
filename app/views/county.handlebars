@@ -34,11 +34,31 @@
 
     <div class="uk-width-3-5@m">
       <div class="uk-card uk-card-default">
-        <div class="uk-card-header">
-          <h3 class="uk-card-title uk-margin-remove-bottom">Yearly Trends in Real Estate Prices</h3>
-          <p class="uk-text-meta uk-margin-remove-top">Median Price per Unit Area (€ / m²) Over Time</p>
-        </div>
+        <div class="uk-flex uk-flex-between uk-card-header uk-flex-top">
+          <div>
+            <h3 class="uk-card-title uk-margin-remove-bottom">Yearly Trends in Real Estate Prices</h3>
+            
+            <div class="uk-switcher timeline-subtitle">
+              <div>
+                <p class="uk-text-meta uk-margin-remove-top timeline-subtitle">Average Price per Unit Area (€ / m²)</p>
+              </div>
+              <div>
+                <p class="uk-text-meta uk-margin-remove-top timeline-subtitle">Average Price (€ / m²) ratio to Average monthly salary</p>
+              </div>
+            </div>
+            
+            
+          </div>
+          <div>
+            <ul id="timeline-switcher" class="uk-subnav uk-subnav-pill timeline-switcher" uk-switcher="connect: .timeline-subtitle">
+                <li><a href="#">€ / m²</a></li>
+                <li><a href="#">price / salary</a></li>
+            </ul>
+          </div>
 
+          
+        </div>
+        
         <div class="uk-card-body">
           <figure timeline></figure>
         </div>
