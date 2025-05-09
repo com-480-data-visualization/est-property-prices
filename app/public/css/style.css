@@ -4,8 +4,6 @@ svg {
   /* outline: 1px dashed; */
 }
 
-
-
 #slider-play-button {
   border: none;
   outline: none;
@@ -21,7 +19,6 @@ svg {
   box-shadow: none;
 }
 
-
 /* override UIKit CSS*/
 
 @media (min-width: 960px) {
@@ -36,6 +33,25 @@ svg {
 @media (max-width: 960px) {
   #map-container {
     margin-top: -60px;
+  }
+  .uk-heading-xlarge {
+    font-size: 2.5rem;
+    line-height: 1.1;
+  }
+  .uk-text-large {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+  .uk-grid-divider.uk-grid-column-small > *,
+  .uk-grid-divider.uk-grid-small > * {
+    padding-left: 0px;
+  }
+  .uk-card-header {
+    padding-right: 0px;
+  }
+
+  .uk-card-body {
+    padding-right: 0px;
   }
 }
 
@@ -207,17 +223,16 @@ input::-moz-focus-outer {
   stroke-width: 0;
 }
 
-.x-axis path, 
+.x-axis path,
 .y-axis path {
   display: none;
 }
 
-.x-axis text, 
+.x-axis text,
 .y-axis text {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 0.775rem;
 }
-
 
 .radar-chart-scale {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -247,7 +262,7 @@ input::-moz-focus-outer {
   text-align: left;
 }
 .tooltip::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 15px;
   bottom: -8px;

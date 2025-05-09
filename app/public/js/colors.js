@@ -3,7 +3,7 @@ export const baseColor = "#0B6477";
 export const darkBaseColor = "#213A57";
 export const contrastColor = "#0AD1C8";
 
-const defaultColors = [
+export const defaultColors = [
   "#213A57",
   "#0B6477",
   "#14919B",
