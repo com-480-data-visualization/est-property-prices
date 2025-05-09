@@ -288,3 +288,8 @@ input::-moz-focus-outer {
   font-size: 22px;
   text-align: left;
 }
+
+.uk-tooltip {
+  max-width: 280px; /* or any width that suits your layout */
+  white-space: normal;
+}

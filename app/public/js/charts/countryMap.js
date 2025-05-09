@@ -1,4 +1,4 @@
-import { CustomGradient } from "../colors.js";
+import { CustomGradient, darkBaseColor } from "../colors.js";
 
 let chart;
 let svg;
@@ -30,7 +30,7 @@ export function getMaxValueForCurrentYear(data) {
   return isFinite(maxValue) ? Math.ceil(maxValue / 1000) * 1000 : null;
 }
 
-export function renderMap(geoJson, statsData) {
+export function renderMap(geoJson, statsData, citiesData) {
   globalStatsData = statsData;
   const container = d3.select("#map-container");
   const width = container.node().getBoundingClientRect().width;
@@ -98,6 +98,35 @@ export function renderMap(geoJson, statsData) {
     tickValues: tickValues,
     tickFormat: ",d",
   });
+
+  // Draw city markers as dashed gray circles
+  svg.selectAll("circle.city")
+    .data(citiesData.features)
+    .enter()
+    .append("circle")
+    .attr("class", "city")
+    .attr("cx", d => projection(d.geometry.coordinates)[0])
+    .attr("cy", d => projection(d.geometry.coordinates)[1])
+    .attr("r", 6) // Adjust radius as needed
+    .attr("r", 7)
+    .attr("opacity", 1)
+    .attr("fill", darkBaseColor);
+
+  // Optional: Add city name labels next to circles
+  svg.selectAll("text.city-label")
+    .data(citiesData.features)
+    .enter()
+    .append("text")
+    .attr("class", "city-label")
+    .attr("x", d => projection(d.geometry.coordinates)[0] + 8)
+    .attr("y", d => projection(d.geometry.coordinates)[1] + 4)
+    .text(d => d.properties.name)
+    .attr("font-size", "10px")
+    .attr("fill", "black")
+    .attr("pointer-events", "none");
+
+
+
 }
 
 function setupTooltip(paths) {

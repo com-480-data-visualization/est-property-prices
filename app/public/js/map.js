@@ -3,6 +3,7 @@ import { initializeSlider } from "./charts/slider.js";
 
 let mapFilePath = "/static/data/counties.json";
 let statisticsFilePath = "/static/data/transactions_with_residential_apartments_county_level.json"
+let citiesFilePath = "/static/data/cities.json";
 
 
 let globalStatsData;
@@ -16,10 +17,11 @@ initializeSlider(dispatch);
 
 Promise.all([
   d3.json(mapFilePath),
-  d3.json(statisticsFilePath)
-]).then(([geoData, statsData]) => {
+  d3.json(statisticsFilePath),
+  d3.json(citiesFilePath)
+]).then(([geoData, statsData, citiesData]) => {
   globalStatsData = statsData;
-  renderMap(geoData, statsData);
+  renderMap(geoData, statsData, citiesData);
 }).catch(error => console.error(error));
 
 function updateMapWithYear(selectedYear) {

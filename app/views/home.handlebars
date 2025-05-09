@@ -1,42 +1,27 @@
 <div class="uk-container uk-flex uk-flex-column uk-margin-large-bottom@s">
-  <h1 class="uk-heading-xlarge uk-margin-remove">Property Prices in Estonia</h1>
 
-  <p class="uk-text-left uk-text-large uk-margin-remove-bottom">
-    Use the interactive slider to explore how the average property price per
-    unit area (€ / m²) for completed transactions has changed over the years.
-    Click on any county to dive deeper into local insights 👇
+  <h1 class="uk-heading-2xlarge uk-margin-remove">Estonia</h1>
+  <h2 class="uk-heading-large uk-margin-remove uk-text-lighter">Property Prices</h2>
+
+  <p class="uk-text-large uk-margin-remove-bottom">
+    Discover the average price per unit area (€ / m²) of the buildings in Estonia, over counties and years.<br>
+    Use the interactive slider and click on any county!
   </p>
+
 
   <div class="range-slider uk-margin-small-top uk-margin-medium-top@m uk-width-1-2@m">
     <div class="uk-flex-row">
-      <button
-        id="slider-play-button"
-        class="uk-icon-button uk-margin-small-right"
-      >
+      <button id="slider-play-button" class="uk-icon-button uk-margin-small-right">
         <i id="play-icon" class="fas fa-play"></i>
       </button>
-      <input
-        class="range-slider__range"
-        type="range"
-        value="2010"
-        min="2010"
-        max="2024"
-      />
+      <input class="range-slider__range" type="range" value="2010" min="2010" max="2024" />
     </div>
 
-    <span
-      class="range-slider__value uk-text-muted uk-heading-large uk-margin-remove uk-padding-remove-bottom"
-    >0</span>
+    <span class="range-slider__value uk-text-muted uk-heading-large uk-margin-remove uk-padding-remove-bottom">0</span>
   </div>
-  <div
-    id="map-container"
-    class="uk-container uk-flex uk-flex-column uk-width-1-1 uk-margin-medium-bottom uk-position-relative"
-  >
-    <div
-      id="map-legend"
-      class="uk-position-bottom-left uk-width-1-2"
-      style="height: 1.8rem"
-    >
+  <div id="map-container"
+    class="uk-container uk-flex uk-flex-column uk-width-1-1 uk-margin-medium-bottom uk-position-relative">
+    <div id="map-legend" class="uk-position-bottom-left uk-width-1-2" style="height: 1.8rem">
     </div>
   </div>
 </div>

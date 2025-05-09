@@ -1,0 +1,57 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    24.7536,
+                    59.4370
+                ]
+            },
+            "properties": {
+                "name": "Tallinn"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    26.7221,
+                    58.3776
+                ]
+            },
+            "properties": {
+                "name": "Tartu"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    28.1790,
+                    59.3794
+                ]
+            },
+            "properties": {
+                "name": "Narva"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    24.4971,
+                    58.3859
+                ]
+            },
+            "properties": {
+                "name": "Pärnu"
+            }
+        }
+    ]
+}
