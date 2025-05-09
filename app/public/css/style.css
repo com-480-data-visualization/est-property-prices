@@ -4,6 +4,15 @@ svg {
   /* outline: 1px dashed; */
 }
 
+.uk-card-title {
+  line-height: 1.2;
+}
+
+.question-mark-div {
+  margin-left: 10px;
+  min-width: 20px;
+}
+
 #slider-play-button {
   border: none;
   outline: none;
