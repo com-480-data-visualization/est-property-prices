@@ -84,14 +84,7 @@ export function renderTimeline(data, type="price") {
     yAxis = d3
     .axisLeft(yScale)
     .ticks(5)
-    .tickFormat((d) => `€${d3.format(",.0f")(d)}`);
-  } else {
-    yAxis = d3
-    .axisLeft(yScale)
-    .ticks(5)
-    .tickFormat((d) => `${d3.format(",.2f")(d)}`);
-  }
-  
+    .tickFormat((d) => `${d3.format(",.0f")(d)}`);
 
   svg
     .append("g")
