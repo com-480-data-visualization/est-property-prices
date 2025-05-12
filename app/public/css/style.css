@@ -29,12 +29,13 @@ svg {
 }
 
 .icon-overlay {
-  width: 80px;
-  height: 80px;
+  max-width: 300px;
+  width: 20vw;
+  height: 15vw;
   color: black;
   position: absolute;
-  top: 5%;
-  left: min(70vw,860px);
+  top: -3%;
+  left: min(74vw, 950px);
   transform: translateX(-50%);
   z-index: 10;
 }
