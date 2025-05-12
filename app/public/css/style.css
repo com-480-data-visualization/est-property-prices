@@ -28,6 +28,17 @@ svg {
   box-shadow: none;
 }
 
+.icon-overlay {
+  width: 80px;
+  height: 80px;
+  color: black;
+  position: absolute;
+  top: 5%;
+  left: min(70vw,860px);
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
 /* override UIKit CSS*/
 
 @media (min-width: 960px) {

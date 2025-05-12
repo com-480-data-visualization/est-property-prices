@@ -5,7 +5,7 @@ let svg, xScale;
 const size = { height: 160 };
 const margin = { top: 20, right: 20, bottom: 30, left: 40 };
 
-export function renderTimeline(data, type="price") {
+export function renderTimeline(data, type = "price") {
   const container = d3.select("[timeline]");
   const containerWidth = container.node().getBoundingClientRect().width;
   const width = containerWidth - margin.left - margin.right;
@@ -80,88 +80,90 @@ export function renderTimeline(data, type="price") {
   // Y Axis
   let yAxis;
 
-  if (type == "price"){
+  if (type == "price") {
     yAxis = d3
-    .axisLeft(yScale)
-    .ticks(5)
-    .tickFormat((d) => `${d3.format(",.0f")(d)}`);
+      .axisLeft(yScale)
+      .ticks(5)
+      .tickFormat((d) => `${d3.format(",.0f")(d)}`);
 
-  svg
-    .append("g")
-    .attr("class", "y-axis")
-    .attr("transform", `translate(${margin.left},${margin.top})`)
-    .call(yAxis)
-    .call((g) => g.select(".domain").remove());
+    svg
+      .append("g")
+      .attr("class", "y-axis")
+      .attr("transform", `translate(${margin.left},${margin.top})`)
+      .call(yAxis)
+      .call((g) => g.select(".domain").remove());
 
-  // chart line
-  const lineGenerator = d3
-    .line()
-    .x((d) => xScale(xAccessor(d)))
-    .y((d) => yScale(yAccessor(d)))
-    .curve(d3.curveBumpX);
+    // chart line
+    const lineGenerator = d3
+      .line()
+      .x((d) => xScale(xAccessor(d)))
+      .y((d) => yScale(yAccessor(d)))
+      .curve(d3.curveBumpX);
 
-  chartGroup
-    .append("path")
-    .datum(data)
-    .attr("d", lineGenerator)
-    .attr("stroke", baseColor)
-    .attr("stroke-width", 3)
-    .attr("fill", "none");
+    chartGroup
+      .append("path")
+      .datum(data)
+      .attr("d", lineGenerator)
+      .attr("stroke", baseColor)
+      .attr("stroke-width", 3)
+      .attr("fill", "none");
 
-  // slider indicator
-  const sliderIndicator = chartGroup
-    .append("g")
-    .attr("class", "slider-indicator")
-    .attr("opacity", 0);
+    // slider indicator
+    const sliderIndicator = chartGroup
+      .append("g")
+      .attr("class", "slider-indicator")
+      .attr("opacity", 0);
 
-  sliderIndicator
-    .append("line")
-    .attr("stroke", baseColor)
-    .attr("stroke-width", 1.5)
-    .attr("stroke-dasharray", "3,3")
-    .attr("y1", 0)
-    .attr("y2", size.height - margin.top - margin.bottom);
+    sliderIndicator
+      .append("line")
+      .attr("stroke", baseColor)
+      .attr("stroke-width", 1.5)
+      .attr("stroke-dasharray", "3,3")
+      .attr("y1", 0)
+      .attr("y2", size.height - margin.top - margin.bottom);
 
-  sliderIndicator
-    .append("text")
-    .attr("class", "uk-text-meta uk-text-light")
-    .attr("text-anchor", "middle")
-    .attr("dy", "-0.5em");
-}
-
-document.addEventListener("DOMContentLoaded", () => {;
-  const slider = document.getElementById("year-slider");
-  const selectedYearDisplay = document.getElementById("selected-year");
-
-  const storedYear = sessionStorage.getItem("year");
-  if (storedYear) {
-    slider.value = storedYear;
-    selectedYearDisplay.textContent = storedYear;
+    sliderIndicator
+      .append("text")
+      .attr("class", "uk-text-meta uk-text-light")
+      .attr("text-anchor", "middle")
+      .attr("dy", "-0.5em");
   }
 
-  const updateSliderIndicator = (year) => {
-    if (!xScale) return;
+  document.addEventListener("DOMContentLoaded", () => {
+    ;
+    const slider = document.getElementById("year-slider");
+    const selectedYearDisplay = document.getElementById("selected-year");
 
-    const date = new Date(year, 0, 1);
-    const xPos = xScale(date);
+    const storedYear = sessionStorage.getItem("year");
+    if (storedYear) {
+      slider.value = storedYear;
+      selectedYearDisplay.textContent = storedYear;
+    }
 
-    d3.select(".slider-indicator")
-      .transition()
-      .duration(100)
-      .attr("transform", `translate(${xPos},0)`)
-      .attr("opacity", 1);
+    const updateSliderIndicator = (year) => {
+      if (!xScale) return;
 
-    selectedYearDisplay.textContent = year; // Update displayed year in HTML
-  };
+      const date = new Date(year, 0, 1);
+      const xPos = xScale(date);
 
-  slider.addEventListener("input", (event) => {
-    const selectedYear = event.target.value;
+      d3.select(".slider-indicator")
+        .transition()
+        .duration(100)
+        .attr("transform", `translate(${xPos},0)`)
+        .attr("opacity", 1);
 
-    dispatch.call("start", null, parseInt(selectedYear));
+      selectedYearDisplay.textContent = year; // Update displayed year in HTML
+    };
 
-    updateSliderIndicator(selectedYear);
+    slider.addEventListener("input", (event) => {
+      const selectedYear = event.target.value;
+
+      dispatch.call("start", null, parseInt(selectedYear));
+
+      updateSliderIndicator(selectedYear);
+    });
+
+    // initial update
+    updateSliderIndicator(slider.value);
   });
-
-  // initial update
-  updateSliderIndicator(slider.value);
-});
+}
