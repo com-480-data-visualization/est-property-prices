@@ -8,13 +8,18 @@ import { renderCircularPacking } from "./charts/circularPacking.js";
 import { renderTreemapChart } from "./charts/treemapChart.js";
 
 const municipalityFilePath = "/static/data/municipalities.json";
-const statisticsFilePath = "/static/data/transactions_with_residential_apartments_county_level.json";
-const municipalityStatisticsFilePath = "/static/data/transactions_with_residential_apartments_detailed.json";
+const statisticsFilePath =
+  "/static/data/transactions_with_residential_apartments_county_level.json";
+const municipalityStatisticsFilePath =
+  "/static/data/transactions_with_residential_apartments_detailed.json";
 const landTypeFilePath = "/static/data/normalized_spider_data.json";
-const sellersFilePath = "/static/data/transactions_by_residency_of_sellers_county_level.json";
-const buyersFilePath = "/static/data/transactions_by_residency_of_buyers_county_level.json";
-const circularFilePath = "/static/data/transactions_by_type_of_real_property_county_level.json";
-const salaryFilePath = "/static/data/mean_salaries_eur.json"
+const sellersFilePath =
+  "/static/data/transactions_by_residency_of_sellers_county_level.json";
+const buyersFilePath =
+  "/static/data/transactions_by_residency_of_buyers_county_level.json";
+const circularFilePath =
+  "/static/data/transactions_by_type_of_real_property_county_level.json";
+const salaryFilePath = "/static/data/mean_salaries_eur.json";
 
 const year = sessionStorage.getItem("year");
 const treemapDropdown = document.querySelector(".uk-select.treemap-select");
@@ -38,7 +43,7 @@ const getCountyRelatedStatistics = (data, id) => {
 
 const formatTimelineDataPrice = (statistics) => {
   /** Formats data for the Eur/m2  graph */
-  
+
   return Object.entries(statistics.data)
     .map(([year, entry]) => ({
       date: new Date(`${year}-01-01`),
@@ -56,9 +61,10 @@ const formatTimelineDataSalary = (countyData, salaryData) => {
     .map(([year, entry]) => ({
       date: new Date(`${year}-01-01`),
       // Compute: mean_m2_price / mean_salary
-      pricePerSquareMeter: entry.filter((d) => d["Area(m2)"] === "TOTAL")[0][
-        "Price per unit area avg(eur /m2)"
-      ] / salaryData["values"][year],
+      pricePerSquareMeter:
+        entry.filter((d) => d["Area(m2)"] === "TOTAL")[0][
+          "Price per unit area avg(eur /m2)"
+        ] / salaryData["values"][year],
     }))
     .sort((a, b) => d3.ascending(a.date, b.date));
 };
@@ -150,6 +156,11 @@ Promise.all([
       circularData = getCountyRelatedStatistics(circularData, id);
       salaryDataGlobal = salaryData[id];
 
+      const countyName = salaryDataGlobal.MNIMI.replace("maakond", "county");
+      const p = document.getElementById("salary-info");
+      p.innerHTML = `<i>The average monthly gross salary in ${countyName} for ${selectedYear} was €${salaryDataGlobal.values[selectedYear]}.</i>`;
+      console.log("Test");
+
       const maxValue = Math.max(
         ...Object.values(landTypeData.data) // Iterate over all years' data
           .flatMap((year) => year.map((entry) => entry["Total area (ha)"])) // Extract values
@@ -223,20 +234,22 @@ treemapDropdown.addEventListener("change", (event) => {
   renderTreemapChart(treemapData, selectedValue);
 });
 
-
 // Attach a listener to the timeline switcher nav elements to trigger chart update
-document.querySelectorAll('#timeline-switcher li a').forEach((el, idx) => {
-  el.addEventListener('click', function(event) {
-    
-    if (idx == 1) {   // Render salary to m2 ratio graph. (idx corresponds to the index of the switcher li element)
-      
-      const timelineData = formatTimelineDataSalary(countyDataGlobal, salaryDataGlobal);
+document.querySelectorAll("#timeline-switcher li a").forEach((el, idx) => {
+  el.addEventListener("click", function (event) {
+    if (idx == 1) {
+      // Render salary to m2 ratio graph. (idx corresponds to the index of the switcher li element)
+
+      const timelineData = formatTimelineDataSalary(
+        countyDataGlobal,
+        salaryDataGlobal
+      );
       renderTimeline(timelineData, "salary");
-    } else {    // Render price to m2 ratio graph
+    } else {
+      // Render price to m2 ratio graph
 
       const timelineData = formatTimelineDataPrice(countyDataGlobal);
       renderTimeline(timelineData, "price");
     }
-    
   });
 });
