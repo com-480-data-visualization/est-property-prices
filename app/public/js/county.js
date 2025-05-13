@@ -33,10 +33,6 @@ let circularDataGlobal;
 let countyDataGlobal;
 let salaryDataGlobal;
 
-const getCountyRelatedMap = (data, id) => {
-  return data.filter((d) => d.properties.MKOOD === id)[0];
-};
-
 const getCountyRelatedStatistics = (data, id) => {
   return data.filter((d) => d.MKOOD === id)[0];
 };
@@ -159,7 +155,6 @@ Promise.all([
       const countyName = salaryDataGlobal.MNIMI.replace("maakond", "county");
       const p = document.getElementById("salary-info");
       p.innerHTML = `<i>The average monthly gross salary in ${countyName} for ${selectedYear} was €${salaryDataGlobal.values[selectedYear]}.</i>`;
-      console.log("Test");
 
       const maxValue = Math.max(
         ...Object.values(landTypeData.data) // Iterate over all years' data
@@ -209,7 +204,6 @@ function updateChartsWithYear(selectedYear) {
     sellersDataGlobal,
     buyersDataGlobal
   );
-  console.log("rendering treemap");
   renderTreemapChart(treemapData, treemapDropdown.value);
 
   updateMunicipalityMap();

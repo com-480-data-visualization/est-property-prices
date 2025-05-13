@@ -128,41 +128,42 @@ export function renderTimeline(data, type = "price") {
       .attr("text-anchor", "middle")
       .attr("dy", "-0.5em");
   }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const slider = document.getElementById("year-slider");
-    const selectedYearDisplay = document.getElementById("selected-year");
-
-    const storedYear = sessionStorage.getItem("year");
-    if (storedYear) {
-      slider.value = storedYear;
-      selectedYearDisplay.textContent = storedYear;
-    }
-
-    const updateSliderIndicator = (year) => {
-      if (!xScale) return;
-
-      const date = new Date(year, 0, 1);
-      const xPos = xScale(date);
-
-      d3.select(".slider-indicator")
-        .transition()
-        .duration(100)
-        .attr("transform", `translate(${xPos},0)`)
-        .attr("opacity", 1);
-
-      selectedYearDisplay.textContent = year; // Update displayed year in HTML
-    };
-
-    slider.addEventListener("input", (event) => {
-      const selectedYear = event.target.value;
-
-      dispatch.call("start", null, parseInt(selectedYear));
-
-      updateSliderIndicator(selectedYear);
-    });
-
-    // initial update
-    updateSliderIndicator(slider.value);
-  });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slider = document.getElementById("year-slider");
+  const selectedYearDisplay = document.getElementById("selected-year");
+  console.log("Slider initialized");
+
+  const storedYear = sessionStorage.getItem("year");
+  if (storedYear) {
+    slider.value = storedYear;
+    selectedYearDisplay.textContent = storedYear;
+  }
+
+  const updateSliderIndicator = (year) => {
+    if (!xScale) return;
+
+    const date = new Date(year, 0, 1);
+    const xPos = xScale(date);
+
+    d3.select(".slider-indicator")
+      .transition()
+      .duration(100)
+      .attr("transform", `translate(${xPos},0)`)
+      .attr("opacity", 1);
+
+    selectedYearDisplay.textContent = year; // Update displayed year in HTML
+  };
+
+  slider.addEventListener("input", (event) => {
+    const selectedYear = event.target.value;
+
+    dispatch.call("start", null, parseInt(selectedYear));
+
+    updateSliderIndicator(selectedYear);
+  });
+
+  // initial update
+  updateSliderIndicator(slider.value);
+});
