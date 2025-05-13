@@ -220,6 +220,7 @@ function formatPathID(pathID) {
 }
 
 export function updateYearMap(statsData) {
+  if (!chart) return;
   chart
     .transition()
     .duration(150)

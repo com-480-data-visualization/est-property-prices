@@ -133,7 +133,6 @@ export function renderTimeline(data, type = "price") {
 document.addEventListener("DOMContentLoaded", () => {
   const slider = document.getElementById("year-slider");
   const selectedYearDisplay = document.getElementById("selected-year");
-  console.log("Slider initialized");
 
   const storedYear = sessionStorage.getItem("year");
   if (storedYear) {
