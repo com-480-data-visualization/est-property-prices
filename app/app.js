@@ -1,12 +1,15 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
+const favicon = require("serve-favicon");
 
 const app = express();
 
+const path = require("path");
+
+app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 app.engine("handlebars", exphbs.engine());
 app.set("view engine", "handlebars");
 
-const path = require("path");
 app.use(
   "/static",
   express.static(path.join(__dirname, "public"), { maxAge: "10m" })
@@ -14,11 +17,13 @@ app.use(
 
 // Routes
 app.get("/", (req, res) => {
-  res.render("home", { title: "Home" });
+  res.render("home", {
+    title: "PriceMap - Statistics of Estonian Property Transactions",
+  });
 });
 
 app.get("/about", (req, res) => {
-  res.render("about", { title: "About" });
+  res.render("about", { title: "PriceMap - About" });
 });
 
 app.get("/county/:pathId", (req, res) => {
@@ -50,7 +55,11 @@ app.get("/county/:pathId", (req, res) => {
   firstPart = firstPart.charAt(0).toUpperCase() + firstPart.slice(1);
   const formattedPathId = `${firstPart}`;
 
-  res.render("county", { pageTitle: formattedPathId, pathId: pathId });
+  res.render("county", {
+    title: `PriceMap - ${formattedPathId}`,
+    pageTitle: formattedPathId,
+    pathId: pathId,
+  });
 });
 
 const PORT = 3000;
