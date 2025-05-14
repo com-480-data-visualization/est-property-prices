@@ -1,17 +1,52 @@
-import { baseColor } from "../colors.js";
+import { baseColor, contrastColor } from "../colors.js";
 import { dispatch } from "../county.js";
 
 let svg, xScale;
 const size = { height: 160 };
 const margin = { top: 20, right: 20, bottom: 30, left: 40 };
 
-export function renderTimeline(data, type = "price") {
+function renderLegend(svg){
+  const legendData = [
+    { label: "m2 price", color: baseColor },
+    { label: "avg salary", color: contrastColor }
+  ];
+  
+  // Append a group for the legend
+  const legend = svg.append("g")
+    .attr("class", "legend")
+    .attr("transform", "translate(30,30)");
+
+  // Add colored rectangles
+  legend.selectAll("rect")
+    .data(legendData)
+    .enter()
+    .append("rect")
+    .attr("x", 20)
+    .attr("y", (d, i) => i * 20)
+    .attr("width", 10)
+    .attr("height", 10)
+    .style("fill", d => d.color);
+
+  // Add text labels
+  legend.selectAll("text")
+    .data(legendData)
+    .enter()
+    .append("text")
+    .attr("x", 35)
+    .attr("y", (d, i) => i * 20 + 8)
+    .style("font-size", "12px")
+    .text(d => d.label);
+
+}
+
+export function renderTimeline(data) {
   const container = d3.select("[timeline]");
   const containerWidth = container.node().getBoundingClientRect().width;
   const width = containerWidth - margin.left - margin.right;
 
   container.html("");
 
+  console.log(data)
   svg = container
     .append("svg")
     .attr("viewBox", `0 0 ${containerWidth} ${size.height}`)
@@ -23,12 +58,14 @@ export function renderTimeline(data, type = "price") {
 
   const xAccessor = (d) => d.date;
   const yAccessor = (d) => d.pricePerSquareMeter;
+  const ySalaryAccessor = (d) => d.meanSalary;
 
   xScale = d3.scaleTime().domain(d3.extent(data, xAccessor)).range([0, width]);
 
   const yScale = d3
     .scaleLinear()
-    .domain([0, d3.max(data, yAccessor)])
+    // Get the maximum value for price per m2 or mean salary
+    .domain([0, Math.max(d3.max(data, yAccessor), d3.max(data, ySalaryAccessor))])
     .range([size.height - margin.top - margin.bottom, 0]);
 
   // add background color for grid
@@ -80,54 +117,70 @@ export function renderTimeline(data, type = "price") {
   // Y Axis
   let yAxis;
 
-  if (type == "price") {
-    yAxis = d3
-      .axisLeft(yScale)
-      .ticks(5)
-      .tickFormat((d) => `${d3.format(",.0f")(d)}`);
+  
+  yAxis = d3
+    .axisLeft(yScale)
+    .ticks(5)
+    .tickFormat((d) => `${d3.format(",.0f")(d)}`);
 
-    svg
-      .append("g")
-      .attr("class", "y-axis")
-      .attr("transform", `translate(${margin.left},${margin.top})`)
-      .call(yAxis)
-      .call((g) => g.select(".domain").remove());
+  svg
+    .append("g")
+    .attr("class", "y-axis")
+    .attr("transform", `translate(${margin.left},${margin.top})`)
+    .call(yAxis)
+    .call((g) => g.select(".domain").remove());
 
-    // chart line
-    const lineGenerator = d3
-      .line()
-      .x((d) => xScale(xAccessor(d)))
-      .y((d) => yScale(yAccessor(d)))
-      .curve(d3.curveBumpX);
+  // chart line
+  const lineGenerator = d3
+    .line()
+    .x((d) => xScale(xAccessor(d)))
+    .y((d) => yScale(yAccessor(d)))
+    .curve(d3.curveBumpX);
 
-    chartGroup
-      .append("path")
-      .datum(data)
-      .attr("d", lineGenerator)
-      .attr("stroke", baseColor)
-      .attr("stroke-width", 3)
-      .attr("fill", "none");
+  chartGroup
+    .append("path")
+    .datum(data)
+    .attr("d", lineGenerator)
+    .attr("stroke", baseColor)
+    .attr("stroke-width", 3)
+    .attr("fill", "none");
 
-    // slider indicator
-    const sliderIndicator = chartGroup
-      .append("g")
-      .attr("class", "slider-indicator")
-      .attr("opacity", 0);
+  const salaryLineGenerator = d3
+    .line()
+    .x((d) => xScale(xAccessor(d)))
+    .y((d) => yScale(ySalaryAccessor(d)))
+    .curve(d3.curveBumpX);
 
-    sliderIndicator
-      .append("line")
-      .attr("stroke", baseColor)
-      .attr("stroke-width", 1.5)
-      .attr("stroke-dasharray", "3,3")
-      .attr("y1", 0)
-      .attr("y2", size.height - margin.top - margin.bottom);
+  chartGroup
+    .append("path")
+    .datum(data)
+    .attr("d", salaryLineGenerator)
+    .attr("stroke", contrastColor)
+    .attr("stroke-width", 3)
+    .attr("fill", "none");
 
-    sliderIndicator
-      .append("text")
-      .attr("class", "uk-text-meta uk-text-light")
-      .attr("text-anchor", "middle")
-      .attr("dy", "-0.5em");
-  }
+  renderLegend(svg)
+
+  // slider indicator
+  const sliderIndicator = chartGroup
+    .append("g")
+    .attr("class", "slider-indicator")
+    .attr("opacity", 0);
+
+  sliderIndicator
+    .append("line")
+    .attr("stroke", baseColor)
+    .attr("stroke-width", 1.5)
+    .attr("stroke-dasharray", "3,3")
+    .attr("y1", 0)
+    .attr("y2", size.height - margin.top - margin.bottom);
+
+  sliderIndicator
+    .append("text")
+    .attr("class", "uk-text-meta uk-text-light")
+    .attr("text-anchor", "middle")
+    .attr("dy", "-0.5em");
+  
 }
 
 document.addEventListener("DOMContentLoaded", () => {

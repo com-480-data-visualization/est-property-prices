@@ -37,33 +37,19 @@ const getCountyRelatedStatistics = (data, id) => {
   return data.filter((d) => d.MKOOD === id)[0];
 };
 
-const formatTimelineDataPrice = (statistics) => {
+const formatTimelineData = (statistics, salaryData) => {
   /** Formats data for the Eur/m2  graph */
-
   return Object.entries(statistics.data)
     .map(([year, entry]) => ({
       date: new Date(`${year}-01-01`),
       pricePerSquareMeter: entry.filter((d) => d["Area(m2)"] === "TOTAL")[0][
         "Price per unit area avg(eur /m2)"
       ],
+      meanSalary: salaryData["values"][year]
     }))
     .sort((a, b) => d3.ascending(a.date, b.date));
 };
 
-const formatTimelineDataSalary = (countyData, salaryData) => {
-  /** Formats data for the mean_salary/m2 graph */
-
-  return Object.entries(countyData.data)
-    .map(([year, entry]) => ({
-      date: new Date(`${year}-01-01`),
-      // Compute: mean_m2_price / mean_salary
-      pricePerSquareMeter:
-        entry.filter((d) => d["Area(m2)"] === "TOTAL")[0][
-          "Price per unit area avg(eur /m2)"
-        ] / salaryData["values"][year],
-    }))
-    .sort((a, b) => d3.ascending(a.date, b.date));
-};
 
 const getMunicipalitiesByCounty = (data, id) => {
   return {
@@ -161,7 +147,7 @@ Promise.all([
           .flatMap((year) => year.map((entry) => entry["Total area (ha)"])) // Extract values
       );
 
-      const timelineData = formatTimelineDataPrice(countyDataGlobal);
+      const timelineData = formatTimelineData(countyDataGlobal, salaryDataGlobal);
       renderTimeline(timelineData);
 
       const yearData = landTypeData.data[selectedYear];
@@ -230,24 +216,4 @@ treemapDropdown.addEventListener("change", (event) => {
   );
 
   renderTreemapChart(treemapData, selectedValue);
-});
-
-// Attach a listener to the timeline switcher nav elements to trigger chart update
-document.querySelectorAll("#timeline-switcher li a").forEach((el, idx) => {
-  el.addEventListener("click", function (event) {
-    if (idx == 1) {
-      // Render salary to m2 ratio graph. (idx corresponds to the index of the switcher li element)
-
-      const timelineData = formatTimelineDataSalary(
-        countyDataGlobal,
-        salaryDataGlobal
-      );
-      renderTimeline(timelineData, "salary");
-    } else {
-      // Render price to m2 ratio graph
-
-      const timelineData = formatTimelineDataPrice(countyDataGlobal);
-      renderTimeline(timelineData, "price");
-    }
-  });
 });
