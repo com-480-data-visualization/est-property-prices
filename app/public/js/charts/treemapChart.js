@@ -10,15 +10,16 @@ const hidden = {
   height: 40,
 };
 
-
 export function renderTreemapChart(data, metric = "Number of Transactions") {
   d3.select("[treemap-chart]").selectAll("*").remove();
 
   const tooltip = d3
     .select("body")
     .append("div")
-    .attr("id", "treemap-tooltip")
-    .style("opacity", 0);
+    .attr("class", "tooltip")
+    .style("opacity", 0)
+    .style("position", "absolute")
+    .style("pointer-events", "none"); // Prevent tooltip from blocking mouse events
 
   const svg = d3
     .select("[treemap-chart]")
@@ -63,23 +64,60 @@ export function renderTreemapChart(data, metric = "Number of Transactions") {
     .attr("rx", 6)
     .attr("ry", 6)
     .on("mouseover", function (event, d) {
-      // Get metric label from propertyMap
       const metricLabel = Object.keys(propertyMap).find(
         (key) => propertyMap[key] === propertyName
       );
+      d3.select(this).style("fill", "orange"); // highlight on hover
 
-      tooltip.transition().duration(200).style("opacity", 0.9);
+      tooltip.html(""); // Clear any existing content
+
+      tooltip.append("div").attr("class", "tooltip-title").text(d.data.Name);
+
       tooltip
-        .html(
-          `
-        <strong>${d.data.Name}</strong><br>
-        ${metricLabel}: ${d.data[propertyName].toLocaleString()}
-      `
-        )
-        .style("left", event.pageX + 10 + "px")
-        .style("top", event.pageY - 28 + "px");
+        .append("div")
+        .attr("class", "tooltip-label")
+        .text(`${metricLabel}:`);
+
+      tooltip
+        .append("div")
+        .attr("class", "tooltip-value")
+        .text(d.data[propertyName].toLocaleString());
+
+      // Position tooltip above mouse
+      const tooltipNode = tooltip.node();
+      const tooltipHeight = tooltipNode.getBoundingClientRect().height;
+      const tooltipWidth = tooltipNode.getBoundingClientRect().width;
+      let xPosition = event.pageX - 15;
+      if (xPosition + tooltipWidth > window.innerWidth) {
+        xPosition = window.innerWidth - tooltipWidth - 10;
+      }
+      if (xPosition < 0) xPosition = 10;
+
+      tooltip
+        .style("left", `${xPosition}px`)
+        .style("top", `${event.pageY - tooltipHeight - 15}px`)
+        .transition()
+        .duration(200)
+        .style("opacity", 1);
     })
-    .on("mouseout", function () {
+    .on("mousemove", function (event) {
+      // Keep tooltip above mouse, update horizontal position
+      const tooltipNode = tooltip.node();
+      const tooltipHeight = tooltipNode.getBoundingClientRect().height;
+      const tooltipWidth = tooltipNode.getBoundingClientRect().width;
+      let xPosition = event.pageX - 15;
+      if (xPosition + tooltipWidth > window.innerWidth) {
+        xPosition = window.innerWidth - tooltipWidth - 10;
+      }
+      if (xPosition < 0) xPosition = 10;
+
+      tooltip
+        .style("left", `${xPosition}px`)
+        .style("top", `${event.pageY - tooltipHeight - 15}px`);
+    })
+    .on("mouseout", function (event, d) {
+      // restore original color
+      d3.select(this).style("fill", color(d.parent.data.name));
       tooltip.transition().duration(500).style("opacity", 0);
     });
 
@@ -96,39 +134,16 @@ export function renderTreemapChart(data, metric = "Number of Transactions") {
     })
     .attr("x", function (d) {
       return d.x0 + 5;
-    }) // +10 to adjust position (more right)
+    })
     .attr("y", function (d) {
       return d.y0 + 20;
-    }) // +20 to adjust position (lower)
+    })
     .text(function (d) {
       return d.data.Name;
     })
     .attr("font-size", "15px")
     .attr("fill", "white");
 
-  svg
-    .selectAll("vals")
-    .data(root.leaves())
-    .enter()
-    .append("text")
-    .filter(function (d) {
-      const width = d.x1 - d.x0;
-      const height = d.y1 - d.y0;
-      return width > hidden.width && height > hidden.height;
-    })
-    .attr("x", function (d) {
-      return d.x0 + 5;
-    }) // +10 to adjust position (more right)
-    .attr("y", function (d) {
-      return d.y0 + 35;
-    }) // +20 to adjust position (lower)
-    .text(function (d) {
-      return d.data[propertyName];
-    })
-    .attr("font-size", "10px")
-    .attr("fill", "white")
-
-  // add title for the groups ("Buyers" and "Sellers")
   svg
     .selectAll("titles")
     .data(
@@ -146,5 +161,5 @@ export function renderTreemapChart(data, metric = "Number of Transactions") {
     })
     .text(function (d) {
       return d.data.name;
-    })
+    });
 }

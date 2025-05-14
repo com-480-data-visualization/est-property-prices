@@ -4,7 +4,7 @@
         "data": {
             "2010": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 35,
                     "Total area (ha)": 8.0,
                     "Total value (eur)": 1611578
@@ -64,7 +64,7 @@
                     "Total value (eur)": 3133631
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 37,
                     "Total area (ha)": 0.4,
                     "Total value (eur)": 2365513
@@ -76,13 +76,13 @@
                     "Total value (eur)": 197488
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 103,
                     "Total area (ha)": 8.0,
                     "Total value (eur)": 2226470
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 40,
                     "Total area (ha)": 0.9,
                     "Total value (eur)": 2033476
@@ -96,7 +96,7 @@
             ],
             "2011": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 37,
                     "Total area (ha)": 9.0,
                     "Total value (eur)": 3107295
@@ -156,7 +156,7 @@
                     "Total value (eur)": 5174733
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 48,
                     "Total area (ha)": 58.0,
                     "Total value (eur)": 1565014
@@ -180,13 +180,13 @@
                     "Total value (eur)": 199836
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 87,
                     "Total area (ha)": 10.0,
                     "Total value (eur)": 3073992
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 36,
                     "Total area (ha)": 1.0,
                     "Total value (eur)": 3085905
@@ -200,7 +200,7 @@
             ],
             "2012": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 47,
                     "Total area (ha)": 27.0,
                     "Total value (eur)": 2544503
@@ -278,7 +278,7 @@
                     "Total value (eur)": 8789318
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 51,
                     "Total area (ha)": 1.0,
                     "Total value (eur)": 3256079
@@ -308,13 +308,13 @@
                     "Total value (eur)": 220500
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 165,
                     "Total area (ha)": 3.0,
                     "Total value (eur)": 4216514
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 26,
                     "Total area (ha)": 8.0,
                     "Total value (eur)": 1418969
@@ -328,7 +328,7 @@
             ],
             "2013": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 79,
                     "Total area (ha)": 56.0,
                     "Total value (eur)": 2855660
@@ -400,7 +400,7 @@
                     "Total value (eur)": 10721030
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 74,
                     "Total area (ha)": 9.0,
                     "Total value (eur)": 3315683
@@ -430,13 +430,13 @@
                     "Total value (eur)": 134678
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 108,
                     "Total area (ha)": 2.0,
                     "Total value (eur)": 4383256
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 42,
                     "Total area (ha)": 2.0,
                     "Total value (eur)": 2295917
@@ -450,7 +450,7 @@
             ],
             "2014": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 36,
                     "Total area (ha)": 14.0,
                     "Total value (eur)": 1248867
@@ -528,7 +528,7 @@
                     "Total value (eur)": 13509507
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 62,
                     "Total area (ha)": 4.0,
                     "Total value (eur)": 2903440
@@ -558,13 +558,13 @@
                     "Total value (eur)": 192390
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 137,
                     "Total area (ha)": 5.0,
                     "Total value (eur)": 4450406
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 39,
                     "Total area (ha)": 1.0,
                     "Total value (eur)": 3007527
@@ -578,7 +578,7 @@
             ],
             "2015": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 38,
                     "Total area (ha)": 22.0,
                     "Total value (eur)": 1445596
@@ -656,7 +656,7 @@
                     "Total value (eur)": 12246906
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 71,
                     "Total area (ha)": 4.0,
                     "Total value (eur)": 3455843
@@ -692,13 +692,13 @@
                     "Total value (eur)": 2056548
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 168,
                     "Total area (ha)": 2.0,
                     "Total value (eur)": 8018043
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 35,
                     "Total area (ha)": 39.0,
                     "Total value (eur)": 2832405
@@ -712,7 +712,7 @@
             ],
             "2016": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 34,
                     "Total area (ha)": 6.0,
                     "Total value (eur)": 2827095
@@ -808,7 +808,7 @@
                     "Total value (eur)": 11994734
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 54,
                     "Total area (ha)": 28.0,
                     "Total value (eur)": 2444859
@@ -832,13 +832,13 @@
                     "Total value (eur)": 428900
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 153,
                     "Total area (ha)": 4.0,
                     "Total value (eur)": 6692066
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 31,
                     "Total area (ha)": 51.0,
                     "Total value (eur)": 5384630
@@ -852,7 +852,7 @@
             ],
             "2017": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 26,
                     "Total area (ha)": 0.9,
                     "Total value (eur)": 2143154
@@ -948,7 +948,7 @@
                     "Total value (eur)": 10939102
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 81,
                     "Total area (ha)": 2.0,
                     "Total value (eur)": 6631333
@@ -972,13 +972,13 @@
                     "Total value (eur)": 594367
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 145,
                     "Total area (ha)": 5.0,
                     "Total value (eur)": 9053554
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 33,
                     "Total area (ha)": 58.0,
                     "Total value (eur)": 3457420
@@ -992,7 +992,7 @@
             ],
             "2018": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 29,
                     "Total area (ha)": 11.0,
                     "Total value (eur)": 2014827
@@ -1088,7 +1088,7 @@
                     "Total value (eur)": 11311480
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 61,
                     "Total area (ha)": 69.0,
                     "Total value (eur)": 2555126
@@ -1112,13 +1112,13 @@
                     "Total value (eur)": 309250
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 144,
                     "Total area (ha)": 6.0,
                     "Total value (eur)": 6380990
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 37,
                     "Total area (ha)": 12.0,
                     "Total value (eur)": 3341958
@@ -1132,7 +1132,7 @@
             ],
             "2019": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 41,
                     "Total area (ha)": 12.0,
                     "Total value (eur)": 2356225
@@ -1228,7 +1228,7 @@
                     "Total value (eur)": 15423653
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 44,
                     "Total area (ha)": 0.5,
                     "Total value (eur)": 3174243
@@ -1258,13 +1258,13 @@
                     "Total value (eur)": 685067
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 155,
                     "Total area (ha)": 16.0,
                     "Total value (eur)": 7827941
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 34,
                     "Total area (ha)": 3.0,
                     "Total value (eur)": 2426103
@@ -1278,7 +1278,7 @@
             ],
             "2020": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 22,
                     "Total area (ha)": 2.0,
                     "Total value (eur)": 2268421
@@ -1374,7 +1374,7 @@
                     "Total value (eur)": 12222201
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 42,
                     "Total area (ha)": 3.0,
                     "Total value (eur)": 2718508
@@ -1392,13 +1392,13 @@
                     "Total value (eur)": 675333
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 102,
                     "Total area (ha)": 5.0,
                     "Total value (eur)": 6453020
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 39,
                     "Total area (ha)": 22.0,
                     "Total value (eur)": 2911367
@@ -1412,7 +1412,7 @@
             ],
             "2021": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 47,
                     "Total area (ha)": 16.0,
                     "Total value (eur)": 3380107
@@ -1514,7 +1514,7 @@
                     "Total value (eur)": 25291951
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 39,
                     "Total area (ha)": 6.0,
                     "Total value (eur)": 2908697
@@ -1538,13 +1538,13 @@
                     "Total value (eur)": 471223
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 175,
                     "Total area (ha)": 4.0,
                     "Total value (eur)": 11345645
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 44,
                     "Total area (ha)": 4.0,
                     "Total value (eur)": 4540122
@@ -1558,7 +1558,7 @@
             ],
             "2022": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 25,
                     "Total area (ha)": 5.0,
                     "Total value (eur)": 3219527
@@ -1666,7 +1666,7 @@
                     "Total value (eur)": 23155668
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 77,
                     "Total area (ha)": 5.0,
                     "Total value (eur)": 5898306
@@ -1684,13 +1684,13 @@
                     "Total value (eur)": 985466
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 195,
                     "Total area (ha)": 3.0,
                     "Total value (eur)": 12378962
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 49,
                     "Total area (ha)": 7.0,
                     "Total value (eur)": 5248175
@@ -1704,7 +1704,7 @@
             ],
             "2023": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 38,
                     "Total area (ha)": 16.0,
                     "Total value (eur)": 2129354
@@ -1818,7 +1818,7 @@
                     "Total value (eur)": 23901927
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 46,
                     "Total area (ha)": 0.7,
                     "Total value (eur)": 5381241
@@ -1836,13 +1836,13 @@
                     "Total value (eur)": 742000
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 135,
                     "Total area (ha)": 5.0,
                     "Total value (eur)": 8112348
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 35,
                     "Total area (ha)": 0.5,
                     "Total value (eur)": 3294170
@@ -1856,7 +1856,7 @@
             ],
             "2024": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 41,
                     "Total area (ha)": 3.0,
                     "Total value (eur)": 3155828
@@ -1958,7 +1958,7 @@
                     "Total value (eur)": 17596598
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 40,
                     "Total area (ha)": 7.0,
                     "Total value (eur)": 4347436
@@ -1982,13 +1982,13 @@
                     "Total value (eur)": 292100
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 223,
                     "Total area (ha)": 26.0,
                     "Total value (eur)": 13794845
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 40,
                     "Total area (ha)": 11.0,
                     "Total value (eur)": 3845229
@@ -2013,7 +2013,7 @@
                     "Total value (eur)": 7067081
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 6,
                     "Total area (ha)": 60,
                     "Total value (eur)": 165097
@@ -2033,7 +2033,7 @@
                     "Total value (eur)": 9341804
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 7,
                     "Total area (ha)": 88,
                     "Total value (eur)": 260950
@@ -2065,7 +2065,7 @@
                     "Total value (eur)": 95000
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 9,
                     "Total area (ha)": 54,
                     "Total value (eur)": 143007
@@ -2097,7 +2097,7 @@
                     "Total value (eur)": 128250
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 9,
                     "Total area (ha)": 52,
                     "Total value (eur)": 72953
@@ -2135,7 +2135,7 @@
                     "Total value (eur)": 96205
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 9,
                     "Total area (ha)": 58,
                     "Total value (eur)": 207857
@@ -2149,7 +2149,7 @@
             ],
             "2015": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 17,
                     "Total area (ha)": 41,
                     "Total value (eur)": 47991
@@ -2179,7 +2179,7 @@
                     "Total value (eur)": 361660
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 5,
                     "Total area (ha)": 7,
                     "Total value (eur)": 44978
@@ -2211,7 +2211,7 @@
                     "Total value (eur)": 163400
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 11,
                     "Total area (ha)": 46,
                     "Total value (eur)": 86466
@@ -2237,7 +2237,7 @@
                     "Total value (eur)": 88500
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 18,
                     "Total area (ha)": 41,
                     "Total value (eur)": 315435
@@ -2275,13 +2275,13 @@
                     "Total value (eur)": 38000
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 9,
                     "Total area (ha)": 2,
                     "Total value (eur)": 49600
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 5,
                     "Total area (ha)": 41,
                     "Total value (eur)": 86019
@@ -2313,7 +2313,7 @@
                     "Total value (eur)": 410183
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 14,
                     "Total area (ha)": 70,
                     "Total value (eur)": 273100
@@ -2327,7 +2327,7 @@
             ],
             "2020": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 8,
                     "Total area (ha)": 19,
                     "Total value (eur)": 342102
@@ -2351,7 +2351,7 @@
                     "Total value (eur)": 225800
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 4,
                     "Total area (ha)": "***",
                     "Total value (eur)": "***"
@@ -2383,7 +2383,7 @@
                     "Total value (eur)": 426340
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 11,
                     "Total area (ha)": 24,
                     "Total value (eur)": 162301
@@ -2415,7 +2415,7 @@
                     "Total value (eur)": 395950
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 14,
                     "Total area (ha)": 13,
                     "Total value (eur)": 356577
@@ -2447,13 +2447,13 @@
                     "Total value (eur)": 262500
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 16,
                     "Total area (ha)": 13,
                     "Total value (eur)": 45196
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 11,
                     "Total area (ha)": 62,
                     "Total value (eur)": 273539
@@ -2485,7 +2485,7 @@
                     "Total value (eur)": 378490
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 6,
                     "Total area (ha)": 24,
                     "Total value (eur)": 130552
@@ -2504,7 +2504,7 @@
         "data": {
             "2010": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 10,
                     "Total area (ha)": 0.2,
                     "Total value (eur)": 293077
@@ -2534,7 +2534,7 @@
                     "Total value (eur)": 161268
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 12,
                     "Total area (ha)": 0.0,
                     "Total value (eur)": 66224
@@ -2546,13 +2546,13 @@
                     "Total value (eur)": 43345
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 105,
                     "Total area (ha)": 6.0,
                     "Total value (eur)": 710379
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 24,
                     "Total area (ha)": 0.8,
                     "Total value (eur)": 429223
@@ -2566,7 +2566,7 @@
             ],
             "2011": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 15,
                     "Total area (ha)": 0.3,
                     "Total value (eur)": 92921
@@ -2596,7 +2596,7 @@
                     "Total value (eur)": 422269
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 14,
                     "Total area (ha)": 5.0,
                     "Total value (eur)": 176479
@@ -2608,13 +2608,13 @@
                     "Total value (eur)": 33647
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 135,
                     "Total area (ha)": 2.0,
                     "Total value (eur)": 1074288
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 21,
                     "Total area (ha)": 0.2,
                     "Total value (eur)": 142214
@@ -2628,7 +2628,7 @@
             ],
             "2012": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 13,
                     "Total area (ha)": 23.0,
                     "Total value (eur)": 545685
@@ -2664,7 +2664,7 @@
                     "Total value (eur)": 289840
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 17,
                     "Total area (ha)": 2.0,
                     "Total value (eur)": 140000
@@ -2682,13 +2682,13 @@
                     "Total value (eur)": 33266
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 175,
                     "Total area (ha)": 3.0,
                     "Total value (eur)": 1175588
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 23,
                     "Total area (ha)": 0.3,
                     "Total value (eur)": 236702
@@ -2702,7 +2702,7 @@
             ],
             "2013": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 5,
                     "Total area (ha)": 0.1,
                     "Total value (eur)": 135550
@@ -2738,7 +2738,7 @@
                     "Total value (eur)": 595076
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 21,
                     "Total area (ha)": 8.0,
                     "Total value (eur)": 211766
@@ -2756,13 +2756,13 @@
                     "Total value (eur)": 59417
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 211,
                     "Total area (ha)": 4.0,
                     "Total value (eur)": 1895173
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 27,
                     "Total area (ha)": 24.0,
                     "Total value (eur)": 306869
@@ -2776,7 +2776,7 @@
             ],
             "2014": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 8,
                     "Total area (ha)": 6.0,
                     "Total value (eur)": 120395
@@ -2812,7 +2812,7 @@
                     "Total value (eur)": 399426
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 24,
                     "Total area (ha)": 23.0,
                     "Total value (eur)": 196408
@@ -2824,13 +2824,13 @@
                     "Total value (eur)": 28500
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 236,
                     "Total area (ha)": 17.0,
                     "Total value (eur)": 2375356
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 32,
                     "Total area (ha)": 0.6,
                     "Total value (eur)": 347762
@@ -2844,7 +2844,7 @@
             ],
             "2015": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 6,
                     "Total area (ha)": 0.4,
                     "Total value (eur)": 80000
@@ -2886,7 +2886,7 @@
                     "Total value (eur)": 843664
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 20,
                     "Total area (ha)": 0.5,
                     "Total value (eur)": 301279
@@ -2904,13 +2904,13 @@
                     "Total value (eur)": 24000
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 258,
                     "Total area (ha)": 10.0,
                     "Total value (eur)": 2912104
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 18,
                     "Total area (ha)": 1.0,
                     "Total value (eur)": 316200
@@ -2924,7 +2924,7 @@
             ],
             "2016": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 6,
                     "Total area (ha)": 0.1,
                     "Total value (eur)": 56350
@@ -2966,7 +2966,7 @@
                     "Total value (eur)": 325674
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 15,
                     "Total area (ha)": 0.4,
                     "Total value (eur)": 232600
@@ -2984,13 +2984,13 @@
                     "Total value (eur)": 40500
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 299,
                     "Total area (ha)": 5.0,
                     "Total value (eur)": 3181257
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 18,
                     "Total area (ha)": 2.0,
                     "Total value (eur)": 109001
@@ -3004,7 +3004,7 @@
             ],
             "2017": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 13,
                     "Total area (ha)": 15.0,
                     "Total value (eur)": 208000
@@ -3046,19 +3046,19 @@
                     "Total value (eur)": 844258
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 14,
                     "Total area (ha)": 2.0,
                     "Total value (eur)": 110150
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 256,
                     "Total area (ha)": 4.0,
                     "Total value (eur)": 1906484
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 23,
                     "Total area (ha)": 0.6,
                     "Total value (eur)": 220983
@@ -3072,7 +3072,7 @@
             ],
             "2018": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 8,
                     "Total area (ha)": 0.1,
                     "Total value (eur)": 175833
@@ -3126,7 +3126,7 @@
                     "Total value (eur)": 397396
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 17,
                     "Total area (ha)": 0.3,
                     "Total value (eur)": 121108
@@ -3138,13 +3138,13 @@
                     "Total value (eur)": 40400
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 285,
                     "Total area (ha)": 4.0,
                     "Total value (eur)": 2012921
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 28,
                     "Total area (ha)": 8.0,
                     "Total value (eur)": 623792
@@ -3158,7 +3158,7 @@
             ],
             "2019": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 7,
                     "Total area (ha)": 0.1,
                     "Total value (eur)": 85533
@@ -3194,7 +3194,7 @@
                     "Total value (eur)": 529753
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 26,
                     "Total area (ha)": 2.0,
                     "Total value (eur)": 269458
@@ -3212,13 +3212,13 @@
                     "Total value (eur)": 19925
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 290,
                     "Total area (ha)": 4.0,
                     "Total value (eur)": 2670877
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 49,
                     "Total area (ha)": 48.0,
                     "Total value (eur)": 1014278
@@ -3232,7 +3232,7 @@
             ],
             "2020": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 13,
                     "Total area (ha)": 0.1,
                     "Total value (eur)": 142167
@@ -3274,7 +3274,7 @@
                     "Total value (eur)": 477867
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 11,
                     "Total area (ha)": 2.0,
                     "Total value (eur)": 408500
@@ -3286,13 +3286,13 @@
                     "Total value (eur)": 21766
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 165,
                     "Total area (ha)": 5.0,
                     "Total value (eur)": 1621417
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 22,
                     "Total area (ha)": 0.3,
                     "Total value (eur)": 281200
@@ -3306,7 +3306,7 @@
             ],
             "2021": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 13,
                     "Total area (ha)": 25.0,
                     "Total value (eur)": 189075
@@ -3348,7 +3348,7 @@
                     "Total value (eur)": 948107
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 15,
                     "Total area (ha)": 0.5,
                     "Total value (eur)": 119517
@@ -3360,13 +3360,13 @@
                     "Total value (eur)": 70500
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 328,
                     "Total area (ha)": 5.0,
                     "Total value (eur)": 3681795
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 40,
                     "Total area (ha)": 76.0,
                     "Total value (eur)": 519059
@@ -3380,7 +3380,7 @@
             ],
             "2022": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 8,
                     "Total area (ha)": 19.0,
                     "Total value (eur)": 334750
@@ -3428,7 +3428,7 @@
                     "Total value (eur)": 688280
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 15,
                     "Total area (ha)": 0.1,
                     "Total value (eur)": 148617
@@ -3440,13 +3440,13 @@
                     "Total value (eur)": 94200
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 487,
                     "Total area (ha)": 10.0,
                     "Total value (eur)": 5826363
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 28,
                     "Total area (ha)": 19.0,
                     "Total value (eur)": 507151
@@ -3460,7 +3460,7 @@
             ],
             "2023": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 23,
                     "Total area (ha)": 0.4,
                     "Total value (eur)": 284356
@@ -3508,7 +3508,7 @@
                     "Total value (eur)": 1102372
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 28,
                     "Total area (ha)": 0.8,
                     "Total value (eur)": 383326
@@ -3526,13 +3526,13 @@
                     "Total value (eur)": 33000
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 364,
                     "Total area (ha)": 4.0,
                     "Total value (eur)": 5143708
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 19,
                     "Total area (ha)": 13.0,
                     "Total value (eur)": 1736634
@@ -3546,7 +3546,7 @@
             ],
             "2024": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 10,
                     "Total area (ha)": 0.1,
                     "Total value (eur)": 190333
@@ -3582,7 +3582,7 @@
                     "Total value (eur)": 752631
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 12,
                     "Total area (ha)": 1.0,
                     "Total value (eur)": 137483
@@ -3594,13 +3594,13 @@
                     "Total value (eur)": 48150
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 394,
                     "Total area (ha)": 5.0,
                     "Total value (eur)": 4486429
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 37,
                     "Total area (ha)": 7.0,
                     "Total value (eur)": 1192602
@@ -3631,7 +3631,7 @@
                     "Total value (eur)": 23215
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 16,
                     "Total area (ha)": 90.0,
                     "Total value (eur)": 129676
@@ -3657,7 +3657,7 @@
                     "Total value (eur)": 148843
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 5,
                     "Total area (ha)": 3.0,
                     "Total value (eur)": 41513
@@ -3683,7 +3683,7 @@
                     "Total value (eur)": 75477
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 17,
                     "Total area (ha)": 30.0,
                     "Total value (eur)": 144984
@@ -3709,7 +3709,7 @@
                     "Total value (eur)": 132367
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 9,
                     "Total area (ha)": 16.0,
                     "Total value (eur)": 41682
@@ -3735,7 +3735,7 @@
                     "Total value (eur)": 93859
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 5,
                     "Total area (ha)": 12.0,
                     "Total value (eur)": 56650
@@ -3761,7 +3761,7 @@
                     "Total value (eur)": 108783
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 10,
                     "Total area (ha)": 1.0,
                     "Total value (eur)": 85091
@@ -3787,7 +3787,7 @@
                     "Total value (eur)": 227750
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 10,
                     "Total area (ha)": 47.0,
                     "Total value (eur)": 151333
@@ -3813,7 +3813,7 @@
                     "Total value (eur)": 296650
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 20,
                     "Total area (ha)": 234.0,
                     "Total value (eur)": 522108
@@ -3839,7 +3839,7 @@
                     "Total value (eur)": 401582
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 8,
                     "Total area (ha)": 19.0,
                     "Total value (eur)": 118335
@@ -3871,13 +3871,13 @@
                     "Total value (eur)": 343050
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 6,
                     "Total area (ha)": 0.1,
                     "Total value (eur)": 17500
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 12,
                     "Total area (ha)": 20.0,
                     "Total value (eur)": 181500
@@ -3903,7 +3903,7 @@
                     "Total value (eur)": 301737
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 10,
                     "Total area (ha)": 58.0,
                     "Total value (eur)": 219925
@@ -3935,7 +3935,7 @@
                     "Total value (eur)": 440233
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 20,
                     "Total area (ha)": 22.0,
                     "Total value (eur)": 266314
@@ -3967,13 +3967,13 @@
                     "Total value (eur)": 765908
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 7,
                     "Total area (ha)": 0.2,
                     "Total value (eur)": 40500
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 8,
                     "Total area (ha)": 14.0,
                     "Total value (eur)": 166000
@@ -3999,7 +3999,7 @@
                     "Total value (eur)": 510468
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 15,
                     "Total area (ha)": 0.8,
                     "Total value (eur)": 179583
@@ -4025,13 +4025,13 @@
                     "Total value (eur)": 300465
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 10,
                     "Total area (ha)": 3.0,
                     "Total value (eur)": 282500
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 12,
                     "Total area (ha)": 85.0,
                     "Total value (eur)": 922582
@@ -4062,13 +4062,13 @@
                     "Total value (eur)": 182416
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 5,
                     "Total area (ha)": "***",
                     "Total value (eur)": "***"
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 4,
                     "Total area (ha)": "***",
                     "Total value (eur)": "***"
@@ -4094,7 +4094,7 @@
                     "Total value (eur)": 167776
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 5,
                     "Total area (ha)": 5,
                     "Total value (eur)": 29125
@@ -4120,7 +4120,7 @@
                     "Total value (eur)": 142315
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 5,
                     "Total area (ha)": 34,
                     "Total value (eur)": 61754
@@ -4146,7 +4146,7 @@
                     "Total value (eur)": 171050
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 10,
                     "Total area (ha)": 47,
                     "Total value (eur)": 157905
@@ -4172,7 +4172,7 @@
                     "Total value (eur)": 412488
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 14,
                     "Total area (ha)": 167,
                     "Total value (eur)": 330025
@@ -4198,7 +4198,7 @@
                     "Total value (eur)": 526255
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 16,
                     "Total area (ha)": 51,
                     "Total value (eur)": 235994
@@ -4212,7 +4212,7 @@
             ],
             "2016": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 5,
                     "Total area (ha)": 51.0,
                     "Total value (eur)": 159000
@@ -4230,13 +4230,13 @@
                     "Total value (eur)": 456781
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 6,
                     "Total area (ha)": 0.1,
                     "Total value (eur)": 14611
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 12,
                     "Total area (ha)": 55.0,
                     "Total value (eur)": 64201
@@ -4268,13 +4268,13 @@
                     "Total value (eur)": 495083
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 6,
                     "Total area (ha)": 6,
                     "Total value (eur)": 19180
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 4,
                     "Total area (ha)": "***",
                     "Total value (eur)": "***"
@@ -4300,7 +4300,7 @@
                     "Total value (eur)": 499250
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 21,
                     "Total area (ha)": 76,
                     "Total value (eur)": 424852
@@ -4326,7 +4326,7 @@
                     "Total value (eur)": 379245
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 10,
                     "Total area (ha)": 47,
                     "Total value (eur)": 284954
@@ -4352,7 +4352,7 @@
                     "Total value (eur)": 487367
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 9,
                     "Total area (ha)": 20,
                     "Total value (eur)": 119978
@@ -4366,7 +4366,7 @@
             ],
             "2021": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 5,
                     "Total area (ha)": 42,
                     "Total value (eur)": 70000
@@ -4384,7 +4384,7 @@
                     "Total value (eur)": 813999
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 18,
                     "Total area (ha)": 58,
                     "Total value (eur)": 467094
@@ -4410,7 +4410,7 @@
                     "Total value (eur)": 875993
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 12,
                     "Total area (ha)": 5,
                     "Total value (eur)": 351300
@@ -4436,7 +4436,7 @@
                     "Total value (eur)": 642000
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 12,
                     "Total area (ha)": 3,
                     "Total value (eur)": 196382
@@ -4462,7 +4462,7 @@
                     "Total value (eur)": 711273
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 6,
                     "Total area (ha)": 0.1,
                     "Total value (eur)": 136750
@@ -4499,7 +4499,7 @@
                     "Total value (eur)": 190415
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 10,
                     "Total area (ha)": 5,
                     "Total value (eur)": 139849
@@ -4531,13 +4531,13 @@
                     "Total value (eur)": 440725
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 8,
                     "Total area (ha)": 1,
                     "Total value (eur)": 90429
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 9,
                     "Total area (ha)": 24,
                     "Total value (eur)": 126688
@@ -4575,7 +4575,7 @@
                     "Total value (eur)": 477590
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 11,
                     "Total area (ha)": 3,
                     "Total value (eur)": 76454
@@ -4607,13 +4607,13 @@
                     "Total value (eur)": 384073
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 5,
                     "Total area (ha)": 0.1,
                     "Total value (eur)": 47300
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 10,
                     "Total area (ha)": 324.0,
                     "Total value (eur)": 4156304
@@ -4627,7 +4627,7 @@
             ],
             "2014": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 5,
                     "Total area (ha)": 9.0,
                     "Total value (eur)": 45391
@@ -4657,13 +4657,13 @@
                     "Total value (eur)": 939083
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 10,
                     "Total area (ha)": 0.8,
                     "Total value (eur)": 111400
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 6,
                     "Total area (ha)": 45.0,
                     "Total value (eur)": 97750
@@ -4701,13 +4701,13 @@
                     "Total value (eur)": 457941
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 9,
                     "Total area (ha)": 0.1,
                     "Total value (eur)": 125500
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 15,
                     "Total area (ha)": 2.0,
                     "Total value (eur)": 345216
@@ -4745,13 +4745,13 @@
                     "Total value (eur)": 964694
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 7,
                     "Total area (ha)": 0,
                     "Total value (eur)": 88600
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 4,
                     "Total area (ha)": "***",
                     "Total value (eur)": "***"
@@ -4795,7 +4795,7 @@
                     "Total value (eur)": 728750
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 22,
                     "Total area (ha)": 34,
                     "Total value (eur)": 357746
@@ -4833,13 +4833,13 @@
                     "Total value (eur)": 672429
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 6,
                     "Total area (ha)": 1,
                     "Total value (eur)": 136488
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 9,
                     "Total area (ha)": 88,
                     "Total value (eur)": 440720
@@ -4871,13 +4871,13 @@
                     "Total value (eur)": 790600
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 6,
                     "Total area (ha)": 6,
                     "Total value (eur)": 46400
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 13,
                     "Total area (ha)": 20,
                     "Total value (eur)": 457698
@@ -4915,7 +4915,7 @@
                     "Total value (eur)": 862978
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 13,
                     "Total area (ha)": 56,
                     "Total value (eur)": 464224
@@ -4947,13 +4947,13 @@
                     "Total value (eur)": 1539785
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 10,
                     "Total area (ha)": 0.8,
                     "Total value (eur)": 145500
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 17,
                     "Total area (ha)": 29.0,
                     "Total value (eur)": 362278
@@ -4991,13 +4991,13 @@
                     "Total value (eur)": 1560305
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 9,
                     "Total area (ha)": 0.2,
                     "Total value (eur)": 229000
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 17,
                     "Total area (ha)": 28.0,
                     "Total value (eur)": 698321
@@ -5029,13 +5029,13 @@
                     "Total value (eur)": 1324826
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 7,
                     "Total area (ha)": 0.2,
                     "Total value (eur)": 96672
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 11,
                     "Total area (ha)": 4.0,
                     "Total value (eur)": 90684
@@ -5073,13 +5073,13 @@
                     "Total value (eur)": 909200
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 8,
                     "Total area (ha)": 0.2,
                     "Total value (eur)": 380354
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 12,
                     "Total area (ha)": 20.0,
                     "Total value (eur)": 524770
@@ -5110,7 +5110,7 @@
                     "Total value (eur)": 128355
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 11,
                     "Total area (ha)": 23.0,
                     "Total value (eur)": 151918
@@ -5136,13 +5136,13 @@
                     "Total value (eur)": 116799
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 10,
                     "Total area (ha)": 0.1,
                     "Total value (eur)": 14364
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 19,
                     "Total area (ha)": 48.0,
                     "Total value (eur)": 342379
@@ -5174,13 +5174,13 @@
                     "Total value (eur)": 130447
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 31,
                     "Total area (ha)": 7.0,
                     "Total value (eur)": 87094
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 14,
                     "Total area (ha)": 26.0,
                     "Total value (eur)": 610819
@@ -5212,13 +5212,13 @@
                     "Total value (eur)": 270837
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 20,
                     "Total area (ha)": 0.3,
                     "Total value (eur)": 68950
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 17,
                     "Total area (ha)": 41.0,
                     "Total value (eur)": 492570
@@ -5244,13 +5244,13 @@
                     "Total value (eur)": 418274
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 37,
                     "Total area (ha)": 3.0,
                     "Total value (eur)": 211556
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 25,
                     "Total area (ha)": 56.0,
                     "Total value (eur)": 356025
@@ -5294,13 +5294,13 @@
                     "Total value (eur)": 753967
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 20,
                     "Total area (ha)": 2.0,
                     "Total value (eur)": 225123
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 17,
                     "Total area (ha)": 108.0,
                     "Total value (eur)": 398466
@@ -5332,19 +5332,19 @@
                     "Total value (eur)": 556104
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 7,
                     "Total area (ha)": 3.0,
                     "Total value (eur)": 96125
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 30,
                     "Total area (ha)": 3.0,
                     "Total value (eur)": 312733
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 20,
                     "Total area (ha)": 61.0,
                     "Total value (eur)": 215593
@@ -5358,7 +5358,7 @@
             ],
             "2017": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 8,
                     "Total area (ha)": 74.0,
                     "Total value (eur)": 544902
@@ -5382,13 +5382,13 @@
                     "Total value (eur)": 562400
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 26,
                     "Total area (ha)": 2.0,
                     "Total value (eur)": 200332
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 14,
                     "Total area (ha)": 11.0,
                     "Total value (eur)": 126853
@@ -5420,13 +5420,13 @@
                     "Total value (eur)": 411400
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 22,
                     "Total area (ha)": 8.0,
                     "Total value (eur)": 279185
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 19,
                     "Total area (ha)": 165.0,
                     "Total value (eur)": 510801
@@ -5458,13 +5458,13 @@
                     "Total value (eur)": 632947
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 31,
                     "Total area (ha)": 8.0,
                     "Total value (eur)": 202107
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 20,
                     "Total area (ha)": 12.0,
                     "Total value (eur)": 394775
@@ -5490,13 +5490,13 @@
                     "Total value (eur)": 552357
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 12,
                     "Total area (ha)": 0.1,
                     "Total value (eur)": 48600
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 13,
                     "Total area (ha)": 29.0,
                     "Total value (eur)": 430467
@@ -5528,13 +5528,13 @@
                     "Total value (eur)": 923462
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 36,
                     "Total area (ha)": 1.0,
                     "Total value (eur)": 245258
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 12,
                     "Total area (ha)": 0.8,
                     "Total value (eur)": 126267
@@ -5572,19 +5572,19 @@
                     "Total value (eur)": 1590850
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 7,
                     "Total area (ha)": 23.0,
                     "Total value (eur)": 371800
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 47,
                     "Total area (ha)": 1.0,
                     "Total value (eur)": 354351
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 19,
                     "Total area (ha)": 9.0,
                     "Total value (eur)": 402355
@@ -5622,19 +5622,19 @@
                     "Total value (eur)": 980184
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 6,
                     "Total area (ha)": 45.0,
                     "Total value (eur)": 442211
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 41,
                     "Total area (ha)": 1.0,
                     "Total value (eur)": 287154
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 18,
                     "Total area (ha)": 88.0,
                     "Total value (eur)": 683741
@@ -5648,7 +5648,7 @@
             ],
             "2024": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 11,
                     "Total area (ha)": 45.0,
                     "Total value (eur)": 527782
@@ -5672,19 +5672,19 @@
                     "Total value (eur)": 1058443
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 6,
                     "Total area (ha)": 2.0,
                     "Total value (eur)": 550000
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 34,
                     "Total area (ha)": 0.5,
                     "Total value (eur)": 397888
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 14,
                     "Total area (ha)": 10.0,
                     "Total value (eur)": 267825
@@ -5715,7 +5715,7 @@
                     "Total value (eur)": 28221
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 10,
                     "Total area (ha)": 77,
                     "Total value (eur)": 201769
@@ -5741,7 +5741,7 @@
                     "Total value (eur)": "***"
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 3,
                     "Total area (ha)": "***",
                     "Total value (eur)": "***"
@@ -5767,7 +5767,7 @@
                     "Total value (eur)": 52600
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 10,
                     "Total area (ha)": 98,
                     "Total value (eur)": 113776
@@ -5793,7 +5793,7 @@
                     "Total value (eur)": 89953
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 12,
                     "Total area (ha)": 44,
                     "Total value (eur)": 300150
@@ -5819,7 +5819,7 @@
                     "Total value (eur)": 177312
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 10,
                     "Total area (ha)": 48,
                     "Total value (eur)": 220639
@@ -5851,7 +5851,7 @@
                     "Total value (eur)": 281013
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 8,
                     "Total area (ha)": 80,
                     "Total value (eur)": 237133
@@ -5877,13 +5877,13 @@
                     "Total value (eur)": 113464
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 9,
                     "Total area (ha)": 0.9,
                     "Total value (eur)": 23938
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 7,
                     "Total area (ha)": 50.0,
                     "Total value (eur)": 276077
@@ -5909,7 +5909,7 @@
                     "Total value (eur)": 32600
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 8,
                     "Total area (ha)": 6,
                     "Total value (eur)": 81450
@@ -5935,13 +5935,13 @@
                     "Total value (eur)": 336751
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 5,
                     "Total area (ha)": 2,
                     "Total value (eur)": 118750
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 15,
                     "Total area (ha)": 42,
                     "Total value (eur)": 248133
@@ -5973,7 +5973,7 @@
                     "Total value (eur)": 211897
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 7,
                     "Total area (ha)": 25,
                     "Total value (eur)": 116833
@@ -5999,7 +5999,7 @@
                     "Total value (eur)": 207061
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 14,
                     "Total area (ha)": 53,
                     "Total value (eur)": 352855
@@ -6025,7 +6025,7 @@
                     "Total value (eur)": 448655
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 13,
                     "Total area (ha)": 11,
                     "Total value (eur)": 229430
@@ -6051,7 +6051,7 @@
                     "Total value (eur)": 466667
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 12,
                     "Total area (ha)": 9,
                     "Total value (eur)": 203650
@@ -6077,7 +6077,7 @@
                     "Total value (eur)": 96500
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 16,
                     "Total area (ha)": 18,
                     "Total value (eur)": 381950
@@ -6109,13 +6109,13 @@
                     "Total value (eur)": 441950
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 5,
                     "Total area (ha)": 1,
                     "Total value (eur)": 52217
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 2,
                     "Total area (ha)": "***",
                     "Total value (eur)": "***"
@@ -6158,13 +6158,13 @@
                     "Total value (eur)": 581877
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 7,
                     "Total area (ha)": 3,
                     "Total value (eur)": 224826
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 14,
                     "Total area (ha)": 3,
                     "Total value (eur)": 147434
@@ -6196,19 +6196,19 @@
                     "Total value (eur)": 1274232
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 6,
                     "Total area (ha)": 66,
                     "Total value (eur)": 183373
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 7,
                     "Total area (ha)": 0,
                     "Total value (eur)": 130659
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 18,
                     "Total area (ha)": 79,
                     "Total value (eur)": 461484
@@ -6222,7 +6222,7 @@
             ],
             "2012": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 5,
                     "Total area (ha)": 7,
                     "Total value (eur)": 87500
@@ -6258,19 +6258,19 @@
                     "Total value (eur)": 1830043
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 6,
                     "Total area (ha)": 3,
                     "Total value (eur)": 101500
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 12,
                     "Total area (ha)": 4,
                     "Total value (eur)": 255768
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 15,
                     "Total area (ha)": 43,
                     "Total value (eur)": 369024
@@ -6320,19 +6320,19 @@
                     "Total value (eur)": 1884140
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 14,
                     "Total area (ha)": 8.0,
                     "Total value (eur)": 325447
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 15,
                     "Total area (ha)": 0.5,
                     "Total value (eur)": 460733
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 10,
                     "Total area (ha)": 12.0,
                     "Total value (eur)": 309000
@@ -6364,7 +6364,7 @@
                     "Total value (eur)": 2143552
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 9,
                     "Total area (ha)": 3.0,
                     "Total value (eur)": 146293
@@ -6376,13 +6376,13 @@
                     "Total value (eur)": 198878
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 10,
                     "Total area (ha)": 0.1,
                     "Total value (eur)": 236357
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 25,
                     "Total area (ha)": 63.0,
                     "Total value (eur)": 663097
@@ -6420,19 +6420,19 @@
                     "Total value (eur)": 2547316
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 15,
                     "Total area (ha)": 2.0,
                     "Total value (eur)": 219693
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 21,
                     "Total area (ha)": 0.1,
                     "Total value (eur)": 525749
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 24,
                     "Total area (ha)": 62.0,
                     "Total value (eur)": 647266
@@ -6476,19 +6476,19 @@
                     "Total value (eur)": 3321967
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 42,
                     "Total area (ha)": 34.0,
                     "Total value (eur)": 695458
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 13,
                     "Total area (ha)": 0.2,
                     "Total value (eur)": 207925
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 16,
                     "Total area (ha)": 3.0,
                     "Total value (eur)": 716500
@@ -6532,19 +6532,19 @@
                     "Total value (eur)": 2559596
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 9,
                     "Total area (ha)": 37.0,
                     "Total value (eur)": 122251
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 22,
                     "Total area (ha)": 0.7,
                     "Total value (eur)": 747415
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 23,
                     "Total area (ha)": 104.0,
                     "Total value (eur)": 1168479
@@ -6588,19 +6588,19 @@
                     "Total value (eur)": 3336789
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 20,
                     "Total area (ha)": 13.0,
                     "Total value (eur)": 397950
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 22,
                     "Total area (ha)": 0.8,
                     "Total value (eur)": 429632
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 14,
                     "Total area (ha)": 122.0,
                     "Total value (eur)": 1034385
@@ -6632,19 +6632,19 @@
                     "Total value (eur)": 3360294
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 15,
                     "Total area (ha)": 7.0,
                     "Total value (eur)": 123482
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 16,
                     "Total area (ha)": 0.3,
                     "Total value (eur)": 585050
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 20,
                     "Total area (ha)": 61.0,
                     "Total value (eur)": 923125
@@ -6676,19 +6676,19 @@
                     "Total value (eur)": 4429152
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 12,
                     "Total area (ha)": 8.0,
                     "Total value (eur)": 330700
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 15,
                     "Total area (ha)": 0.3,
                     "Total value (eur)": 606750
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 18,
                     "Total area (ha)": 232.0,
                     "Total value (eur)": 455100
@@ -6702,7 +6702,7 @@
             ],
             "2021": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 10,
                     "Total area (ha)": 156.0,
                     "Total value (eur)": 703300
@@ -6744,7 +6744,7 @@
                     "Total value (eur)": 4798777
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 12,
                     "Total area (ha)": 16.0,
                     "Total value (eur)": 424733
@@ -6756,13 +6756,13 @@
                     "Total value (eur)": 194200
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 26,
                     "Total area (ha)": 1.0,
                     "Total value (eur)": 872583
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 15,
                     "Total area (ha)": 32.0,
                     "Total value (eur)": 707001
@@ -6800,19 +6800,19 @@
                     "Total value (eur)": 7341244
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 15,
                     "Total area (ha)": 27.0,
                     "Total value (eur)": 525500
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 27,
                     "Total area (ha)": 0.7,
                     "Total value (eur)": 1273073
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 33,
                     "Total area (ha)": 18.0,
                     "Total value (eur)": 1355221
@@ -6862,19 +6862,19 @@
                     "Total value (eur)": 5364659
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 7,
                     "Total area (ha)": 48.0,
                     "Total value (eur)": 413000
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 20,
                     "Total area (ha)": 0.4,
                     "Total value (eur)": 718567
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 21,
                     "Total area (ha)": 11.0,
                     "Total value (eur)": 712298
@@ -6930,19 +6930,19 @@
                     "Total value (eur)": 2879308
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 6,
                     "Total area (ha)": 7.0,
                     "Total value (eur)": 264186
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 16,
                     "Total area (ha)": 27.0,
                     "Total value (eur)": 840628
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 16,
                     "Total area (ha)": 41.0,
                     "Total value (eur)": 1287640
@@ -6967,7 +6967,7 @@
                     "Total value (eur)": 21900417
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 8,
                     "Total area (ha)": 4,
                     "Total value (eur)": 211247
@@ -6999,7 +6999,7 @@
                     "Total value (eur)": 59636
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 7,
                     "Total area (ha)": 19,
                     "Total value (eur)": 107050
@@ -7013,7 +7013,7 @@
             ],
             "2012": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 6,
                     "Total area (ha)": 27.0,
                     "Total value (eur)": 37733
@@ -7031,13 +7031,13 @@
                     "Total value (eur)": 344907
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 5,
                     "Total area (ha)": 0.5,
                     "Total value (eur)": 64156
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 8,
                     "Total area (ha)": 69.0,
                     "Total value (eur)": 139617
@@ -7063,13 +7063,13 @@
                     "Total value (eur)": 165883
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 6,
                     "Total area (ha)": 0.6,
                     "Total value (eur)": 82849
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 8,
                     "Total area (ha)": 42.0,
                     "Total value (eur)": 140430
@@ -7095,7 +7095,7 @@
                     "Total value (eur)": 348997
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 11,
                     "Total area (ha)": 38,
                     "Total value (eur)": 199218
@@ -7121,7 +7121,7 @@
                     "Total value (eur)": 359383
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 15,
                     "Total area (ha)": 35,
                     "Total value (eur)": 235895
@@ -7147,7 +7147,7 @@
                     "Total value (eur)": 286757
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 8,
                     "Total area (ha)": 65,
                     "Total value (eur)": 153589
@@ -7179,7 +7179,7 @@
                     "Total value (eur)": 421850
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 17,
                     "Total area (ha)": 46,
                     "Total value (eur)": 391367
@@ -7217,7 +7217,7 @@
                     "Total value (eur)": 217801
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 13,
                     "Total area (ha)": 10,
                     "Total value (eur)": 266703
@@ -7249,7 +7249,7 @@
                     "Total value (eur)": 80000
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 18,
                     "Total area (ha)": 63,
                     "Total value (eur)": 464311
@@ -7281,7 +7281,7 @@
                     "Total value (eur)": 157800
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 18,
                     "Total area (ha)": 19,
                     "Total value (eur)": 476171
@@ -7313,13 +7313,13 @@
                     "Total value (eur)": 1003222
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 10,
                     "Total area (ha)": 3,
                     "Total value (eur)": 267664
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 16,
                     "Total area (ha)": 52,
                     "Total value (eur)": 350563
@@ -7345,7 +7345,7 @@
                     "Total value (eur)": 1189669
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 19,
                     "Total area (ha)": 78,
                     "Total value (eur)": 762550
@@ -7371,7 +7371,7 @@
                     "Total value (eur)": 702507
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 17,
                     "Total area (ha)": 64,
                     "Total value (eur)": 550478
@@ -7403,13 +7403,13 @@
                     "Total value (eur)": 301283
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 6,
                     "Total area (ha)": 2,
                     "Total value (eur)": 140000
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 13,
                     "Total area (ha)": 62,
                     "Total value (eur)": 741267
@@ -7452,7 +7452,7 @@
                     "Total value (eur)": 766201
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 7,
                     "Total area (ha)": 19,
                     "Total value (eur)": 34999
@@ -7490,7 +7490,7 @@
                     "Total value (eur)": 1117871
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 8,
                     "Total area (ha)": 42,
                     "Total value (eur)": 194320
@@ -7504,7 +7504,7 @@
             ],
             "2012": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 5,
                     "Total area (ha)": 20,
                     "Total value (eur)": 57786
@@ -7540,7 +7540,7 @@
                     "Total value (eur)": 801687
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 11,
                     "Total area (ha)": 41,
                     "Total value (eur)": 305375
@@ -7578,7 +7578,7 @@
                     "Total value (eur)": 1089610
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 15,
                     "Total area (ha)": 80,
                     "Total value (eur)": 200677
@@ -7592,7 +7592,7 @@
             ],
             "2014": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 27,
                     "Total area (ha)": 163,
                     "Total value (eur)": 342772
@@ -7622,7 +7622,7 @@
                     "Total value (eur)": 1570026
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 8,
                     "Total area (ha)": 16,
                     "Total value (eur)": 327500
@@ -7660,7 +7660,7 @@
                     "Total value (eur)": 1087727
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 18,
                     "Total area (ha)": 47,
                     "Total value (eur)": 415500
@@ -7698,13 +7698,13 @@
                     "Total value (eur)": 928574
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 6,
                     "Total area (ha)": 0.8,
                     "Total value (eur)": 82217
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 13,
                     "Total area (ha)": 114.0,
                     "Total value (eur)": 605333
@@ -7718,7 +7718,7 @@
             ],
             "2017": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 12,
                     "Total area (ha)": 35,
                     "Total value (eur)": 124913
@@ -7748,13 +7748,13 @@
                     "Total value (eur)": 1565982
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 12,
                     "Total area (ha)": 10,
                     "Total value (eur)": 64000
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 22,
                     "Total area (ha)": 98,
                     "Total value (eur)": 820333
@@ -7810,7 +7810,7 @@
                     "Total value (eur)": 190300
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 19,
                     "Total area (ha)": 48,
                     "Total value (eur)": 337100
@@ -7824,7 +7824,7 @@
             ],
             "2019": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 15,
                     "Total area (ha)": 109,
                     "Total value (eur)": 267714
@@ -7848,13 +7848,13 @@
                     "Total value (eur)": 1543228
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 5,
                     "Total area (ha)": 8,
                     "Total value (eur)": 118278
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 13,
                     "Total area (ha)": 96,
                     "Total value (eur)": 505117
@@ -7886,7 +7886,7 @@
                     "Total value (eur)": 2181284
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 18,
                     "Total area (ha)": 57,
                     "Total value (eur)": 400992
@@ -7900,7 +7900,7 @@
             ],
             "2021": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 6,
                     "Total area (ha)": 3,
                     "Total value (eur)": 194500
@@ -7924,7 +7924,7 @@
                     "Total value (eur)": 5443134
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 18,
                     "Total area (ha)": 47,
                     "Total value (eur)": 370567
@@ -7974,7 +7974,7 @@
                     "Total value (eur)": 3776403
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 17,
                     "Total area (ha)": 48,
                     "Total value (eur)": 894909
@@ -7988,7 +7988,7 @@
             ],
             "2023": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 6,
                     "Total area (ha)": 61,
                     "Total value (eur)": 433000
@@ -8018,7 +8018,7 @@
                     "Total value (eur)": 4362015
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 16,
                     "Total area (ha)": 51,
                     "Total value (eur)": 781633
@@ -8032,7 +8032,7 @@
             ],
             "2024": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 6,
                     "Total area (ha)": 6,
                     "Total value (eur)": 384250
@@ -8062,13 +8062,13 @@
                     "Total value (eur)": 3093136
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 7,
                     "Total area (ha)": 5,
                     "Total value (eur)": 84700
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 19,
                     "Total area (ha)": 21,
                     "Total value (eur)": 578036
@@ -8087,7 +8087,7 @@
         "data": {
             "2010": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 8,
                     "Total area (ha)": 19.0,
                     "Total value (eur)": 183772
@@ -8117,13 +8117,13 @@
                     "Total value (eur)": 739398
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 37,
                     "Total area (ha)": 1.0,
                     "Total value (eur)": 735911
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 11,
                     "Total area (ha)": 0.1,
                     "Total value (eur)": 486847
@@ -8137,7 +8137,7 @@
             ],
             "2011": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 5,
                     "Total area (ha)": 0.0,
                     "Total value (eur)": 104803
@@ -8167,13 +8167,13 @@
                     "Total value (eur)": 1244426
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 23,
                     "Total area (ha)": 1.0,
                     "Total value (eur)": 468948
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 23,
                     "Total area (ha)": 0.4,
                     "Total value (eur)": 973977
@@ -8187,7 +8187,7 @@
             ],
             "2012": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 7,
                     "Total area (ha)": 0.6,
                     "Total value (eur)": 1203700
@@ -8223,7 +8223,7 @@
                     "Total value (eur)": 2310515
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 6,
                     "Total area (ha)": 0.7,
                     "Total value (eur)": 230500
@@ -8235,13 +8235,13 @@
                     "Total value (eur)": 54058
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 42,
                     "Total area (ha)": 4.0,
                     "Total value (eur)": 882354
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 19,
                     "Total area (ha)": 76.0,
                     "Total value (eur)": 447962
@@ -8285,13 +8285,13 @@
                     "Total value (eur)": 2158385
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 24,
                     "Total area (ha)": 3.0,
                     "Total value (eur)": 466683
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 24,
                     "Total area (ha)": 23.0,
                     "Total value (eur)": 897706
@@ -8305,7 +8305,7 @@
             ],
             "2014": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 10,
                     "Total area (ha)": 10.0,
                     "Total value (eur)": 527500
@@ -8329,13 +8329,13 @@
                     "Total value (eur)": 1813025
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 29,
                     "Total area (ha)": 0.5,
                     "Total value (eur)": 609770
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 33,
                     "Total area (ha)": 14.0,
                     "Total value (eur)": 1789718
@@ -8349,7 +8349,7 @@
             ],
             "2015": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 15,
                     "Total area (ha)": 11.0,
                     "Total value (eur)": 695938
@@ -8385,19 +8385,19 @@
                     "Total value (eur)": 3027091
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 8,
                     "Total area (ha)": 0.8,
                     "Total value (eur)": 569000
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 14,
                     "Total area (ha)": 2.0,
                     "Total value (eur)": 343730
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 15,
                     "Total area (ha)": 2.0,
                     "Total value (eur)": 515000
@@ -8411,7 +8411,7 @@
             ],
             "2016": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 17,
                     "Total area (ha)": 270.0,
                     "Total value (eur)": 1309550
@@ -8447,13 +8447,13 @@
                     "Total value (eur)": 2564792
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 25,
                     "Total area (ha)": 2.0,
                     "Total value (eur)": 726350
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 35,
                     "Total area (ha)": 3.0,
                     "Total value (eur)": 1771675
@@ -8497,19 +8497,19 @@
                     "Total value (eur)": 2735974
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 11,
                     "Total area (ha)": 6,
                     "Total value (eur)": 317222
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 12,
                     "Total area (ha)": 1,
                     "Total value (eur)": 259757
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 19,
                     "Total area (ha)": 15,
                     "Total value (eur)": 1124912
@@ -8523,7 +8523,7 @@
             ],
             "2018": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 5,
                     "Total area (ha)": 10.0,
                     "Total value (eur)": 185750
@@ -8541,19 +8541,19 @@
                     "Total value (eur)": 1880600
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 5,
                     "Total area (ha)": 0.2,
                     "Total value (eur)": 307333
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 20,
                     "Total area (ha)": 5.0,
                     "Total value (eur)": 328600
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 19,
                     "Total area (ha)": 47.0,
                     "Total value (eur)": 726665
@@ -8567,7 +8567,7 @@
             ],
             "2019": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 10,
                     "Total area (ha)": 160,
                     "Total value (eur)": 947540
@@ -8597,19 +8597,19 @@
                     "Total value (eur)": 1838658
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 8,
                     "Total area (ha)": 5,
                     "Total value (eur)": 479800
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 7,
                     "Total area (ha)": 8,
                     "Total value (eur)": 122250
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 26,
                     "Total area (ha)": 21,
                     "Total value (eur)": 749416
@@ -8623,7 +8623,7 @@
             ],
             "2020": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 8,
                     "Total area (ha)": 6,
                     "Total value (eur)": 266170
@@ -8647,13 +8647,13 @@
                     "Total value (eur)": 3727437
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 14,
                     "Total area (ha)": 4,
                     "Total value (eur)": 334457
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 19,
                     "Total area (ha)": 7,
                     "Total value (eur)": 825359
@@ -8667,7 +8667,7 @@
             ],
             "2021": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 9,
                     "Total area (ha)": 11.0,
                     "Total value (eur)": 632400
@@ -8697,19 +8697,19 @@
                     "Total value (eur)": 4153649
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 10,
                     "Total area (ha)": 9.0,
                     "Total value (eur)": 584400
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 14,
                     "Total area (ha)": 2.0,
                     "Total value (eur)": 473000
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 34,
                     "Total area (ha)": 48.0,
                     "Total value (eur)": 2074517
@@ -8723,7 +8723,7 @@
             ],
             "2022": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 7,
                     "Total area (ha)": 2.0,
                     "Total value (eur)": 386000
@@ -8771,19 +8771,19 @@
                     "Total value (eur)": 2809517
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 8,
                     "Total area (ha)": 0.2,
                     "Total value (eur)": 675333
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 24,
                     "Total area (ha)": 0.3,
                     "Total value (eur)": 1124248
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 24,
                     "Total area (ha)": 21.0,
                     "Total value (eur)": 1748851
@@ -8827,19 +8827,19 @@
                     "Total value (eur)": 3906976
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 10,
                     "Total area (ha)": 0.5,
                     "Total value (eur)": 869324
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 23,
                     "Total area (ha)": 0.9,
                     "Total value (eur)": 1016955
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 20,
                     "Total area (ha)": 7.0,
                     "Total value (eur)": 1346011
@@ -8853,7 +8853,7 @@
             ],
             "2024": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 8,
                     "Total area (ha)": 34.0,
                     "Total value (eur)": 796500
@@ -8883,7 +8883,7 @@
                     "Total value (eur)": 4052800
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 5,
                     "Total area (ha)": 1.0,
                     "Total value (eur)": 42595
@@ -8895,13 +8895,13 @@
                     "Total value (eur)": 355333
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 20,
                     "Total area (ha)": 0.2,
                     "Total value (eur)": 702700
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 27,
                     "Total area (ha)": 1.0,
                     "Total value (eur)": 2238533
@@ -8944,7 +8944,7 @@
                     "Total value (eur)": 38667
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 8,
                     "Total area (ha)": 58.0,
                     "Total value (eur)": 73706
@@ -8976,13 +8976,13 @@
                     "Total value (eur)": 50856
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 7,
                     "Total area (ha)": 0,
                     "Total value (eur)": 17130
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 14,
                     "Total area (ha)": 74,
                     "Total value (eur)": 179589
@@ -9014,13 +9014,13 @@
                     "Total value (eur)": 47000
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 7,
                     "Total area (ha)": 0.0,
                     "Total value (eur)": 22500
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 11,
                     "Total area (ha)": 55.0,
                     "Total value (eur)": 163383
@@ -9046,19 +9046,19 @@
                     "Total value (eur)": 151466
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 5,
                     "Total area (ha)": 38,
                     "Total value (eur)": 111000
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 8,
                     "Total area (ha)": 17,
                     "Total value (eur)": 38967
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 10,
                     "Total area (ha)": 41,
                     "Total value (eur)": 181758
@@ -9090,13 +9090,13 @@
                     "Total value (eur)": 177461
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 19,
                     "Total area (ha)": 15,
                     "Total value (eur)": 84638
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 16,
                     "Total area (ha)": 29,
                     "Total value (eur)": 281400
@@ -9134,13 +9134,13 @@
                     "Total value (eur)": 249450
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 9,
                     "Total area (ha)": 0.2,
                     "Total value (eur)": 167700
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 18,
                     "Total area (ha)": 287.0,
                     "Total value (eur)": 855420
@@ -9172,13 +9172,13 @@
                     "Total value (eur)": 292887
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 6,
                     "Total area (ha)": 0.0,
                     "Total value (eur)": 26578
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 11,
                     "Total area (ha)": 85.0,
                     "Total value (eur)": 237120
@@ -9210,19 +9210,19 @@
                     "Total value (eur)": 114362
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 5,
                     "Total area (ha)": 0.0,
                     "Total value (eur)": 13121
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 6,
                     "Total area (ha)": 0.0,
                     "Total value (eur)": 7833
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 13,
                     "Total area (ha)": 13.0,
                     "Total value (eur)": 110280
@@ -9236,7 +9236,7 @@
             ],
             "2018": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 8,
                     "Total area (ha)": 30.0,
                     "Total value (eur)": 73828
@@ -9272,13 +9272,13 @@
                     "Total value (eur)": 171442
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 26,
                     "Total area (ha)": 1.0,
                     "Total value (eur)": 21220
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 7,
                     "Total area (ha)": 10.0,
                     "Total value (eur)": 128300
@@ -9310,13 +9310,13 @@
                     "Total value (eur)": 139668
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 8,
                     "Total area (ha)": 2.0,
                     "Total value (eur)": 27633
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 17,
                     "Total area (ha)": 74.0,
                     "Total value (eur)": 364758
@@ -9348,7 +9348,7 @@
                     "Total value (eur)": 492132
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 16,
                     "Total area (ha)": 27.0,
                     "Total value (eur)": 127370
@@ -9386,13 +9386,13 @@
                     "Total value (eur)": 746695
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 6,
                     "Total area (ha)": 0.3,
                     "Total value (eur)": 53650
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 19,
                     "Total area (ha)": 34.0,
                     "Total value (eur)": 268150
@@ -9430,19 +9430,19 @@
                     "Total value (eur)": 268205
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 9,
                     "Total area (ha)": 6.0,
                     "Total value (eur)": 130567
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 5,
                     "Total area (ha)": 0.2,
                     "Total value (eur)": 16667
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 9,
                     "Total area (ha)": 32.0,
                     "Total value (eur)": 240836
@@ -9474,13 +9474,13 @@
                     "Total value (eur)": 269900
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 13,
                     "Total area (ha)": 0.3,
                     "Total value (eur)": 224000
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 11,
                     "Total area (ha)": 5.0,
                     "Total value (eur)": 228000
@@ -9512,13 +9512,13 @@
                     "Total value (eur)": 260567
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 6,
                     "Total area (ha)": 0.0,
                     "Total value (eur)": 59867
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 11,
                     "Total area (ha)": 21.0,
                     "Total value (eur)": 308570
@@ -9549,7 +9549,7 @@
                     "Total value (eur)": 178712
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 16,
                     "Total area (ha)": 70,
                     "Total value (eur)": 222687
@@ -9587,7 +9587,7 @@
                     "Total value (eur)": 233578
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 12,
                     "Total area (ha)": 0.6,
                     "Total value (eur)": 159290
@@ -9601,7 +9601,7 @@
             ],
             "2012": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 6,
                     "Total area (ha)": 27.0,
                     "Total value (eur)": 83888
@@ -9619,13 +9619,13 @@
                     "Total value (eur)": 451111
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 7,
                     "Total area (ha)": 0.3,
                     "Total value (eur)": 59000
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 14,
                     "Total area (ha)": 21.0,
                     "Total value (eur)": 138045
@@ -9663,19 +9663,19 @@
                     "Total value (eur)": 605363
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 6,
                     "Total area (ha)": 17,
                     "Total value (eur)": 267072
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 6,
                     "Total area (ha)": 32,
                     "Total value (eur)": 119500
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 10,
                     "Total area (ha)": 66,
                     "Total value (eur)": 226750
@@ -9707,7 +9707,7 @@
                     "Total value (eur)": 880890
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 26,
                     "Total area (ha)": 64,
                     "Total value (eur)": 656841
@@ -9745,7 +9745,7 @@
                     "Total value (eur)": 466851
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 21,
                     "Total area (ha)": 200,
                     "Total value (eur)": 558473
@@ -9759,7 +9759,7 @@
             ],
             "2016": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 22,
                     "Total area (ha)": 112.0,
                     "Total value (eur)": 354700
@@ -9795,13 +9795,13 @@
                     "Total value (eur)": 77017
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 5,
                     "Total area (ha)": 0.5,
                     "Total value (eur)": 24220
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 14,
                     "Total area (ha)": 9.0,
                     "Total value (eur)": 217400
@@ -9839,13 +9839,13 @@
                     "Total value (eur)": 932531
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 10,
                     "Total area (ha)": 21,
                     "Total value (eur)": 57000
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 16,
                     "Total area (ha)": 88,
                     "Total value (eur)": 354017
@@ -9877,13 +9877,13 @@
                     "Total value (eur)": 683881
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 11,
                     "Total area (ha)": 13.0,
                     "Total value (eur)": 42917
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 12,
                     "Total area (ha)": 178.0,
                     "Total value (eur)": 823893
@@ -9933,7 +9933,7 @@
                     "Total value (eur)": 850825
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 17,
                     "Total area (ha)": 97,
                     "Total value (eur)": 360083
@@ -9947,7 +9947,7 @@
             ],
             "2020": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 10,
                     "Total area (ha)": 110,
                     "Total value (eur)": 418000
@@ -9965,13 +9965,13 @@
                     "Total value (eur)": 1933756
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 6,
                     "Total area (ha)": 3,
                     "Total value (eur)": 58215
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 10,
                     "Total area (ha)": 19,
                     "Total value (eur)": 169430
@@ -10003,7 +10003,7 @@
                     "Total value (eur)": 1451788
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 16,
                     "Total area (ha)": 36.0,
                     "Total value (eur)": 593967
@@ -10017,7 +10017,7 @@
             ],
             "2022": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 6,
                     "Total area (ha)": 0.3,
                     "Total value (eur)": 236100
@@ -10047,7 +10047,7 @@
                     "Total value (eur)": 1242801
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 10,
                     "Total area (ha)": 42.0,
                     "Total value (eur)": 254500
@@ -10061,7 +10061,7 @@
             ],
             "2023": [
                 {
-                    "Name": "United States of America",
+                    "Name": "USA",
                     "Number": 24,
                     "Total area (ha)": 60.0,
                     "Total value (eur)": 636199
@@ -10085,13 +10085,13 @@
                     "Total value (eur)": 994802
                 },
                 {
-                    "Name": "United Kingdom",
+                    "Name": "UK",
                     "Number": 9,
                     "Total area (ha)": 2.0,
                     "Total value (eur)": 345500
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 8,
                     "Total area (ha)": 9.0,
                     "Total value (eur)": 216926
@@ -10117,7 +10117,7 @@
                     "Total value (eur)": 1169298
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 20,
                     "Total area (ha)": 29,
                     "Total value (eur)": 650297
@@ -10142,7 +10142,7 @@
                     "Total value (eur)": 18258480
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 11,
                     "Total area (ha)": 2,
                     "Total value (eur)": 54817
@@ -10168,7 +10168,7 @@
                     "Total value (eur)": 161236
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 10,
                     "Total area (ha)": 46,
                     "Total value (eur)": 328991
@@ -10194,7 +10194,7 @@
                     "Total value (eur)": 347268
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 10,
                     "Total area (ha)": 72,
                     "Total value (eur)": 115500
@@ -10220,13 +10220,13 @@
                     "Total value (eur)": 200153
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 9,
                     "Total area (ha)": 7,
                     "Total value (eur)": 30182
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 11,
                     "Total area (ha)": 48,
                     "Total value (eur)": 187000
@@ -10252,13 +10252,13 @@
                     "Total value (eur)": 26143
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 6,
                     "Total area (ha)": 2.0,
                     "Total value (eur)": 32510
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 5,
                     "Total area (ha)": 24.0,
                     "Total value (eur)": 128200
@@ -10284,13 +10284,13 @@
                     "Total value (eur)": 273700
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 9,
                     "Total area (ha)": 3,
                     "Total value (eur)": 25883
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 17,
                     "Total area (ha)": 105,
                     "Total value (eur)": 471007
@@ -10316,13 +10316,13 @@
                     "Total value (eur)": 228900
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 5,
                     "Total area (ha)": 10,
                     "Total value (eur)": 32500
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 11,
                     "Total area (ha)": 59,
                     "Total value (eur)": 285056
@@ -10354,7 +10354,7 @@
                     "Total value (eur)": 123500
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 12,
                     "Total area (ha)": 4,
                     "Total value (eur)": 102643
@@ -10380,13 +10380,13 @@
                     "Total value (eur)": 237800
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 7,
                     "Total area (ha)": 26,
                     "Total value (eur)": 39869
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 11,
                     "Total area (ha)": 15,
                     "Total value (eur)": 62600
@@ -10418,13 +10418,13 @@
                     "Total value (eur)": 4500
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 11,
                     "Total area (ha)": 3,
                     "Total value (eur)": 50650
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 10,
                     "Total area (ha)": 121,
                     "Total value (eur)": 450885
@@ -10456,13 +10456,13 @@
                     "Total value (eur)": 111694
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 5,
                     "Total area (ha)": 0.2,
                     "Total value (eur)": 107516
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 15,
                     "Total area (ha)": 58.0,
                     "Total value (eur)": 307371
@@ -10488,7 +10488,7 @@
                     "Total value (eur)": 333418
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 21,
                     "Total area (ha)": 137,
                     "Total value (eur)": 1022225
@@ -10526,13 +10526,13 @@
                     "Total value (eur)": 639975
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 9,
                     "Total area (ha)": 0.3,
                     "Total value (eur)": 153700
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 9,
                     "Total area (ha)": 23.0,
                     "Total value (eur)": 94564
@@ -10558,7 +10558,7 @@
                     "Total value (eur)": 439327
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 9,
                     "Total area (ha)": 73,
                     "Total value (eur)": 317445
@@ -10590,13 +10590,13 @@
                     "Total value (eur)": 680875
                 },
                 {
-                    "Name": "Russian Federation",
+                    "Name": "Russia",
                     "Number": 9,
                     "Total area (ha)": 0.6,
                     "Total value (eur)": 110398
                 },
                 {
-                    "Name": "Other residents",
+                    "Name": "Other",
                     "Number": 13,
                     "Total area (ha)": 23.0,
                     "Total value (eur)": 505072

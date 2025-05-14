@@ -4,6 +4,15 @@ svg {
   /* outline: 1px dashed; */
 }
 
+.uk-card-title {
+  line-height: 1.2;
+}
+
+.question-mark-div {
+  margin-left: 10px;
+  min-width: 20px;
+}
+
 #slider-play-button {
   border: none;
   outline: none;
@@ -52,6 +61,7 @@ svg {
 
   .uk-card-body {
     padding-right: 0px;
+    padding-top: 0px;
   }
 }
 
@@ -287,4 +297,9 @@ input::-moz-focus-outer {
   font-weight: bold;
   font-size: 22px;
   text-align: left;
+}
+
+.uk-tooltip {
+  max-width: 280px; /* or any width that suits your layout */
+  white-space: normal;
 }

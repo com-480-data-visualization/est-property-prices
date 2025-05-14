@@ -94,8 +94,8 @@ function draw(svg, root) {
 
       tooltip.html(`
         <div class="tooltip-title">${d.data.name.capitalize()}</div>
-        <div class="tooltip-label">Total Value:</div>
-        <div class="tooltip-value">${d3.format(",.2f")(d.value / 1e6)}M €</div>
+        <div class="tooltip-label">Total Value (€):</div>
+        <div class="tooltip-value">${d3.format(",.2f")(d.value / 1e6)}M</div>
       `);
 
       const [x, y] = adjustTooltipPosition(event, tooltip);
