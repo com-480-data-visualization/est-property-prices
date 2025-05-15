@@ -63,6 +63,14 @@ svg {
     padding-right: 0px;
     padding-top: 0px;
   }
+
+  .city {
+    opacity: 0;
+  }
+
+  .city-label {
+    opacity: 0;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -132,7 +140,7 @@ svg {
   --shade-10: #2c3e50;
   --shade-1: #d7dcdf;
   --shade-0: #fff;
-  --teal: #1abc9c;
+  --teal: orange;
 }
 
 /* Reset */
@@ -306,7 +314,14 @@ input::-moz-focus-outer {
 
 /* Timeline button in county screen */
 
+#timelineBtn {
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
 #timelineBtn.clicked {
-  background-color: #1e87f0 !important;
-  color: #fff !important;
+  background-color: #a6bddb;
+  color: #fff;
 }

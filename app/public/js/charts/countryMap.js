@@ -44,7 +44,8 @@ export function renderMap(geoJson, statsData, citiesData) {
     .attr("width", "100%") // Make it responsive
     .attr("height", "100%")
     .attr("viewBox", `0 0 ${width} ${height}`)
-    .attr("preserveAspectRatio", "xMidYMid meet");
+    .attr("preserveAspectRatio", "xMidYMid meet")
+    .style("overflow", "visible");
 
   const projection = d3.geoMercator().fitExtent(
     [
@@ -121,7 +122,6 @@ export function renderMap(geoJson, statsData, citiesData) {
     .attr("x", d => projection(d.geometry.coordinates)[0] + 8)
     .attr("y", d => projection(d.geometry.coordinates)[1] + 4)
     .text(d => d.properties.name)
-    .attr("font-size", "10px")
     .attr("fill", "black")
     .attr("pointer-events", "none");
 

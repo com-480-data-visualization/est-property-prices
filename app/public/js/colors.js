@@ -1,15 +1,15 @@
-
 export const baseColor = "#0B6477";
-export const darkBaseColor = "#213A57";
-export const contrastColor = "#0AD1C8";
+export const darkBaseColor = "#045a8d";
+export const contrastColor = "#a6bddb";
 
 export const defaultColors = [
-  "#213A57",
-  "#0B6477",
-  "#14919B",
-  "#0AD1C8",
-  "#45DFB1",
-  "#80ED99"
+  "#ece7f2",
+  "#d0d1e6",
+  "#a6bddb",
+  "#74a9cf",
+  "#3690c0",
+  "#0570b0",
+  "#045a8d",
 ];
 
 export const CustomInterpolate = (colors = defaultColors) => {

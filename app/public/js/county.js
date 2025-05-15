@@ -141,7 +141,6 @@ Promise.all([
 
       const countyName = salaryDataGlobal.MNIMI.replace("maakond", "county");
       const p = document.getElementById("salary-info");
-      p.innerHTML = `<i>The average monthly gross salary in ${countyName} for ${selectedYear} was €${salaryDataGlobal.values[selectedYear]}.</i>`;
 
       const maxValue = Math.max(
         ...Object.values(landTypeData.data) // Iterate over all years' data
@@ -176,8 +175,6 @@ function updateChartsWithYear(selectedYear) {
   sessionStorage.setItem("year", selectedYear);
 
   const countyName = salaryDataGlobal.MNIMI.replace("maakond", "county");
-  const p = document.getElementById("salary-info");
-  p.innerHTML = `<i>The average monthly gross salary in ${countyName} for ${selectedYear} was €${salaryDataGlobal.values[selectedYear]}.</i>`;
 
   const maxValue = Math.max(
     ...Object.values(landTypeData.data) // Iterate over all years' data

@@ -36,11 +36,11 @@ function drawLine(data, xScale, yScale, xAccessor, yAccessor, chartGroup, color)
 
 function renderLegend(svg, showSalary=false){
   const legendData = [
-    { label: "m2 price", color: baseColor },
+    { label: "price / m²", color: baseColor },
   ];
 
   if (showSalary){
-    legendData.push({ label: "avg salary", color: contrastColor })
+    legendData.push({ label: "average salary", color: contrastColor })
   }
   
   // Append a group for the legend
