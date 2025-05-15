@@ -32,6 +32,7 @@ let buyersDataGlobal;
 let circularDataGlobal;
 let countyDataGlobal;
 let salaryDataGlobal;
+let timelineDataGlobal;
 
 const getCountyRelatedStatistics = (data, id) => {
   return data.filter((d) => d.MKOOD === id)[0];
@@ -147,8 +148,8 @@ Promise.all([
           .flatMap((year) => year.map((entry) => entry["Total area (ha)"])) // Extract values
       );
 
-      const timelineData = formatTimelineData(countyDataGlobal, salaryDataGlobal);
-      renderTimeline(timelineData);
+      timelineDataGlobal = formatTimelineData(countyDataGlobal, salaryDataGlobal);
+      renderTimeline(timelineDataGlobal);
 
       const yearData = landTypeData.data[selectedYear];
       const spiderData = formatSpiderData(yearData);
@@ -216,4 +217,11 @@ treemapDropdown.addEventListener("change", (event) => {
   );
 
   renderTreemapChart(treemapData, selectedValue);
+});
+
+var showSalary = false
+document.getElementById('timelineBtn').addEventListener('click', function() {
+  this.classList.toggle('clicked');
+  showSalary = !showSalary
+  renderTimeline(timelineDataGlobal, showSalary=showSalary)
 });

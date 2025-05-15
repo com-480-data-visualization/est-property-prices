@@ -5,11 +5,43 @@ let svg, xScale;
 const size = { height: 160 };
 const margin = { top: 20, right: 20, bottom: 30, left: 40 };
 
-function renderLegend(svg){
+
+function drawLine(data, xScale, yScale, xAccessor, yAccessor, chartGroup, color){
+  const lineGenerator = d3
+  .line()
+  .x((d) => xScale(xAccessor(d)))
+  .y((d) => yScale(yAccessor(d)))
+  .curve(d3.curveBumpX);
+
+  const path = chartGroup
+  .append("path")
+  .datum(data)
+  .attr("d", lineGenerator)
+  .attr("stroke", color)
+  .attr("stroke-width", 3)
+  .attr("fill", "none");
+
+  // Get the total length of the path
+  const totalLength = path.node().getTotalLength();
+
+  // Set up the dash array and offset, then animate
+  path
+    .attr("stroke-dasharray", totalLength + " " + totalLength)
+    .attr("stroke-dashoffset", totalLength)
+    .transition()
+    .duration(400) // Animation duration in ms
+    .ease(d3.easeLinear)
+    .attr("stroke-dashoffset", 0);
+}
+
+function renderLegend(svg, showSalary=false){
   const legendData = [
     { label: "m2 price", color: baseColor },
-    { label: "avg salary", color: contrastColor }
   ];
+
+  if (showSalary){
+    legendData.push({ label: "avg salary", color: contrastColor })
+  }
   
   // Append a group for the legend
   const legend = svg.append("g")
@@ -39,14 +71,13 @@ function renderLegend(svg){
 
 }
 
-export function renderTimeline(data) {
+export function renderTimeline(data, showSalary=false) {
   const container = d3.select("[timeline]");
   const containerWidth = container.node().getBoundingClientRect().width;
   const width = containerWidth - margin.left - margin.right;
 
   container.html("");
 
-  console.log(data)
   svg = container
     .append("svg")
     .attr("viewBox", `0 0 ${containerWidth} ${size.height}`)
@@ -62,10 +93,16 @@ export function renderTimeline(data) {
 
   xScale = d3.scaleTime().domain(d3.extent(data, xAccessor)).range([0, width]);
 
+  var yMaxValue = d3.max(data, yAccessor)
+  if (showSalary){
+    const salaryMaxValue = d3.max(data, ySalaryAccessor)
+    yMaxValue = Math.max(yMaxValue, salaryMaxValue);
+  }
+
   const yScale = d3
     .scaleLinear()
     // Get the maximum value for price per m2 or mean salary
-    .domain([0, Math.max(d3.max(data, yAccessor), d3.max(data, ySalaryAccessor))])
+    .domain([0, yMaxValue])
     .range([size.height - margin.top - margin.bottom, 0]);
 
   // add background color for grid
@@ -121,7 +158,7 @@ export function renderTimeline(data) {
   yAxis = d3
     .axisLeft(yScale)
     .ticks(5)
-    .tickFormat((d) => `${d3.format(",.0f")(d)}`);
+    .tickFormat((d) => `${d3.format(",.0f")(d)}€`);
 
   svg
     .append("g")
@@ -130,36 +167,16 @@ export function renderTimeline(data) {
     .call(yAxis)
     .call((g) => g.select(".domain").remove());
 
-  // chart line
-  const lineGenerator = d3
-    .line()
-    .x((d) => xScale(xAccessor(d)))
-    .y((d) => yScale(yAccessor(d)))
-    .curve(d3.curveBumpX);
+  // Plot line for property m2 price
+  drawLine(data, xScale, yScale, xAccessor, yAccessor, chartGroup, baseColor)
+  
+  // Plot line for salary when button is clicked
+  if (showSalary){
+    drawLine(data, xScale, yScale, xAccessor, ySalaryAccessor, chartGroup, contrastColor)
+  }
 
-  chartGroup
-    .append("path")
-    .datum(data)
-    .attr("d", lineGenerator)
-    .attr("stroke", baseColor)
-    .attr("stroke-width", 3)
-    .attr("fill", "none");
-
-  const salaryLineGenerator = d3
-    .line()
-    .x((d) => xScale(xAccessor(d)))
-    .y((d) => yScale(ySalaryAccessor(d)))
-    .curve(d3.curveBumpX);
-
-  chartGroup
-    .append("path")
-    .datum(data)
-    .attr("d", salaryLineGenerator)
-    .attr("stroke", contrastColor)
-    .attr("stroke-width", 3)
-    .attr("fill", "none");
-
-  renderLegend(svg)
+  // Plot the legend for graphs
+  renderLegend(svg, showSalary)
 
   // slider indicator
   const sliderIndicator = chartGroup

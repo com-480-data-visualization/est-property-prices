@@ -303,3 +303,10 @@ input::-moz-focus-outer {
   max-width: 280px; /* or any width that suits your layout */
   white-space: normal;
 }
+
+/* Timeline button in county screen */
+
+#timelineBtn.clicked {
+  background-color: #1e87f0 !important;
+  color: #fff !important;
+}
