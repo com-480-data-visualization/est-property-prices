@@ -1,14 +1,9 @@
 # 🇪🇪 Estonia - Property Prices
 You can find our marvelous website [here](https://suvariik.eu/).
 
+### 📂 Resources
+[Video presentation](/docs/milestone_1.md) • [Process book](/docs/milestone_1.md)
 
-| Student's name             | SCIPER |
-| -------------------------- | ------ |
-| Jan Kokla                  | 367628 |
-| Mahlia Merville-Hipeau     | 345625 |
-| Siim Markus Marvet         | 377510 |
-
-[Milestone 1](/docs/milestone_1.md) • [Milestone 2](/docs/milestone_2.md) • [Milestone 3](#milestone-3)
 
 ## 💡 The project
 
@@ -41,20 +36,30 @@ We refer you to [Milestone 2](/docs/milestone_2.md) for more information about e
 ### 🐈‍⬛ The repository
 
 The repository is built as follows:
+```
+├─── app   
+        ├─── public                                      
+                ├─── data                 JSON data files
+                ├─── js                   Visualizations and scripts
+                ├─── views                Handlebars templates
+        ├─── app.js                       Main application entry point                
+├─── docs                                 Previous milestones
+├─── notebooks                            Data analysis notebooks
+```
+To run it locally, you must run clone the repo then run the following commands in your terminal:
+```
+cd app
+node app.js
+```
 
-📁 app/
+## 📚 Previous milestones
 
-│── 📁 public/
+[Milestone 1](/docs/milestone_1.md) • [Milestone 2](/docs/milestone_2.md) • [Milestone 3](#milestone-3)
 
-│──── 📁 data/ # JSON data files
+## 🤝 Authors
 
-│──── 📁 js/ # Visualizations and scripts
-
-│──── 📁 views/ # Handlebars templates
-
-│── app.js # Main application entry point
-
-📁 docs/ # Previous milestones
-
-📁 notebooks/ # Data analysis notebooks
-
+| Student's name             | SCIPER |
+| -------------------------- | ------ |
+| Jan Kokla                  | 367628 |
+| Mahlia Merville-Hipeau     | 345625 |
+| Siim Markus Marvet         | 377510 |
