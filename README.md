@@ -11,13 +11,13 @@ In this project, we aim to show the **property prices** evolution across **time 
 
 ### 🎯 The objectives
 
-Our project has two key goals:  
+Our project has three key goals:  
 
-- **Make real estate data accessible to the Estonian population and empower citizens**  
+- Make real estate data accessible to the Estonian population and empower citizens  
 
-- **Create meaningful visualizations for policymakers**  
+- Create meaningful visualizations for policymakers 
 
-- **Our methodology and visualisations could be envisoned for any other country, giving it a broad dimension**
+- Our methodology and visualisations could be envisoned for any other country, giving it a broad dimension
  
 
 ### 📊 The data
@@ -46,7 +46,7 @@ The repository is built as follows:
 ├─── docs                                 Previous milestones
 ├─── notebooks                            Data analysis notebooks
 ```
-To run it locally, you must run clone the repo then run the following commands in your terminal:
+To run it locally, you must clone the repo then run the following commands in your terminal:
 ```
 cd app
 node app.js
