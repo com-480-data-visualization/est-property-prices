@@ -9,7 +9,7 @@ You can find our marvelous website [here](https://suvariik.eu/).
 
 In this project, we aim to show the **property prices** evolution across **time and space** in Estonia. We believe that the trends provide **critical insights** into the country's economy, wealth distribution, and urban development. Our goal is to present these insights through **intuitive and visually compelling dashboards** that make complex data easy to understand.
 
-### 🎯 The objectives
+### The objectives
 
 Our project has three key goals:  
 
@@ -20,7 +20,7 @@ Our project has three key goals:
 - Our methodology and visualisations could be envisoned for any other country, giving it a broad dimension
  
 
-### 📊 The data
+### The data
 
 We selected a dataset provided by the **Estonian Government**: [Estonian Real Estate Transactions](https://www.maaamet.ee/kinnisvara/htraru/FilterUI.aspx).  
 We refer you to [Milestone 1](/docs/milestone_1.md) and [Milestone 2](/docs/milestone_2.md) for more information about data quality and preprocessing. 
@@ -33,7 +33,7 @@ The website is built using two main pages.
 
 We refer you to [Milestone 2](/docs/milestone_2.md) for more information about each visualisation.  
 
-### 🐈‍⬛ The repository
+### The repository
 
 The repository is built as follows:
 ```
