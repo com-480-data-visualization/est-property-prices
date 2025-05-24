@@ -1,8 +1,8 @@
 # 🇪🇪 Estonia - Property Prices
 You can find our marvelous website [here](https://suvariik.eu/).
 
-### Resources
-[Video presentation](/docs/milestone_1.md) • [Process book](/docs/milestone_1.md)
+### Resources for Milestone 3
+[Video presentation](https://github.com/user-attachments/assets/da3531f9-d823-4503-84ce-15d61acb3707) • [Process book](/docs/process_book.pdf)
 
 
 ## 💡 The project
@@ -74,7 +74,7 @@ The repository is built as follows:
 
 ## Previous milestones
 
-[Milestone 1](/docs/milestone_1.md) • [Milestone 2](/docs/milestone_2.md) • [Milestone 3](#milestone-3)
+[Milestone 1](/docs/milestone_1.md) • [Milestone 2](/docs/milestone_2.md)
 
 ## 🤝 Authors
 
@@ -84,6 +84,6 @@ The repository is built as follows:
 | Mahlia Merville-Hipeau     | 345625 |
 | Siim Markus Marvet         | 377510 |
 
-[Milestone 1](/docs/milestone_1.md) • [Milestone 2](/docs/milestone_2.md) • [Milestone 3](/docs/process_book.pdf)
 
-https://github.com/user-attachments/assets/da3531f9-d823-4503-84ce-15d61acb3707
+
+
